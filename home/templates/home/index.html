@@ -2,6 +2,31 @@
 
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1 class="display-4 text-success">It works</h1>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-6 ml-auto">
+                <div class="my-5">
+                    <h3>
+                        <a href="" class="index-button btn btn-lg rounded-5 text-uppercase py-3">Shop</a>
+                    </h3>
+                    <h3>
+                        <a href="" class="index-button btn btn-lg rounded-5 text-uppercase py-3">Recipes</a>
+                    </h3>
+                    <h3>
+                        <a href="" class="index-button btn btn-lg rounded-5 text-uppercase py-3">Blog</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
