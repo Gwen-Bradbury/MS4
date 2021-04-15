@@ -42,6 +42,10 @@ header {
     color: #540B0E !important;
 }
 
+.nav-link-size {
+    font-size: 1.5rem;
+}
+
 /* Buttons */
 .index-button {
     margin: 10px;
