@@ -1,0 +1,74 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/home.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Header */
+header {
+    background-color: #F1D3A7;
+}
+
+.logo-link {
+    width: fit-content;
+    color: #540B0E;
+}
+
+.logo-link:hover,
+.logo-link:active,
+.logo-link:focus {
+    color: #540B0E;
+}
+
+.nav-link-color {
+    color: #A36F5B !important;
+}
+
+.nav-link-color:hover,
+.nav-link-color:active,
+.nav-link-color:focus {
+    color: #540B0E !important;
+}
+
+/* Buttons */
+.index-button {
+    margin: 10px;
+    color: #fff;
+    min-width: 260px;
+    font-size: 2rem; 
+}
+
+.index-button:hover,
+.index-button:active,
+.index-button:focus {
+    color: #DEBA94;
+}
+
+/* -------------------------------- Media Queries */
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
