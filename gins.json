@@ -1,0 +1,93 @@
+[
+    {
+      "pk": 1, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000001",
+        "name": "Hendrick's Gin",
+        "description": "Hendrick’s is an unusual gin created from eleven fine botanicals. The curious, yet marvellous, infusions of rose & cucumber imbue our spirit with its uniquely balanced flavour resulting in an unimpeachably smooth and distinct gin.",
+        "price": 29.00,
+        "gin_category": 1,
+        "image_url": "#",
+        "image": "hendricks.jpg"
+        }
+    },
+    {
+      "pk": 2, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000002",
+        "name": "Hendrick's Luna Gin",
+        "description": "Hendrick's Lunar Gin is deeply floral and richly aromatic. It is an intriguing combination of the refreshing and the warm, designed to be shared and savoured on an evening as the sun goes down and the moon charges the sky.",
+        "price": 37.00,
+        "gin_category": 4,
+        "image_url": "#",
+        "image": "hendricks-lunar.jpg"
+        }
+    },
+    {
+      "pk": 3, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000003",
+        "name": "Hendrick's Midsummer Solstice Gin",
+        "description": "The longer days and evenings call out for a crisp libation with all the character of Hendrick's - but with a playful lightness and wicked crispness becoming of the mischief of summer. This new flirtatiously floral incarnation of HENDRICK'S GIN is just the thing for brunches and seasonal gatherings as we excitedly await the coming of summer.",
+        "price": 37.00,
+        "gin_category": 4,
+        "image_url": "#",
+        "image": "hendricks-midsummer.jpg"
+        }
+    },
+    {
+      "pk": 4, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000004",
+        "name": "Hendrick's Orbium Gin",
+        "description": "Quinine and Wormwood combined with Blue Lotus Blossom balances the flavour; but, the trinity of essences together create a complex gin with surprising brightness and a finish that is uncommonly long. The result is an unfamiliar yet oddly familiar taste, designed to open unexplored dimensions of gin as it spirals from floral into a deeper and alluringly bitter place.",
+        "price": 35.00,
+        "gin_category": 4,
+        "image_url": "#",
+        "image": "hendricks-orbium.jpg"
+        }
+    },
+    {
+      "pk": 5, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000005",
+        "name": "Tanqueray Gin",
+        "description": "Fortune favours the brave. Back in the 1830´s Charles Tanqueray wasn't afraid to mix his bold ideas. His ingenious pursuit for perfection paid off, creating Tanqueray London Dry, a perfectly balanced gin and one of the most awarded gins in the world.",
+        "price": 25.00,
+        "gin_category": 3,
+        "image_url": "#",
+        "image": "tanqueray.jpg"
+        }
+    },
+    {
+      "pk": 6, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000006",
+        "name": "Tanqueray No10 Gin",
+        "description": "Passion and attention to detail in perfect measure, is a recipe for exquisite results. Tanqueray Nº TEN, named after the stills of its origin, is small batch gin crafted using fresh citrus fruits.",
+        "price": 30.00,
+        "gin_category": 5,
+        "image_url": "#",
+        "image": "tanqueray-10.jpg"
+        }
+    },
+    {
+      "pk": 7, 
+      "model": "gins.gin", 
+      "fields": {
+        "sku": "gg0000000007",
+        "name": "Gordon's Sloe Gin",
+        "description": "We take the finest wild sloe berries and steep them gently, before adding Gordon's gin. The result is a wonderful tipple that marries the dryness of Gordon's with cassis sweetness.",
+        "price": 20.00,
+        "gin_category": 2,
+        "image_url": "#",
+        "image": "gordons-sloe.jpg"
+        }
+    }
+]

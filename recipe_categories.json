@@ -1,0 +1,42 @@
+[
+  {
+    "pk": 1,
+    "model": "recipes.category",
+    "fields": {
+      "name": "distilled_gin_recipes",
+      "friendly_name": "Distilled Gin Recipes"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "recipes.category",
+    "fields": {
+      "name": "sloe_gin_recipes",
+      "friendly_name": "Sloe Gin Recipes"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "recipes.category",
+    "fields": {
+      "name": "dry_gin_recipes",
+      "friendly_name": "Dry Gin Recipes"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "recipes.category",
+    "fields": {
+      "name": "botanical_gin_recipes",
+      "friendly_name": "Botanical Gin Recipes"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "recipes.category",
+    "fields": {
+      "name": "premium_gin_recipes",
+      "friendly_name": "Premuim Gin Recipes"
+    }
+  }
+]

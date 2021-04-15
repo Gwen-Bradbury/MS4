@@ -1,0 +1,42 @@
+[
+  {
+    "pk": 1,
+    "model": "gins.category",
+    "fields": {
+      "name": "distilled_gins",
+      "friendly_name": "Distilled Gins"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "gins.category",
+    "fields": {
+      "name": "sloe_gins",
+      "friendly_name": "Sloe Gins"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "gins.category",
+    "fields": {
+      "name": "dry_gins",
+      "friendly_name": "Dry Gins"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "gins.category",
+    "fields": {
+      "name": "botanical_gins",
+      "friendly_name": "Botanical Gins"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "gins.category",
+    "fields": {
+      "name": "premium_gins",
+      "friendly_name": "Premium Gins"
+    }
+  }
+]
