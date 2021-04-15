@@ -529,6 +529,10 @@ These fields are for a referrence only can't be adjusted by the user.
 
 - _Super User Comment Deletion_ - Give super users the ability to delete public users comments if necessary.
 
+- _Social Media Login_ - Allow users to login via social media accounts.
+
+- _Alternative Payment Method_ - Add Google and Apple pay.
+
 ### Bugs and Fixes Implemented after Testing -
 
 - _Added a Recipe Information Page_ - In the wireframes the recipe was written under the cocktail image. Now the image is a link directing users to the full recipe on a seperate page.
