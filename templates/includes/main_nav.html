@@ -5,12 +5,12 @@
                 SHOP
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-gins-link">
-                <a href="{% url 'gins' %}" class="dropdown-item">All Gin</a>
-                <a href="" class="dropdown-item">Distilled Gin</a>
-                <a href="" class="dropdown-item">Sloe Gin</a>
-                <a href="" class="dropdown-item">Dry Gin</a>
-                <a href="" class="dropdown-item">Botanical Gin</a>
-                <a href="" class="dropdown-item">Premium Gin</a>
+                <a href="{% url 'gins' %}?gincategory=distilled_gins,sloe_gins,dry_gins,botanical_gins,premium_gins" class="dropdown-item">All Gin</a>
+                <a href="{% url 'gins' %}?gincategory=distilled_gins" class="dropdown-item">Distilled Gin</a>
+                <a href="{% url 'gins' %}?gincategory=sloe_gins" class="dropdown-item">Sloe Gin</a>
+                <a href="{% url 'gins' %}?gincategory=dry_gins" class="dropdown-item">Dry Gin</a>
+                <a href="{% url 'gins' %}?gincategory=botanical_gins" class="dropdown-item">Botanical Gin</a>
+                <a href="{% url 'gins' %}?gincategory=premium_gins" class="dropdown-item">Premium Gin</a>
             </div>
         </li>
         <li class="nav-item dropdown">
