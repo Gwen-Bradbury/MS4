@@ -136,6 +136,8 @@ Site security will appeal to every member of the target audience. When using the
 
 - As a user, I want to view individual product details so I can identify the price, description and image.
 
+- As a user, I want to view a specific category of products.
+
 - As a user, I want the site to be interactive with real time feedback.
 
 - As a user, I want to know how the site works and have easy to follow instructions.
