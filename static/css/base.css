@@ -17,7 +17,7 @@ body {
 	z-index: -1;
 }
 
-/* from Bulma */
+/* Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -70,12 +70,9 @@ header {
     color: #DEBA94;
 }
 
-/* Images */ 
-
-
 /* -------------------------------- Media Queries */
 
-/* fixed top navbar only on medium and up */
+/* Fixed Navbar on Medium Screens and Up  */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -87,5 +84,12 @@ header {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* Padding Top For Navbar When Collapsed in Mobile View */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
     }
 }
