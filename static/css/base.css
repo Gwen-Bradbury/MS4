@@ -70,6 +70,16 @@ header {
     color: #DEBA94;
 }
 
+.sorting-button {
+    color: #540B0E !important;
+}
+
+.sorting-button:hover,
+.sorting-button:active,
+.sorting-button:focus {
+    color: #A36F5B !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Fixed Navbar on Medium Screens and Up  */

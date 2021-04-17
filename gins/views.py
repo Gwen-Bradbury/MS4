@@ -35,7 +35,7 @@ def all_gins(request):
     context = {
         'gins': gins,
         'search_input': query,
-        'current_gincategory': gincategories
+        'current_gincategory': gincategories,
     }
 
     return render(request, 'gins/gins.html', context)
