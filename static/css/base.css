@@ -70,14 +70,31 @@ header {
     color: #DEBA94;
 }
 
+.to-top-link,
 .sorting-button {
     color: #540B0E !important;
 }
 
+.to-top-link:hover,
+.to-top-link:active,
+.to-top-link:focus,
 .sorting-button:hover,
 .sorting-button:active,
 .sorting-button:focus {
     color: #A36F5B !important;
+}
+
+/* Back To Top Buttons */
+.to-top-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.to-top-link {
+    cursor: pointer;
 }
 
 /* -------------------------------- Media Queries */
