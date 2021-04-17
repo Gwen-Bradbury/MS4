@@ -31,6 +31,7 @@ header {
     background-color: #F1D3A7;
 }
 
+/* Header Links */
 .logo-link {
     width: fit-content;
     color: #540B0E;
@@ -84,7 +85,7 @@ header {
     color: #A36F5B !important;
 }
 
-/* Back To Top Buttons */
+/* Back To Top Button */
 .to-top-button {
     height: 42px;
     width: 42px;
