@@ -64,12 +64,13 @@
                                 </a>
                             {% endif %}
                             <div class="card-body pb-0">
-                                <p class="mb-0">{{ gin.name }}</p>
+                                <p class="lead mb-0 font-weight-bold">{{ gin.name }}</p>
+                                <hr>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ gin.price }}</p>
+                                        <p class="lead mb-0 text-left">${{ gin.price }}</p>
                                         {% if gin.gincategory %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="text-muted text-decoration-none sorting-button" href="{% url 'gins' %}?gincategory={{ gin.gincategory.name }}">

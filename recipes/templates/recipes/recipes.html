@@ -58,19 +58,19 @@
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ recipe.name }}">
                             {% endif %}
                             <div class="card-body pb-0">
-                                <p class="mb-0">{{ recipe.name }}</p>
+                                <p class="lead mb-0 font-weight-bold">{{ recipe.name }}</p>
                                 <hr>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col">
-                                        <p>Ingredients</p>
+                                        <p class="font-weight-bold">Ingredients</p>
                                         <p class="mb-0 text-left">{{ recipe.ingredients }}</p>
                                         <hr>
-                                        <p>Method</p>
+                                        <p class="font-weight-bold">Method</p>
                                         <p class="mb-0 text-left">{{ recipe.method }}</p>
                                         <hr>
-                                        <p>Garnish</p>
+                                        <p class="font-weight-bold">Garnish</p>
                                         <p class="mb-0 text-left">{{ recipe.garnish }}</p>
                                         {% if recipe.recipecategory %}
                                             <p class="small mt-1 mb-0">
