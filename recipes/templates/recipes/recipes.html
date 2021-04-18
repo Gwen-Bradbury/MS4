@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block page_header %}
+<!-- Push Content Down Page -->
     <div class="container header-container">
         <div class="row">
             <div class="col">
@@ -12,11 +13,13 @@
 {% endblock %}
 
 {% block content %}
+<!-- Overlay for Background Image -->
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
                 <h2>Gin Recipes</h2>
+                <!-- Recipe Category Buttons -->
                 {% for c in current_recipecategory %}
                     <a class="sorting-button text-decoration-none" href="{% url 'view_recipes' %}?recipecategory={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white rounded-5">{{ c.friendly_name }}</span>
@@ -28,6 +31,7 @@
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
+                    <!-- Sort By Dropdown -->
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-5 border-black">
@@ -41,6 +45,7 @@
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
+                            <!-- Search Bar Results -->
                             {% if search_input or current_recipecategory != 'None_None' %}
                                 <span class="small"><a href="{% url 'view_recipes' %}" class="sorting-button text-decoration-none">All Gin Recipes</a> | </span>
                             {% endif %}
@@ -52,12 +57,14 @@
                     {% for recipe in recipes %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
+                            <!-- Get 'Recipe Image' or 'No Image' Image -->
                             {% if recipe.image %}
                                     <img class="card-img-top img-fluid" src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
                             {% else %}
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ recipe.name }}">
                             {% endif %}
                             <div class="card-body pb-0">
+                                <!-- Get Recipe Information -->
                                 <p class="lead mb-0 font-weight-bold">{{ recipe.name }}</p>
                                 <hr>
                             </div>
@@ -84,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Adding <hr> To Recipes on Different Screen Sizes -->
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr>
@@ -109,6 +117,7 @@
             </div>
         </div>
     </div>
+    <!-- Back To Top Button -->
     <div class="to-top-button shadow-sm rounded-5 border">
         <a class="to-top-link d-flex h-100">
             <i class="fas fa-arrow-up mx-auto my-auto"></i>
@@ -118,12 +127,13 @@
 
 {% block postload_js %}
     {{ block.super }}
+    <!-- Back To Top Button JS -->
     <script type="text/javascript">
 		$('.to-top-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
     </script>
-    
+    <!-- Sort By Dropdown JS -->
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);

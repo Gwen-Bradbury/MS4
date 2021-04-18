@@ -29,6 +29,7 @@ def view_recipes(request):
             recipes = recipes.order_by(sortkey)
 
         if 'recipecategory' in request.GET:
+            """ Shows All Recipe Categories """
             recipecategories = request.GET['recipecategory'].split(',')
             recipes = recipes.filter(recipecategory__name__in=recipecategories)
             recipecategories = RecipeCategory.objects.filter(

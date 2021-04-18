@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block page_header %}
+<!-- Push Content Down Page -->
     <div class="container header-container">
         <div class="row">
             <div class="col">
@@ -12,7 +13,9 @@
 {% endblock %}
 
 {% block content %}
+<!-- Overlay for Background Image -->
 <div class="overlay"></div>
+<!-- Blog Post -->
     {% for post in posts %}
         <article class="media content-section">
             <div class="media-body">

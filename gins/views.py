@@ -35,11 +35,13 @@ def all_gins(request):
             gins = gins.order_by(sortkey)
 
         if 'gincategory' in request.GET:
+            """ Shows All Gin Categories """
             gincategories = request.GET['gincategory'].split(',')
             gins = gins.filter(gincategory__name__in=gincategories)
             gincategories = GinCategory.objects.filter(name__in=gincategories)
 
         if 'q' in request.GET:
+            """ Search Bar Messages and Queries """
             query = request.GET['q']
             if not query:
                 messages.error(
