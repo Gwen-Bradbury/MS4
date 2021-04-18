@@ -537,8 +537,6 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Bugs and Fixes Implemented after Testing -
 
-- _Added a Recipe Information Page_ - In the wireframes the recipe was written under the cocktail image. Now the image is a link directing users to the full recipe on a seperate page.
-
 - _Added Verify Email Page_ - Upon registering, a page has been added that tells users to verify their emails using a link emailed to the email address used in registration, before continuing.
 
 - _Added Verify Logout Page_ - Requests users to verify if they're sure they wish to logout.

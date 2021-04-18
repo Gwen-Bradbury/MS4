@@ -17,21 +17,21 @@
             <a class="nav-link-color nav-link-size nav-link mr-5" href="#" id="all-recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 RECIPES
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">All Gin Recipes</a>
-                <a href="" class="dropdown-item">Distilled Gin Recipes</a>
-                <a href="" class="dropdown-item">Sloe Gin Recipes</a>
-                <a href="" class="dropdown-item">Dry Gin Recipes</a>
-                <a href="" class="dropdown-item">Botanical Gin Recipes</a>
-                <a href="" class="dropdown-item">Premium Gin Recipes</a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-recipes-link">
+                <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes" class="dropdown-item">All Gin Recipes</a>
+                <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes" class="dropdown-item">Distilled Gin Recipes</a>
+                <a href="{% url 'view_recipes' %}?recipecategory=sloe_gin_recipes" class="dropdown-item">Sloe Gin Recipes</a>
+                <a href="{% url 'view_recipes' %}?recipecategory=dry_gin_recipes" class="dropdown-item">Dry Gin Recipes</a>
+                <a href="{% url 'view_recipes' %}?recipecategory=botanical_gin_recipes" class="dropdown-item">Botanical Gin Recipes</a>
+                <a href="{% url 'view_recipes' %}?recipecategory=premium_gin_recipes" class="dropdown-item">Premium Gin Recipes</a>
             </div>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link-color nav-link-size nav-link mr-5" href="#" id="all-blogs-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 BLOG
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">All Blog Entries</a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-blogs-link">
+                <a href="{% url 'view_blog' %}" class="dropdown-item">All Blog Entries</a>
             </div>
         </li>
     </ul>

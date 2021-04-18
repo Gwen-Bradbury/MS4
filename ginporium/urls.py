@@ -23,4 +23,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('gins/', include('gins.urls')),
+    path('basket/', include('basket.urls')),
+    path('blog/', include('blog.urls')),
+    path('recipes/', include('recipes.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
