@@ -31,6 +31,7 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
+                                <!-- Table Headings -->
                                 <th scope="col">Gin Info</th>
                                 <th scope="col"></th>
                                 <th scope="col">Price</th>
@@ -38,7 +39,7 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
-
+                        <!-- Displays Products in Basket -->
                         {% for item in basket_products %}
                             <tr>
                                 <td class="p-3 w-25">
@@ -60,6 +61,7 @@
                             </tr>
                         {% endfor %}
                         <tr>
+                            <!-- Displays Basket Total, Delivery and Grand Total -->
                             <td colspan="5" class="pt-5 text-right">
                                 <h6><strong>Basket Total: ${{ total|floatformat:2 }}</strong></h6>
                                 <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
@@ -67,15 +69,17 @@
                             </td>
                         </tr>
                         <tr>
+                            <!-- Continue Shopping Button -->
                             <td colspan="5" class="text-right">
                                 <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
+                                    <span class="text-uppercase sorting-button">Continue Shopping</span>
                                 </a>
+                                <!-- Checkout Button -->
                                 <a href="" class="btn rounded-5 btn-lg">
-                                    <span class="text-uppercase">Checkout</span>
+                                    <span class="text-uppercase sorting-button">Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
                                     </span>
@@ -87,16 +91,14 @@
             <!-- If the Basket is Empty Display This -->
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
-                <a href="{% url 'gins' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
-                    <span class="text-uppercase">Keep Shopping</span>
+                    <span class="text-uppercase sorting-button">Continue Shopping</span>
                 </a>
             {% endif %}
         </div>
     </div>
 </div>
-
-    
 {% endblock %}
