@@ -27,7 +27,9 @@
         <div class="col">
             <!-- If the Basket Has Products Display This -->
             {% if basket_products %}
-                <div class="table-responsive rounded"></div>
+                <div class="table-responsive rounded">
+                    {{ basket_products }}
+                </div>
             <!-- If the Basket is Empty Display This -->
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
