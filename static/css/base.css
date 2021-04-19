@@ -71,11 +71,23 @@ header {
     color: #DEBA94;
 }
 
+.add-button,
+.checkout-button,
+.shopping-button,
 .to-top-link,
 .sorting-button {
     color: #540B0E !important;
 }
 
+.add-button:hover,
+.add-button:active,
+.add-button:focus,
+.checkout-button:hover,
+.checkout-button:active,
+.checkout-button:focus,
+.shopping-button:hover,
+.shopping-button:active,
+.shopping-button:focus,
 .to-top-link:hover,
 .to-top-link:active,
 .to-top-link:focus,

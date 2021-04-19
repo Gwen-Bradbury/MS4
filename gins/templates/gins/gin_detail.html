@@ -52,7 +52,25 @@
                                 <p class="mt-3"><strong>Amount:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ gin.id }}" id="id_qty_{{ gin.id }}">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn rounded-5" 
+                                                data-item_id="{{ gin.id }}" id="decrement-qty_{{ gin.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input" type="number" 
+                                            name="quantity" value="1" min="1" max="99" 
+                                            data-item_id="{{ gin.id }}" id="id_qty_{{ gin.id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn rounded-5"
+                                                data-item_id="{{ gin.id }}" id="increment-qty_{{ gin.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -62,9 +80,9 @@
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase sorting-button">Continue Shopping</span>
+                                    <span class="text-uppercase shopping-button">Continue Shopping</span>
                                 </a>
-                                <input type="submit" class="btn rounded-5 text-uppercase mt-5 sorting-button" value="Add to Basket">
+                                <input type="submit" class="btn rounded-5 text-uppercase mt-5 add-button" value="Add to Basket">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
@@ -73,4 +91,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{% include 'gins/includes/quantity_input_js.html' %}
 {% endblock %}
