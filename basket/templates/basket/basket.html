@@ -134,26 +134,8 @@
 
 {% block postload_js %}
     {{ block.super }}
+        <!-- Quantity Input JS -->
         {% include 'gins/includes/quantity_input_js.html' %}
-
-<script type="text/javascript">
-    // Update Quantity
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
-
-    // Remove Item and Reload
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
-
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>
+        <!-- Update and Remove JS -->
+        {% include 'basket/includes/update_remove_js.html' %}
 {% endblock %}
