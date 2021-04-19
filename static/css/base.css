@@ -106,6 +106,8 @@ header {
     right: 10px;
 }
 
+.remove-item,
+.update-link,
 .to-top-link {
     cursor: pointer;
 }

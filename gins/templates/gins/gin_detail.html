@@ -52,6 +52,7 @@
                                 <p class="mt-3"><strong>Amount:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
+                                        <!-- Quantity Input Buttons -->
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn rounded-5" 
                                                 data-item_id="{{ gin.id }}" id="decrement-qty_{{ gin.id }}">
@@ -74,7 +75,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- Continue Shopping and Add to Basket Buttons -->
                             <div class="col-12">
                                 <a href="{% url 'gins' %}" class="btn rounded-5 mt-5">
                                     <span class="icon">
