@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load basket_tools %}
+
 {% block page_header %}
 <!-- Push Content Down Page -->
     <div class="container header-container">
@@ -53,7 +55,7 @@
                                     <p class="my-0">${{ item.gin.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
-                                    <form class="form update-form" method="POST" action="">
+                                    <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="input-group">
@@ -85,7 +87,7 @@
                                     <a class="remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">${{ item.gin.price }}</p>
+                                    <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}
