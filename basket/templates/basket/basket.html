@@ -82,7 +82,7 @@
                                     </form>
                                     <!-- Update and Remove Links -->
                                     <a class="update-link"><small>Update</small></a>
-                                    <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                    <a class="remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">${{ item.gin.price }}</p>
@@ -133,8 +133,8 @@
 {% endblock %}
 
 {% block postload_js %}
-{{ block.super }}
-{% include 'gins/includes/quantity_input_js.html' %}
+    {{ block.super }}
+        {% include 'gins/includes/quantity_input_js.html' %}
 
 <script type="text/javascript">
     // Update Quantity

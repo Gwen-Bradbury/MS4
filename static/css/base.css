@@ -43,10 +43,14 @@ header {
     color: #540B0E;
 }
 
+.update-link,
 .nav-link-color {
     color: #A36F5B !important;
 }
 
+.update-link:hover,
+.update-link:active,
+.update-link:focus,
 .nav-link-color:hover,
 .nav-link-color:active,
 .nav-link-color:focus {
@@ -71,6 +75,7 @@ header {
     color: #DEBA94;
 }
 
+.remove-item,
 .add-button,
 .checkout-button,
 .shopping-button,
@@ -79,6 +84,9 @@ header {
     color: #540B0E !important;
 }
 
+.remove-item:hover,
+.remove-item:active,
+.remove-item:focus,
 .add-button:hover,
 .add-button:active,
 .add-button:focus,
