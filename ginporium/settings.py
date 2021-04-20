@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'gins',
     'basket',
     'blog',
-    'recipes'
+    'recipes',
+    'checkout'
 ]
 
 MIDDLEWARE = [
