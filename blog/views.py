@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 
-def blog(request):
+def view_blog(request):
     """ Returns blog.html """
     return render(request, 'blog/blog.html')
