@@ -13,10 +13,11 @@ def view_blog(request):
 def blog_detail(request, post_id):
     """ Returns blog_detail.html """
     post = get_object_or_404(Post, pk=post_id)
+    comments = post.comments.filter()
 
     context = {
         'post': post,
-        'comments': Comment.objects.all()
+        'comments': comments
     }
 
     return render(request, 'blog/blog_detail.html', context)

@@ -75,6 +75,7 @@ header {
     color: #DEBA94;
 }
 
+.blog-button,
 .remove-item,
 .add-button,
 .checkout-button,
@@ -84,6 +85,9 @@ header {
     color: #540B0E !important;
 }
 
+.blog-button:hover,
+.blog-button:active,
+.blog-button:focus,
 .remove-item:hover,
 .remove-item:active,
 .remove-item:focus,

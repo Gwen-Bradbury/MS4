@@ -2,11 +2,6 @@
 
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-{% endblock %}
-
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -50,6 +45,16 @@
     </div>
 </div>
 <hr>
+<!-- Back to Blog Button -->
+<div class="col-12">
+    <a href="{% url 'view_blog' %}" class="btn rounded-5 mt-5">
+    <span class="icon">
+    <i class="fas fa-chevron-left"></i>
+    </span>
+    <span class="text-uppercase blog-button">Back to Blogs</span>
+    </a>
+</div>
+<hr>
 <!-- Get Post Comments -->
 <div class="container-fluid">
     <div class="row mt-5">
@@ -64,6 +69,12 @@
                     <footer class="card-footer">
                         <p>{{ comment.comment_author }}</p>
                         <small>{{ comment.comment_date_posted|date:'F d, Y' }}</small>
+                        {% if comment.comment_author == user %}
+                            <div>
+                                <a class="btn btn-secondary btn-sm mt-3 mb-1" href="">Update</a>
+                                <a class="btn btn-danger btn-sm mt-3 mb-1" href="">Delete</a>
+                            </div>
+                        {% endif %}
                     </footer>
                 </div>
             </div>
@@ -77,7 +88,7 @@
         <form method="POST">
             {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Comment</legend>
+                    <legend class="border-bottom mb-4">Leave a Comment</legend>
                         {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">
@@ -85,13 +96,4 @@
                 </div>
         </form>
     </div>
-<!-- Back to Blog Button -->
-<div class="col-12">
-    <a href="{% url 'view_blog' %}" class="btn rounded-5 mt-5">
-    <span class="icon">
-    <i class="fas fa-chevron-left"></i>
-    </span>
-    <span class="text-uppercase blog-button">Back to Blogs</span>
-    </a>
-</div>
 {% endblock %}
