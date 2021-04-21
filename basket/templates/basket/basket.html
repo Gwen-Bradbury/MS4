@@ -6,12 +6,12 @@
 
 {% block page_header %}
 <!-- Push Content Down Page -->
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -29,105 +29,105 @@
         <div class="col">
             <!-- If the Basket Has Products Display This -->
             {% if basket_products %}
-                <div class="table-responsive rounded">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <!-- Table Headings -->
-                                <th scope="col">Gin Info</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <!-- Displays Itmes in Basket -->
-                        {% for item in basket_products %}
-                            <tr>
-                                <td class="p-3 w-25">
-                                    <img class="img-fluid rounded" src="{{ item.gin.image.url }}">
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
-                                    <p class="my-0 small text-muted">SKU: {{ item.gin.sku|upper }}</p>
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">${{ item.gin.price }}</p>
-                                </td>
-                                <td class="py-3 w-25">
-                                    <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <!-- Quantity Input Buttons -->
-                                                <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm rounded-5" 
-                                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                        <span>
-                                                            <i class="fas fa-minus fa-sm"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <input class="form-control form-control-sm qty_input" type="number" 
-                                                    name="quantity" value="{{ item.quantity }}" min="1" max="99" 
-                                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                                <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-sm rounded-5"
-                                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id}}">
-                                                        <span>
-                                                            <i class="fas fa-plus fa-sm"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                            </div>
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <!-- Table Headings -->
+                            <th scope="col">Gin Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <!-- Displays Itmes in Basket -->
+                    {% for item in basket_products %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.gin.image.url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
+                            <p class="my-0 small text-muted">SKU: {{ item.gin.sku|upper }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.gin.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <!-- Quantity Input Buttons -->
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm rounded-5" 
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <span>
+                                            <i class="fas fa-minus fa-sm"></i>
+                                            </span>
+                                            </button>
                                         </div>
-                                    </form>
-                                    <!-- Update and Remove Links -->
-                                    <a class="update-link"><small>Update</small></a>
-                                    <a class="remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        <tr>
-                            <!-- Displays Basket Total, Delivery and Grand Total -->
-                            <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Basket Total: ${{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- Continue Shopping Button -->
-                            <td colspan="5" class="text-right">
-                                <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase shopping-button">Continue Shopping</span>
-                                </a>
-                                <!-- Checkout Button -->
-                                <a href="" class="btn rounded-5 btn-lg">
-                                    <span class="text-uppercase checkout-button">Checkout</span>
-                                    <span class="icon">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                                        <input class="form-control form-control-sm qty_input" type="number" 
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm rounded-5"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id}}">
+                                            <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Update and Remove Links -->
+                            <a class="update-link"><small>Update</small></a>
+                            <a class="remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <!-- Displays Basket Total, Delivery and Grand Total -->
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Basket Total: ${{ total|floatformat:2 }}</strong></h6>
+                            <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- Continue Shopping Button -->
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
+                            <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase shopping-button">Continue Shopping</span>
+                            </a>
+                            <!-- Checkout Button -->
+                            <a href="" class="btn rounded-5 btn-lg">
+                            <span class="text-uppercase checkout-button">Checkout</span>
+                            <span class="icon">
+                            <i class="fas fa-lock"></i>
+                            </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             <!-- If the Basket is Empty Display This -->
             {% else %}
-                <p class="lead mb-5">Your basket is empty.</p>
-                <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase shopping-button">Continue Shopping</span>
-                </a>
+            <p class="lead mb-5">Your basket is empty.</p>
+            <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
+            <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase shopping-button">Continue Shopping</span>
+            </a>
             {% endif %}
         </div>
     </div>
@@ -135,9 +135,9 @@
 {% endblock %}
 
 {% block postload_js %}
-    {{ block.super }}
-        <!-- Quantity Input JS -->
-        {% include 'gins/includes/js/quantity_input_js.html' %}
-        <!-- Update and Remove JS -->
-        {% include 'basket/includes/js/update_remove_js.html' %}
+{{ block.super }}
+<!-- Quantity Input JS -->
+{% include 'gins/includes/js/quantity_input_js.html' %}
+<!-- Update and Remove JS -->
+{% include 'basket/includes/js/update_remove_js.html' %}
 {% endblock %}

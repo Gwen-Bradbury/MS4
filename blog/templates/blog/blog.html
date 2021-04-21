@@ -4,28 +4,60 @@
 
 {% block page_header %}
 <!-- Push Content Down Page -->
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
 <!-- Blog Post -->
+<div class="row">
     {% for post in posts %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                    <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
-                </div>
-                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2> 
-                    <p class="article-content">{{ post.content }}</p>
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100 border-0">
+            <!-- Get 'Blog Image' or 'No Image' Image -->
+            {% if post.image %}
+            <a href="{% url 'blog_detail' post.id %}">
+            <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+            </a>
+            {% else %}
+            <a href="{% url 'blog_detail' post.id %}">
+            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
+            </a>
+            {% endif %}
+            <div class="card-body pb-0">
+                <!-- Get Blog Title -->
+                <p class="lead mb-0 font-weight-bold">{{ post.title }}</p>
+                <hr>
             </div>
-        </article>
+            <div class="card-footer bg-white pt-0 border-0 text-left">
+                <!-- Get Blog Author -->
+                <div class="row">
+                    <div class="col">
+                        <p class="lead mb-0 text-left">{{ post.author }}</p>
+                        <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endfor %}
+</div>
+<!-- Back To Top Button -->
+<div class="to-top-button shadow-sm rounded-5 border">
+    <a class="to-top-link d-flex h-100">
+    <i class="fas fa-arrow-up mx-auto my-auto"></i>
+    </a>	
+</div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<!-- Back To Top Button JS -->
+{% include 'gins/includes/js/to_top_button_js.html' %}
 {% endblock %}
