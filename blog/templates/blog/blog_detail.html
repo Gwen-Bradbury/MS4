@@ -2,6 +2,11 @@
 
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -22,31 +27,67 @@
                 <!-- Get 'Blog Image' or 'No Image' Image -->
                 {% if post.image %}
                 <a href="{{ post.image.url }}" target="_blank">
-                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}">
                 </a>
                 {% else %}
                 <a href="">
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.title }}">
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
                 </a>
                 {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
-                <!-- Get Gin Information -->
-                <p class="lead mb-0">{{ post.title }}</p>
+                <!-- Get Post Information -->
+                <p class="lead mb-0 title">{{ post.post_title }}</p>
                 <hr>
-                <p class="mt-3">{{ post.content }}</p>
+                <p class="mt-3">{{ post.post_content }}</p>
                 <hr>
-                <p class="mt-3">{{ post.author }}</p>
-                <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
+                <p class="mt-3">{{ post.post_author }}</p>
+                <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
             </div>
         </div>
     </div>
 </div>
+<hr>
+<!-- Get Post Comments -->
+<div class="container-fluid">
+    <div class="row mt-5">
+        {% for comment in comments %}
+        <div class="col-4 offset-4">
+            <div class="card">
+                <div class="card-header">
+                    {{ comment.comment_title }}
+                </div>
+                <div class="card-body">   
+                    <p>{{comment.comment_context}}</p>
+                    <footer class="card-footer">
+                        <p>{{ comment.comment_author }}</p>
+                        <small>{{ comment.comment_date_posted|date:'F d, Y' }}</small>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>    
+<hr>
+<!-- Add a Comment Form -->
+<div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Comment</legend>
+                        {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Post</button>
+                </div>
+        </form>
+    </div>
 <!-- Back to Blog Button -->
 <div class="col-12">
-    <a href="{% url 'blog' %}" class="btn rounded-5 mt-5">
+    <a href="{% url 'view_blog' %}" class="btn rounded-5 mt-5">
     <span class="icon">
     <i class="fas fa-chevron-left"></i>
     </span>

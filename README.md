@@ -690,7 +690,7 @@ This website was developed in Gitpod and pushed to the remote repositories, GitH
 
 - [Corey-Schafer](https://coreyms.com/)
 
-- [freeCodeCamp](https://www.youtube.com/watch?v=YZvRrldjf1Y)
+- [Codemy](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi)
 
 5. Icons and Buttons 
 

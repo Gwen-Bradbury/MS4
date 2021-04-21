@@ -1,19 +1,37 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.urls import reverse
 
 
 class Post(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    date_posted = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_title = models.CharField(max_length=100)
+    post_content = models.TextField()
+    post_date_posted = models.DateTimeField(default=timezone.now)
+    post_author = models.ForeignKey(User, null=True, blank=True,
+                                    on_delete=models.CASCADE,
+                                    related_name='post')
+
+    class Meta:
+        ordering = ['-post_date_posted']
 
     def __str__(self):
-        return self.title
+        return self.post_title
 
-    def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+
+class Comment(models.Model):
+    post_id = models.ForeignKey('Post', null=True,
+                                related_name="comments", blank=True,
+                                on_delete=models.SET_NULL)
+    comment_title = models.CharField(max_length=50)
+    comment_content = models.TextField(max_length=500)
+    comment_date_posted = models.DateTimeField(default=timezone.now)
+    comment_author = models.ForeignKey(User, null=True, blank=True,
+                                       on_delete=models.SET_NULL)
+
+    class Meta:
+        ordering = ['-comment_date_posted']
+
+    def __str__(self):
+        return self.comment_title
