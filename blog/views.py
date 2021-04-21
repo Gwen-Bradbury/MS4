@@ -16,16 +16,7 @@ def blog_detail(request, post_id):
 
     context = {
         'post': post,
-    }
-
-    return render(request, 'blog/blog_detail.html', context)
-
-
-def comment(request, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id)
-
-    context = {
-        'comment': comment
+        'comments': Comment.objects.all()
     }
 
     return render(request, 'blog/blog_detail.html', context)
