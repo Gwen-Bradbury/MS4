@@ -31,7 +31,7 @@ header {
     background-color: #F1D3A7;
 }
 
-/* Header Links */
+/* Buttons and Links */
 .logo-link {
     width: fit-content;
     color: #540B0E;
@@ -43,11 +43,15 @@ header {
     color: #540B0E;
 }
 
+.update-comment,
 .update-link,
 .nav-link-color {
     color: #A36F5B !important;
 }
 
+.update-comment:hover,
+.update-comment:active,
+.update-comment:focus,
 .update-link:hover,
 .update-link:active,
 .update-link:focus,
@@ -61,7 +65,6 @@ header {
     font-size: 1.5rem;
 }
 
-/* Buttons */
 .index-button {
     margin: 10px;
     color: #fff;
@@ -75,6 +78,8 @@ header {
     color: #DEBA94;
 }
 
+.post-comment,
+.delete-comment,
 .blog-button,
 .remove-item,
 .add-button,
@@ -85,6 +90,12 @@ header {
     color: #540B0E !important;
 }
 
+.post-comment:hover,
+.post-comment:active,
+.post-comment:focus,
+.delete-comment:hover,
+.delete-comment:active,
+.delete-comment:focus,
 .blog-button:hover,
 .blog-button:active,
 .blog-button:focus,

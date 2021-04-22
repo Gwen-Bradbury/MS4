@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from django.contrib import messages
+from .models import Post
+from .forms import CommentForm
 
 
 def view_blog(request):
@@ -14,10 +16,26 @@ def blog_detail(request, post_id):
     """ Returns blog_detail.html """
     post = get_object_or_404(Post, pk=post_id)
     comments = post.comments.filter()
+    new_comment = None
+    template = 'blog/blog_detail.html'
+
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            """ Create Comment """
+            new_comment = comment_form.save(commit=False)
+            """ Assign Comment to Post """
+            new_comment.post_id = post
+            new_comment.save()
+            comment_form = CommentForm()
+            messages.success(request, 'Successfully posted your comment.')
+    else:
+        comment_form = CommentForm()
 
     context = {
         'post': post,
-        'comments': comments
+        'comments': comments,
+        'comment_form': comment_form,
     }
 
-    return render(request, 'blog/blog_detail.html', context)
+    return render(request, template, context)

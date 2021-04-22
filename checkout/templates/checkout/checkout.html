@@ -24,14 +24,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="mb-4">Checkout</h2>
+            <h2 class="mb-4 text-center mt-3">Checkout</h2>
             <hr>
         </div>
     </div>
     <div class="row">
         <!-- Order Summary -->
-        <div class="col-12 col-lg-6 order-lg-last mb-5">
+        <div class="col-12 col-lg-4 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ item_count }})</p>
             <div class="row">
                 <div class="col-7 offset-2">
@@ -77,7 +76,7 @@
             </div>
         </div>
         <!-- Form to Complete Order -->
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-6 offset-1">
             <p class="text-muted">Fill out the form to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
@@ -89,7 +88,7 @@
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5">
                     <!-- Gets Users Delivery Information -->
-                    <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                    <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.country | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
@@ -124,11 +123,11 @@
                         <span class="icon">
 							<i class="fas fa-chevron-left"></i>
 						</span>
-						<span class="font-weight-bold">Adjust Basket</span>
+						<span class="text-uppercase shopping-button">Basket</span>
                     </a>
                     <!-- Button to Pay --> 
 					<button id="submit-button" class="btn rounded-5">
-						<span class="font-weight-bold">Complete Order</span>
+						<span class="text-uppercase checkout-button">Complete Order</span>
 						<span class="icon">
 							<i class="fas fa-lock"></i>
 						</span>
