@@ -17,6 +17,10 @@ body {
 	z-index: -1;
 }
 
+hr {
+    background-color: #DEBA94;
+}
+
 /* Bulma */
 .icon {
     align-items: center;

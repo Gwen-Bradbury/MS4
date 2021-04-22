@@ -28,7 +28,7 @@
         <div class="col">
             <!-- If the Basket Has Products Display This -->
             {% if basket_products %}
-            <div class="table-responsive rounded">
+            <div class="table-responsive rounded mb-5">
                 <table class="table table-sm table-borderless">
                     <thead>
                         <tr>
@@ -121,7 +121,7 @@
             <!-- If the Basket is Empty Display This -->
             {% else %}
             <p class="lead mb-5">Your basket is empty.</p>
-            <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg">
+            <a href="{% url 'gins' %}" class="btn rounded-5 btn-lg mb-5">
             <span class="icon">
             <i class="fas fa-chevron-left"></i>
             </span>
