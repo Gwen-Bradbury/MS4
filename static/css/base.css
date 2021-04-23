@@ -47,18 +47,34 @@ header {
     color: #540B0E;
 }
 
+.post-comment:hover,
+.delete-comment:hover,
+.blog-button:hover,
+.remove-item:hover,
+.add-button:hover,
+.checkout-button:hover,
+.shopping-button:hover,
+.to-top-link:hover,
+.sorting-button:hover,
+.login,
+.create-account,
 .update-comment,
 .update-link,
 .nav-link-color {
     color: #A36F5B !important;
 }
 
+.login:hover,
+.create-account:hover,
+.post-comment,
+.blog-button,
+.add-button,
+.checkout-button,
+.shopping-button,
+.to-top-link,
+.sorting-button,
 .update-comment:hover,
-.update-comment:active,
-.update-comment:focus,
 .update-link:hover,
-.update-link:active,
-.update-link:focus,
 .nav-link-color:hover,
 .nav-link-color:active,
 .nav-link-color:focus {
@@ -82,47 +98,11 @@ header {
     color: #DEBA94;
 }
 
-.post-comment,
 .delete-comment,
-.blog-button,
-.remove-item,
-.add-button,
-.checkout-button,
-.shopping-button,
-.to-top-link,
-.sorting-button {
-    color: #540B0E !important;
+.remove-item {
+    color: #dc3545;
 }
 
-.post-comment:hover,
-.post-comment:active,
-.post-comment:focus,
-.delete-comment:hover,
-.delete-comment:active,
-.delete-comment:focus,
-.blog-button:hover,
-.blog-button:active,
-.blog-button:focus,
-.remove-item:hover,
-.remove-item:active,
-.remove-item:focus,
-.add-button:hover,
-.add-button:active,
-.add-button:focus,
-.checkout-button:hover,
-.checkout-button:active,
-.checkout-button:focus,
-.shopping-button:hover,
-.shopping-button:active,
-.shopping-button:focus,
-.to-top-link:hover,
-.to-top-link:active,
-.to-top-link:focus,
-.sorting-button:hover,
-.sorting-button:active,
-.sorting-button:focus {
-    color: #A36F5B !important;
-}
 
 /* Back To Top Button */
 .to-top-button {

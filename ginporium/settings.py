@@ -171,6 +171,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STANDARD_DELIVERY_PERCENTAGE = 10
 
+# Stripe
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_CLIENT_SECRET = os.getenv('STRIPE_CLIENT_SECRET', '')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
