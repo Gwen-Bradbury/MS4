@@ -563,7 +563,7 @@ https://www.w3.org/Style/CSS/Overview.en.html
 
 ### Libraries -
 
-1. **Bootstrap:**  A CSS framework -  https://getbootstrap.com/
+1. **Bootstrap:**  Front-end Open Source Toolkit -  https://getbootstrap.com/
 
 2. **Font Awesome:** Icon library - https://fontawesome.com/
 
@@ -585,7 +585,7 @@ https://www.w3.org/Style/CSS/Overview.en.html
 
 2. **sqLite:** SQL Database Engine - https://www.sqlite.org/
 
-3. **AWS:** Amazon Web Services Database storage - https://aws.amazon.com/
+3. **AWS:** Amazon Web Services Database Storage - https://aws.amazon.com/
 
 ### Tools -
 

@@ -1,0 +1,17 @@
+.StripeElement,
+.stripe-style {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid #b9b6b6;
+  background-color: white;
+}
+
+.stripe-style::placeholder {
+    color: #aab7c4;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
