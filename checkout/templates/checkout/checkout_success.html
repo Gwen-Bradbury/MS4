@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<!-- Push Content Down Page -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Overlay for Background Image -->
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-4 text-center mt-3">Thankyou</h2>
+            <hr>
+            <p>Order information below. A confirmation email will be sent to {{ order.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-7"></div>
+    </div>
+    <div class="row">
+		<div class="col-12 col-lg-7 text-right">
+            <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes"
+                class="btn rounded-5 my-2">
+				<span class="icon mr-2">
+					<i class="fas fa-cocktail"></i>
+				</span>
+                <span class="text-uppercase">How about checking out our recipes!</span>
+			</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
