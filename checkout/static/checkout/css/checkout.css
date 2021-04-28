@@ -16,3 +16,12 @@
     position: relative;
     right: .5rem;
 }
+
+/* Thankyou Page */
+.checkout-success {
+    color: #540B0E !important;
+}
+
+.checkout-success:hover {
+    color: #A36F5B !important;
+}
