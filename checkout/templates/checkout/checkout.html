@@ -144,6 +144,14 @@
         </div>
     </div>
 </div>
+<!-- Loading Icon --> 
+<div id="loading-overlay">
+    <h1 class="text-light loading-spinner">
+        <span class="icon">                
+            <i class="fas fa-3x fa-spinner fa-spin"></i>
+        </span>
+    </h1>
+</div>
 {% endblock %}
 
 {% block postload_js %}
@@ -151,5 +159,6 @@
     <!-- Stripe -->
         {{ stripe_public_key|json_script:"id_stripe_public_key" }}
         {{ stripe_client_secret|json_script:"id_stripe_client_secret" }}
+        <!-- Link to JS File -->
         <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
