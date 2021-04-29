@@ -56,7 +56,11 @@ def checkout(request):
         order_form = OrderForm(form_data)
         """ Save Valid Order Form """
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('stripe_client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_basket = json.dumps(basket)
+            order.save()
             for item_id, item_count in basket.items():
                 try:
                     gin = Gin.objects.get(id=item_id)
