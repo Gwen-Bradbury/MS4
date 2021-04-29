@@ -1,4 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponse
+)
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -8,6 +15,24 @@ from gins.models import Gin
 from basket.contexts import basket_items
 
 import stripe
+import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('stripe_client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_CLIENT_SECRET
+        stripe.PaymentIntent.modify(pid, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be processed. \
+                            Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -23,9 +48,9 @@ def checkout(request):
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'town_or_city': request.POST['town_or_city'],
-            'postcode': request.POST['postcode'],
-            'country': request.POST['country'],
             'county': request.POST['county'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
         }
 
         order_form = OrderForm(form_data)
@@ -98,9 +123,8 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.'
-    )
+            Your order number is {order_number}. A confirmation \
+            email will be sent to {order.email}.')
 
     if 'basket' in request.session:
         del request.session['basket']
