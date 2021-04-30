@@ -13,12 +13,17 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: white;
+	background: #fff;
 	z-index: -1;
 }
 
 hr {
     background-color: #DEBA94;
+}
+
+/* Search Bar Placeholder Colour */
+input[name='q']::placeholder {
+    color: #aab7c4;
 }
 
 /* Bulma */
@@ -120,7 +125,6 @@ header {
 }
 
 /* Toasts */
-
 .toast-name {
     color: #540B0E;
 }
@@ -190,8 +194,66 @@ header {
     overflow-y: auto;
 }
 
-/* -------------------------------- Media Queries */
+/* -------------------------------- Allauth Form CSS */
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; 
+}
 
+.allauth-form-inner-content input {
+    border-color: #b9b6b6;
+    border-radius: 5;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.form-check-label {
+    color: #000;
+}
+
+/* Button */
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	display: inline-block;
+    font-weight: 400;
+    color: #540B0E;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 5;
+    border: none;
+    background-color: #fff;
+
+    /* Bootstrap Button Transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #A36F5B;
+}
+
+.allauth-form-inner-content a {
+	color: #540B0E;
+}
+
+.allauth-form-inner-content a:hover {
+    color: #A36F5B;
+}
+
+/* -------------------------------- Media Queries */
 /* Fixed Navbar on Medium Screens and Up  */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
