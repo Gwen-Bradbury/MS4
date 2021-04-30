@@ -340,7 +340,7 @@ that notifies users when the form has been filled out incorrectly. This ensures 
 
 #### Features on the Profile Page - 
 
-- _ My Profile Header_ - Reassures users they're on their profile page.
+- _My Profile Header_ - Reassures users they're on their profile page.
 
 - _Delivery Information Form_ - This form contains users default delivery information. Enter the required information into the required fields before clicking the update information button, to update delivery information.
 The information from this form will be automatically inputted into the checkout form when ordering form the site. Filling out the checkout form and clicking the tick box 'Save this delivery information to my profile'
