@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
 from .models import Post
 from .forms import CommentForm
 
@@ -12,6 +15,7 @@ def view_blog(request):
     return render(request, 'blog/blog.html', context)
 
 
+@login_required
 def blog_detail(request, post_id):
     """ Returns blog_detail.html """
     post = get_object_or_404(Post, pk=post_id)

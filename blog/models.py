@@ -27,8 +27,10 @@ class Comment(models.Model):
     comment_title = models.CharField(max_length=50)
     comment_content = models.TextField(max_length=500)
     comment_date_posted = models.DateTimeField(default=timezone.now)
-    comment_author = models.ForeignKey(User, null=True, blank=True,
-                                       on_delete=models.SET_NULL)
+    comment_author = models.ForeignKey(User, null=True,
+                                       blank=True,
+                                       on_delete=models.SET_NULL,
+                                       related_name='comment')
 
     class Meta:
         ordering = ['-comment_date_posted']
