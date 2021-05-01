@@ -49,6 +49,10 @@ header {
     max-height: 500px;
 }
 
+.recipes {
+    height: 400px;
+}
+
 /* Buttons and Links */
 .logo-link {
     width: fit-content;

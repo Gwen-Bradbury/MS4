@@ -59,9 +59,9 @@
                         <div class="card h-100 border-0">
                             <!-- Get 'Recipe Image' or 'No Image' Image -->
                             {% if recipe.image %}
-                                    <img class="card-img-top img-fluid" src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+                                    <img class="card-img-top img-fluid recipes" src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
                             {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ recipe.name }}">
+                                    <img class="card-img-top img-fluid recipes" src="{{ MEDIA_URL }}noimage.png" alt="{{ recipe.name }}">
                             {% endif %}
                             <div class="card-body pb-0">
                                 <!-- Get Recipe Information -->
