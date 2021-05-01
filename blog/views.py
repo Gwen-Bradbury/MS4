@@ -35,7 +35,7 @@ def view_blog(request):
     context = {
         'posts': post,
         'post_form': post_form,
-        'on_blog_page': True
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -69,7 +69,7 @@ def blog_detail(request, post_id):
         'post': post,
         'comments': comments,
         'comment_form': comment_form,
-        'on_blog_page': True
+        'on_profile_page': True
     }
 
     return render(request, template, context)

@@ -16,7 +16,7 @@ class StripeWebhookHandler:
     def handle_event(self, event):
         """ Handle Unknown/Unexpected Webhooks """
         return HttpResponse(
-            content=f'Unhandled Webhook received: {event["type"]}',
+            content=f'Unhandled webhook received: {event["type"]}',
             status=200
             )
 
@@ -84,6 +84,7 @@ class StripeWebhookHandler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_info.name,
+                    user_profile_form=profile,
                     email=billing_details.email,
                     phone_number=shipping_info.phone,
                     street_address1=shipping_info.address.line1,
