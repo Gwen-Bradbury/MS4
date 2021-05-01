@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
 from gins.models import Gin
+from profiles.models import UserProfile
 
 import json
 import time
@@ -32,6 +33,21 @@ class StripeWebhookHandler:
         for field, value in shipping_info.address.items():
             if value == "":
                 shipping_info.address[field] = None
+
+        """ Update Profile Info When Save Info is Ticked """
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_county = shipping_details.address.state
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.save()
 
         order_exists = False
         attempt = 1
