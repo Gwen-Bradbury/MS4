@@ -40,6 +40,15 @@ header {
     background-color: #F1D3A7;
 }
 
+/* Images */
+.gins {
+    max-height: 400px;
+}
+
+.gins-details {
+    max-height: 500px;
+}
+
 /* Buttons and Links */
 .logo-link {
     width: fit-content;

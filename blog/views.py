@@ -1,4 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import (
+                              render,
+                              get_object_or_404,
+                             )
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
@@ -28,6 +31,9 @@ def blog_detail(request, post_id):
         if comment_form.is_valid():
             """ Create Comment """
             new_comment = comment_form.save(commit=False)
+            """ Assign Author To Comment """
+            new_comment.author = request.user
+            new_comment.save()
             """ Assign Comment to Post """
             new_comment.post_id = post
             new_comment.save()

@@ -62,7 +62,7 @@
                             <!-- Get 'Gin Image' or 'No Image' Image -->
                             {% if gin.image %}
                                 <a href="{% url 'gin_detail' gin.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ gin.image.url }}" alt="{{ gin.name }}">
+                                    <img class="card-img-top img-fluid gins" src="{{ gin.image.url }}" alt="{{ gin.name }}">
                                 </a>
                             {% else %}
                                 <a href="{% url 'gin_detail' gin.id %}">
