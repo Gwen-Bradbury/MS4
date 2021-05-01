@@ -40,13 +40,13 @@ class StripeWebhookHandler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
-                profile.default_town_or_city = shipping_details.address.city
-                profile.default_county = shipping_details.address.state
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_phone_number = shipping_info.phone
+                profile.default_street_address1 = shipping_info.address.line1
+                profile.default_street_address2 = shipping_info.address.line2
+                profile.default_town_or_city = shipping_info.address.city
+                profile.default_county = shipping_info.address.state
+                profile.default_country = shipping_info.address.country
+                profile.default_postcode = shipping_info.address.postal_code
                 profile.save()
 
         order_exists = False

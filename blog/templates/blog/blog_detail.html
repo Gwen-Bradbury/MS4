@@ -81,7 +81,9 @@
                         <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
                         {% if comment.comment_author == user %}
                             <div class="text-center">
+                                <!-- Update Comment Button -->
                                 <a class="btn mt-3 mb-1 update-comment" href="">Update</a>
+                                <!-- Delete Comment Button -->
                                 <a class="btn mt-3 mb-1 delete-comment" href="">Delete</a>
                             </div>
                         {% endif %}

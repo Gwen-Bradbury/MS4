@@ -5,12 +5,13 @@ from gins.models import Gin
 
 
 def basket_items(request):
-
+    """ Get Products in Basket """
     basket_products = []
     total = 0
     item_count = 0
     basket = request.session.get('basket', {})
 
+    """ Work Out Basket Total """
     for item_id, quantity in basket.items():
         gin = get_object_or_404(Gin, pk=item_id)
         total += quantity * gin.price
@@ -21,6 +22,7 @@ def basket_items(request):
             'gin': gin,
         })
 
+    """ Work Out Grand-Total """
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
 
     grand_total = delivery + total

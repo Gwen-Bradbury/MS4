@@ -44,6 +44,7 @@ def adjust_basket(request, item_id):
         messages.success(request,
                          f'Updated { gin.name } amount to {basket[item_id]}')
     else:
+        """ Remove Gin From Basket """
         basket.pop(item_id)
         messages.success(request, f'{ gin.name } removed from your basket')
 

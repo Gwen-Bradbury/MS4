@@ -33,6 +33,7 @@ def profile(request):
 
 
 def previous_orders(request, order_number):
+    """ View Users Previous Orders in checkout_success.html """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

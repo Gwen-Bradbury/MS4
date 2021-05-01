@@ -32,7 +32,7 @@ def blog_detail(request, post_id):
             """ Create Comment """
             new_comment = comment_form.save(commit=False)
             """ Assign Author To Comment """
-            new_comment.author = request.user
+            new_comment.comment_author = request.user
             new_comment.save()
             """ Assign Comment to Post """
             new_comment.post_id = post
