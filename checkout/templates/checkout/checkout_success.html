@@ -180,16 +180,27 @@
             </div>
         </div>
     </div>
-    <!-- Link to Recipes -->
+    <!-- Links -->
     <div class="row">
 		<div class="col-12 col-lg-7 text-right">
-            <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes"
-                class="btn rounded-5 my-2">
-				<span class="icon mr-2">
-					<i class="fas fa-cocktail"></i>
-				</span>
-                <span class="text-uppercase checkout-success">How about checking out our recipes!</span>
-			</a>
+            {% if from_profile %}
+            <!-- Link to Profile if Coming From Profile Page -->
+                <a href="{% url 'profile' %}" class="btn rounded-5 my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase checkout-success">Back to Profile</span>
+                </a>
+            {% else %}
+                <!-- Link to Recipes -->
+                <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes"
+                    class="btn rounded-5 my-2">
+				    <span class="icon mr-2">
+					    <i class="fas fa-cocktail"></i>
+				    </span>
+                    <span class="text-uppercase checkout-success">How about checking out our recipes!</span>
+                </a>
+            {% endif %}
 		</div>
 	</div>
 </div>
