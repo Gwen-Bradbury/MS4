@@ -40,6 +40,7 @@ def blog_detail(request, post_id):
         'post': post,
         'comments': comments,
         'comment_form': comment_form,
+        'on_blog_page': True
     }
 
     return render(request, template, context)
