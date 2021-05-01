@@ -7,15 +7,38 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 def view_blog(request):
     """ Returns blog.html """
+    post = Post.objects.all()
+    new_post = None
+    template = 'blog/blog.html'
+
+    if request.method == 'POST':
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            """ Create Post """
+            new_post = post_form.save(commit=False)
+            """ Assign Image to Post """
+            new_post.image = request.FILES
+            new_post.save()
+            """ Assign Author To Post """
+            new_post.post_author = request.user
+            new_post.save()
+            post_form = PostForm()
+            messages.success(request, 'Blog successfully posted.')
+    else:
+        post_form = PostForm()
+
     context = {
-        'posts': Post.objects.all()
+        'posts': post,
+        'post_form': post_form,
+        'on_blog_page': True
     }
-    return render(request, 'blog/blog.html', context)
+
+    return render(request, template, context)
 
 
 @login_required

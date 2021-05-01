@@ -59,7 +59,27 @@
     <span class="text-uppercase blog-button">Back to Blogs</span>
     </a>
 </div>
-<hr class="w-50">
+<hr class="w-50 mb-5">
+<!-- Add a Comment Form -->
+<div class="comment-form">
+    <div class="row">
+        <div class="col-4 offset-1 text-center">
+            <h4>Leave a Comment-</h4>
+        </div>  
+        <div class="col-8 offset-2 mt-3">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ comment_form|crispy }}
+                </fieldset>
+                <div class="text-center">
+                    <button class="btn post-comment text-uppercase mb-5" type="submit">Post Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="w-50 mb-5">
 <!-- Get Post Comments -->
 <div class="container-fluid">
     <div class="row">
@@ -90,31 +110,11 @@
                     </footer>
                 </div>
             </div>
-            <hr class="w-100 mt-5 mb-5">
         </div>
+        <hr class="w-50 mt-5 mb-5">
         {% endfor %}
     </div>
 </div>    
-<hr class="w-50">
-<!-- Add a Comment Form -->
-<div class="comment-form">
-    <div class="row">
-        <div class="col-4 offset-1 text-center">
-            <h4>Leave a Comment-</h4>
-        </div>  
-        <div class="col-8 offset-2 mt-3">
-            <form method="POST">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                        {{ comment_form|crispy }}
-                </fieldset>
-                <div class="text-center">
-                    <button class="btn post-comment text-uppercase mb-5" type="submit">Post Comment</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!-- Back To Top Button -->
 <div class="to-top-button shadow-sm rounded-5 border">
     <a class="to-top-link d-flex h-100">
