@@ -57,20 +57,24 @@ def blog_detail(request, post_id):
 def add_post(request):
     """ Add Blog Post """
     if request.method == 'POST':
-        postform = PostForm(request.POST, request.FILES)
-        if postform.is_valid():
-            postform.save()
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            new_post = post_form.save(commit=False)
+            """ Assign Author To Comment """
+            new_post.post_author = request.user
+            new_post.save()
+            post_form = PostForm()
             messages.success(request, 'Blog post successfully added')
             return redirect(reverse('add_post'))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
     else:
-        postform = PostForm()
+        post_form = PostForm()
 
     template = 'blog/add_post.html'
     context = {
-        'postform': postform,
+        'post_form': post_form,
     }
 
     return render(request, template, context)
