@@ -1,4 +1,7 @@
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from .models import Order, OrderLineItem
 from gins.models import Gin
@@ -12,6 +15,23 @@ class StripeWebhookHandler:
     """ Stripe Webhooks """
     def __init__(self, request):
         self.request = request
+
+    def _confirmation_email(self, order):
+        """ Send Order Confirmation Email """
+        customer_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order})
+        content = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_content.txt',
+            {'order': order, 'contact_us_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            content,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )
 
     def handle_event(self, event):
         """ Handle Unknown/Unexpected Webhooks """
@@ -29,7 +49,7 @@ class StripeWebhookHandler:
         billing_details = intent.charges.data[0].billing_details
         shipping_info = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-        # Give Empty Strings in Shipping Info 'Null' Value
+        """ Give Empty Strings in Shipping Info 'Null' Value """
         for field, value in shipping_info.address.items():
             if value == "":
                 shipping_info.address[field] = None
@@ -73,7 +93,10 @@ class StripeWebhookHandler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+
         if order_exists:
+            """ Order Already Exists """
+            self._confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} \
                     | SUCCESS: Order already in database',
@@ -108,6 +131,7 @@ class StripeWebhookHandler:
                     order_line_item.save()
 
             except Exception as e:
+                """ Order Created by Webhook """
                 if order:
                     order.delete()
                 return HttpResponse(
@@ -115,6 +139,7 @@ class StripeWebhookHandler:
                         ERROR: {e}',
                     status=500
                     )
+        self._confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} \
                  | SUCCESS: Created order with webhook',
