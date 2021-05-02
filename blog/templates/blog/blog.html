@@ -27,28 +27,6 @@
             <hr class="w-50 mb-5">
         </div>
     </div>
-    <!-- Add a Post Form -->
-    {% if request.user.is_superuser %}
-    <div class="post-form">
-        <div class="row">
-            <div class="col-4 offset-1 text-center">
-                <h4>Leave a Post-</h4>
-            </div>  
-            <div class="col-8 offset-2 mt-3">
-                <form method="POST">
-                    {% csrf_token %}
-                    <fieldset class="form-group">
-                        {{ post_form|crispy }}
-                    </fieldset>
-                    <div class="text-center">
-                        <button class="btn post-comment text-uppercase mb-3" type="submit">Post Blog</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <hr class="w-50 mb-5">
-     {% endif %}
     <div class="row mt-5">
         {% for post in posts %}
         <div class="col-4 offset-4">

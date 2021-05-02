@@ -1,14 +1,15 @@
 from django.shortcuts import (
-    render,
-    redirect,
-    reverse,
-    get_object_or_404
-    )
+                              render,
+                              redirect,
+                              reverse,
+                              get_object_or_404
+                             )
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Gin, GinCategory
+from .forms import GinForm
 
 
 def all_gins(request):
@@ -73,3 +74,14 @@ def gin_detail(request, gin_id):
     }
 
     return render(request, 'gins/gin_detail.html', context)
+
+
+def add_gin(request):
+    """ Add a product to the store """
+    ginform = GinForm()
+    template = 'gins/add_gin.html'
+    context = {
+        'ginform': ginform,
+    }
+
+    return render(request, template, context)

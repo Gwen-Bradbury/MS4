@@ -16,6 +16,6 @@ class GinForm(forms.ModelForm):
                            ) for gc in gincategories]
 
         """ Use Friendly Names """
-        self.fields['recipecategory'].choices = friendly_names
+        self.fields['gincategory'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'rounded-5'

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_header %}
+<!-- Push Content Down Page -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Overlay for Background Image -->
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h2 class="mb-4 text-center mt-3">Product Management</h2>
+            <h5 class="text-muted">Add a Blog Post</h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'add_post' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ postform | crispy }}
+                    <div class="text-right">
+                        <a class="btn rounded-5" href="{% url 'view_blog' %}">Cancel</a>
+                        <button class="btn rounded-5" type="submit">Add Post</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>
+{% endblock %}

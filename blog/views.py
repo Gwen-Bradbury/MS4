@@ -12,33 +12,10 @@ from .forms import CommentForm, PostForm
 
 def view_blog(request):
     """ Returns blog.html """
-    post = Post.objects.all()
-    new_post = None
-    template = 'blog/blog.html'
-
-    if request.method == 'POST':
-        post_form = PostForm(data=request.POST)
-        if post_form.is_valid():
-            """ Create Post """
-            new_post = post_form.save(commit=False)
-            """ Assign Image to Post """
-            new_post.image = request.FILES
-            new_post.save()
-            """ Assign Author To Post """
-            new_post.post_author = request.user
-            new_post.save()
-            post_form = PostForm()
-            messages.success(request, 'Blog successfully posted.')
-    else:
-        post_form = PostForm()
-
     context = {
-        'posts': post,
-        'post_form': post_form,
-        'on_profile_page': True
+        'posts': Post.objects.all()
     }
-
-    return render(request, template, context)
+    return render(request, 'blog/blog.html', context)
 
 
 @login_required
@@ -70,6 +47,17 @@ def blog_detail(request, post_id):
         'comments': comments,
         'comment_form': comment_form,
         'on_profile_page': True
+    }
+
+    return render(request, template, context)
+
+
+def add_post(request):
+    """ Add a product to the store """
+    postform = PostForm()
+    template = 'blog/add_post.html'
+    context = {
+        'postform': postform,
     }
 
     return render(request, template, context)

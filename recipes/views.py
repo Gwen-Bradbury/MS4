@@ -1,9 +1,10 @@
 from django.shortcuts import (
-    render,
-    )
+                              render
+                             )
 from django.db.models.functions import Lower
 
 from .models import Recipe, RecipeCategory
+from .forms import RecipeForm
 
 
 def view_recipes(request):
@@ -44,3 +45,14 @@ def view_recipes(request):
     }
 
     return render(request, 'recipes/recipes.html', context)
+
+
+def add_recipe(request):
+    """ Add a product to the store """
+    recipeform = RecipeForm()
+    template = 'recipes/add_recipe.html'
+    context = {
+        'recipeform': recipeform,
+    }
+
+    return render(request, template, context)
