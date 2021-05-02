@@ -53,7 +53,7 @@ def blog_detail(request, post_id):
 
 
 def add_post(request):
-    """ Add a product to the store """
+    """ Add Blog Post """
     postform = PostForm()
     template = 'blog/add_post.html'
     context = {

@@ -48,7 +48,7 @@ def view_recipes(request):
 
 
 def add_recipe(request):
-    """ Add a product to the store """
+    """ Add Recipe """
     recipeform = RecipeForm()
     template = 'recipes/add_recipe.html'
     context = {

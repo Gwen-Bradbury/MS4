@@ -77,7 +77,7 @@ def gin_detail(request, gin_id):
 
 
 def add_gin(request):
-    """ Add a product to the store """
+    """ Add Gin """
     ginform = GinForm()
     template = 'gins/add_gin.html'
     context = {
