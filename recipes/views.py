@@ -53,20 +53,20 @@ def view_recipes(request):
 def add_recipe(request):
     """ Add Recipe """
     if request.method == 'POST':
-        recipeform = RecipeForm(request.POST, request.FILES)
-        if recipeform.is_valid():
-            recipeform.save()
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        if recipe_form.is_valid():
+            recipe_form.save()
             messages.success(request, 'Recipe successfully added')
             return redirect(reverse('add_recipe'))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
     else:
-        recipeform = RecipeForm()
+        recipe_form = RecipeForm()
 
     template = 'recipes/add_recipe.html'
     context = {
-        'recipeform': recipeform,
+        'recipe_form': recipe_form,
     }
 
     return render(request, template, context)

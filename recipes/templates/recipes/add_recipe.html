@@ -28,7 +28,7 @@
                 <!-- Add Recipe Form-->
                 <form method="POST" action="{% url 'add_recipe' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ recipeform | crispy }}
+                    {{ recipe_form | crispy }}
                     <div class="text-right">
                         <a class="btn rounded-5" href="{% url 'view_recipes' %}">Cancel</a>
                         <button class="btn rounded-5" type="submit">Add Recipe</button>

@@ -28,7 +28,7 @@
                 <!-- Add Gin Form-->
                 <form method="POST" action="{% url 'add_gin' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ ginform | crispy }}
+                    {{ gin_form | crispy }}
                     <div class="text-right">
                         <a class="btn rounded-5" href="{% url 'gins' %}">Cancel</a>
                         <button class="btn rounded-5" type="submit">Add Gin</button>
