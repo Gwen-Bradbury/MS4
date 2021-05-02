@@ -1,5 +1,7 @@
 from django.shortcuts import (
                               render,
+                              redirect,
+                              reverse,
                               get_object_or_404,
                              )
 from django.contrib import messages
@@ -54,7 +56,18 @@ def blog_detail(request, post_id):
 
 def add_post(request):
     """ Add Blog Post """
-    postform = PostForm()
+    if request.method == 'POST':
+        postform = PostForm(request.POST, request.FILES)
+        if postform.is_valid():
+            postform.save()
+            messages.success(request, 'Blog post successfully added')
+            return redirect(reverse('add_post'))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        postform = PostForm()
+
     template = 'blog/add_post.html'
     context = {
         'postform': postform,

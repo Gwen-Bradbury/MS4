@@ -78,7 +78,18 @@ def gin_detail(request, gin_id):
 
 def add_gin(request):
     """ Add Gin """
-    ginform = GinForm()
+    if request.method == 'POST':
+        ginform = GinForm(request.POST, request.FILES)
+        if ginform.is_valid():
+            ginform.save()
+            messages.success(request, 'Gin successfully added')
+            return redirect(reverse('add_gin'))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        ginform = GinForm()
+
     template = 'gins/add_gin.html'
     context = {
         'ginform': ginform,

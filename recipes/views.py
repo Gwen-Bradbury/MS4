@@ -1,6 +1,9 @@
 from django.shortcuts import (
-                              render
+                              render,
+                              redirect,
+                              reverse
                              )
+from django.contrib import messages
 from django.db.models.functions import Lower
 
 from .models import Recipe, RecipeCategory
@@ -49,7 +52,18 @@ def view_recipes(request):
 
 def add_recipe(request):
     """ Add Recipe """
-    recipeform = RecipeForm()
+    if request.method == 'POST':
+        recipeform = RecipeForm(request.POST, request.FILES)
+        if recipeform.is_valid():
+            recipeform.save()
+            messages.success(request, 'Recipe successfully added')
+            return redirect(reverse('add_recipe'))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        recipeform = RecipeForm()
+
     template = 'recipes/add_recipe.html'
     context = {
         'recipeform': recipeform,
