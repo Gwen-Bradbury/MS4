@@ -5,6 +5,8 @@ from django.shortcuts import (
                               get_object_or_404
                              )
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -76,7 +78,12 @@ def gin_detail(request, gin_id):
     return render(request, 'gins/gin_detail.html', context)
 
 
+@login_required
 def add_gin(request):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Add Gin """
     if request.method == 'POST':
         gin_form = GinForm(request.POST, request.FILES)
@@ -98,7 +105,12 @@ def add_gin(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_gin(request, gin_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Edit Gin """
     """ Prefill Form """
     gin = get_object_or_404(Gin, pk=gin_id)
@@ -124,7 +136,12 @@ def edit_gin(request, gin_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_gin(request, gin_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Delete Gin """
     gin = get_object_or_404(Gin, pk=gin_id)
     gin.delete()

@@ -5,6 +5,8 @@ from django.shortcuts import (
                               get_object_or_404
                              )
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from django.db.models.functions import Lower
 
 from .models import Recipe, RecipeCategory
@@ -51,7 +53,12 @@ def view_recipes(request):
     return render(request, 'recipes/recipes.html', context)
 
 
+@login_required
 def add_recipe(request):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Add Recipe """
     if request.method == 'POST':
         recipe_form = RecipeForm(request.POST, request.FILES)
@@ -73,7 +80,12 @@ def add_recipe(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_recipe(request, recipe_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Edit Recipe """
     """ Prefill Form """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -99,7 +111,12 @@ def edit_recipe(request, recipe_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_recipe(request, recipe_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Delete Recipe """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     recipe.delete()

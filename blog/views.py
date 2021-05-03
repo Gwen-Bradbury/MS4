@@ -5,7 +5,6 @@ from django.shortcuts import (
                               get_object_or_404
                              )
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
 
 from .models import Post, Comment
@@ -54,7 +53,12 @@ def blog_detail(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_comment(request, comment_id):
+    """ Author Access Only """
+    if not request.user.is_user:
+        messages.error(request, 'Sorry, only the comment author can do that')
+        return redirect(reverse('home'))
     """ Edit Comment """
     """ Prefill Form """
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -80,7 +84,12 @@ def edit_comment(request, comment_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_comment(request, comment_id):
+    """ Author Access Only """
+    if not request.user.is_user:
+        messages.error(request, 'Sorry, only the comment author can do that')
+        return redirect(reverse('home'))
     """ Delete Comment """
     comment = get_object_or_404(Comment, pk=comment_id)
     comment.delete()
@@ -88,7 +97,12 @@ def delete_comment(request, comment_id):
     return redirect(reverse('view_blog'))
 
 
+@login_required
 def add_post(request):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Add Blog Post """
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES)
@@ -114,7 +128,12 @@ def add_post(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_post(request, post_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Edit Post """
     """ Prefill Form """
     post = get_object_or_404(Post, pk=post_id)
@@ -140,7 +159,12 @@ def edit_post(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_post(request, post_id):
+    """ Superuser Access Only """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, owners only function')
+        return redirect(reverse('home'))
     """ Delete Post """
     post = get_object_or_404(Post, pk=post_id)
     post.delete()
