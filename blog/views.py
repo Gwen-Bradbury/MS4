@@ -2,7 +2,7 @@ from django.shortcuts import (
                               render,
                               redirect,
                               reverse,
-                              get_object_or_404,
+                              get_object_or_404
                              )
 from django.contrib import messages
 
@@ -74,7 +74,33 @@ def add_post(request):
 
     template = 'blog/add_post.html'
     context = {
+        'post_form': post_form
+    }
+
+    return render(request, template, context)
+
+
+def edit_post(request, post_id):
+    """ Edit Post """
+    """ Prefill Form """
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES, instance=post)
+        if post_form.is_valid():
+            post_form.save()
+            messages.success(request, 'Post successfully updated')
+            return redirect(reverse('blog_detail', args=[post.id]))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        post_form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.post_title}')
+
+    template = 'blog/edit_post.html'
+    context = {
         'post_form': post_form,
+        'post': post
     }
 
     return render(request, template, context)

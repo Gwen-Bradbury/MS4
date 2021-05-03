@@ -59,7 +59,7 @@ def all_gins(request):
         'gins': gins,
         'search_input': query,
         'current_gincategory': gincategories,
-        'current_sorting': current_sorting,
+        'current_sorting': current_sorting
     }
 
     return render(request, 'gins/gins.html', context)
@@ -70,7 +70,7 @@ def gin_detail(request, gin_id):
     gin = get_object_or_404(Gin, pk=gin_id)
 
     context = {
-        'gin': gin,
+        'gin': gin
     }
 
     return render(request, 'gins/gin_detail.html', context)
@@ -92,7 +92,33 @@ def add_gin(request):
 
     template = 'gins/add_gin.html'
     context = {
+        'gin_form': gin_form
+    }
+
+    return render(request, template, context)
+
+
+def edit_gin(request, gin_id):
+    """ Edit Gin """
+    """ Prefill Form """
+    gin = get_object_or_404(Gin, pk=gin_id)
+    if request.method == 'POST':
+        gin_form = GinForm(request.POST, request.FILES, instance=gin)
+        if gin_form.is_valid():
+            gin_form.save()
+            messages.success(request, 'Gin successfully updated')
+            return redirect(reverse('gin_detail', args=[gin.id]))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        gin_form = GinForm(instance=gin)
+        messages.info(request, f'You are editing {gin.name}')
+
+    template = 'gins/edit_gin.html'
+    context = {
         'gin_form': gin_form,
+        'gin': gin
     }
 
     return render(request, template, context)

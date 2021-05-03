@@ -16,6 +16,7 @@ class StripeWebhookHandler:
     def __init__(self, request):
         self.request = request
 
+    # Starts with _ To Indictate it Will Only Be Used In this View
     def _confirmation_email(self, order):
         """ Send Order Confirmation Email """
         customer_email = order.email

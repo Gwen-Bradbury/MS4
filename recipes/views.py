@@ -1,7 +1,8 @@
 from django.shortcuts import (
                               render,
                               redirect,
-                              reverse
+                              reverse,
+                              get_object_or_404
                              )
 from django.contrib import messages
 from django.db.models.functions import Lower
@@ -44,7 +45,7 @@ def view_recipes(request):
     context = {
         'recipes': recipes,
         'current_recipecategory': recipecategories,
-        'current_sorting': current_sorting,
+        'current_sorting': current_sorting
     }
 
     return render(request, 'recipes/recipes.html', context)
@@ -66,7 +67,33 @@ def add_recipe(request):
 
     template = 'recipes/add_recipe.html'
     context = {
+        'recipe_form': recipe_form
+    }
+
+    return render(request, template, context)
+
+
+def edit_recipe(request, recipe_id):
+    """ Edit Recipe """
+    """ Prefill Form """
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    if request.method == 'POST':
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if recipe_form.is_valid():
+            recipe_form.save()
+            messages.success(request, 'Recipe successfully updated')
+            return redirect(reverse('view_recipes'))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        recipe_form = RecipeForm(instance=recipe)
+        messages.info(request, f'You are editing {recipe.name}')
+
+    template = 'recipes/edit_recipe.html'
+    context = {
         'recipe_form': recipe_form,
+        'recipe': recipe
     }
 
     return render(request, template, context)
