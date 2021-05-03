@@ -81,9 +81,9 @@ def add_gin(request):
     if request.method == 'POST':
         gin_form = GinForm(request.POST, request.FILES)
         if gin_form.is_valid():
-            gin_form.save()
+            gin = gin_form.save()
             messages.success(request, 'Gin successfully added')
-            return redirect(reverse('add_gin'))
+            return redirect(reverse('gin_detail', args=[gin.id]))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
@@ -122,3 +122,11 @@ def edit_gin(request, gin_id):
     }
 
     return render(request, template, context)
+
+
+def delete_gin(request, gin_id):
+    """ Delete Gin """
+    gin = get_object_or_404(Gin, pk=gin_id)
+    gin.delete()
+    messages.success(request, 'Gin deleted')
+    return redirect(reverse('gins'))

@@ -58,7 +58,7 @@ def add_recipe(request):
         if recipe_form.is_valid():
             recipe_form.save()
             messages.success(request, 'Recipe successfully added')
-            return redirect(reverse('add_recipe'))
+            return redirect(reverse('view_recipes'))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
@@ -97,3 +97,11 @@ def edit_recipe(request, recipe_id):
     }
 
     return render(request, template, context)
+
+
+def delete_recipe(request, recipe_id):
+    """ Delete Recipe """
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    recipe.delete()
+    messages.success(request, 'Recipe deleted')
+    return redirect(reverse('view_recipes'))

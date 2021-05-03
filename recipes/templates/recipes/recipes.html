@@ -86,6 +86,13 @@
                                                 </a>
                                             </p>
                                         {% endif %}
+                                        <!-- Superuser Edit and Delete Buttons -->
+                                        {% if request.user.is_superuser %}
+                                            <small class="ml-3">
+                                                <a href="{% url 'edit_recipe' recipe.id %}">Edit</a>
+                                                <a href="{% url 'delete_recipe' recipe.id %}">Delete</a>
+                                            </small>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

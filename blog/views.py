@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
 
@@ -54,6 +54,14 @@ def blog_detail(request, post_id):
     return render(request, template, context)
 
 
+def delete_comment(request, comment_id):
+    """ Delete Comment """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    messages.success(request, 'Comment deleted')
+    return redirect(reverse('view_blog'))
+
+
 def add_post(request):
     """ Add Blog Post """
     if request.method == 'POST':
@@ -65,7 +73,7 @@ def add_post(request):
             new_post.save()
             post_form = PostForm()
             messages.success(request, 'Blog post successfully added')
-            return redirect(reverse('add_post'))
+            return redirect(reverse('view_blog'))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
@@ -104,3 +112,11 @@ def edit_post(request, post_id):
     }
 
     return render(request, template, context)
+
+
+def delete_post(request, post_id):
+    """ Delete Post """
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    messages.success(request, 'Post deleted')
+    return redirect(reverse('view_blog'))

@@ -45,7 +45,7 @@
                     {% endif %}
                     <hr>
                     <p class="mt-3">{{ gin.description }}</p>
-                    <hr>
+                    <hr>             
                     <!-- Add To Basket Form -->
                     <form class="form" action="{% url 'add_to_basket' gin.id %}" method="POST">
                         {% csrf_token %}
@@ -77,6 +77,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Superuser Edit and Delete Buttons -->
+                            {% if request.user.is_superuser %}
+                                <small class="ml-3">
+                                    <a href="{% url 'edit_gin' gin.id %}">Edit</a>
+                                    <a href="{% url 'delete_gin' gin.id %}">Delete</a>
+                                </small>
+                            {% endif %}
                             <!-- Continue Shopping and Add to Basket Buttons -->
                             <div class="col-12">
                                 <a href="{% url 'gins' %}" class="btn rounded-5 mt-5">
