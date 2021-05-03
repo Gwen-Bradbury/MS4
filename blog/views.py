@@ -54,6 +54,32 @@ def blog_detail(request, post_id):
     return render(request, template, context)
 
 
+def edit_comment(request, comment_id):
+    """ Edit Comment """
+    """ Prefill Form """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST, instance=comment)
+        if comment_form.is_valid():
+            comment_form.save()
+            messages.success(request, 'Comment successfully updated')
+            return redirect(reverse('view_blog'))
+        else:
+            messages.error(request,
+                           'Error - Please check form is valid and try again.')
+    else:
+        comment_form = CommentForm(instance=comment)
+        messages.info(request, f'You are editing {comment.comment_title}')
+
+    template = 'blog/edit_comment.html'
+    context = {
+        'comment_form': comment_form,
+        'comment': comment
+    }
+
+    return render(request, template, context)
+
+
 def delete_comment(request, comment_id):
     """ Delete Comment """
     comment = get_object_or_404(Comment, pk=comment_id)

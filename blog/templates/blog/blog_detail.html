@@ -80,6 +80,7 @@
                     {{ comment_form|crispy }}
                 </fieldset>
                 <div class="text-center">
+                    <a class="btn rounded-5" href="{% url 'blog_detail' post.id %}">Cancel</a>
                     <button class="btn post-comment text-uppercase mb-5" type="submit">Post Comment</button>
                 </div>
             </form>
@@ -108,7 +109,7 @@
                         <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
                         {% if comment.comment_author == user %}
                             <small class="ml-3">
-                                <a href="">Edit</a>
+                                <a href="{% url 'edit_comment' comment.id %}">Edit</a>
                                 <a href="{% url 'delete_comment' comment.id %}">Delete</a>
                             </small>
                         {% endif %}

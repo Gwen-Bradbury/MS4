@@ -18,20 +18,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6">
-            <h2 class="mb-4 text-center mt-3">Product Management</h2>
-            <h5 class="text-muted">Edit a Blog Post</h5>
+            <h2 class="mb-4 text-center mt-3">Edit Comment</h2>
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
-            <!-- Edit Post Form-->
-            <form method="POST" action="{% url 'edit_post' post.id %}" class="form mb-2" enctype="multipart/form-data">
+            <!-- Edit Comment Form-->
+            <form method="POST">
                 {% csrf_token %}
-                {{ post_form | crispy }}
-                <div class="text-right">
+                <fieldset class="form-group">
+                    {{ comment_form|crispy }}
+                </fieldset>
+                <div class="text-center">
                     <a class="btn rounded-5" href="{% url 'view_blog' %}">Cancel</a>
-                    <button class="btn rounded-5" type="submit">Edit Post</button>
+                    <button class="btn post-comment text-uppercase mb-5" type="submit">Edit</button>
                 </div>
             </form>           
         </div>
