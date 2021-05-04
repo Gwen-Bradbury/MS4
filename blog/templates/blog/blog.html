@@ -30,20 +30,20 @@
     <div class="row mt-5">
         {% for post in posts %}
         <div class="col-4 offset-4">
-            <div class="card h-100 border-0">
+            <div class="card h-100 border-blue">
                 <!-- Get 'Blog Image' or 'No Image' Image -->
                 {% if post.image %}
                 <a href="{% url 'blog_detail' post.id %}">
-                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}">
+                    <img class="card-img-top img-fluid blog" src="{{ post.image.url }}" alt="{{ post.post_title }}">
                 </a>
                 {% else %}
                 <a href="{% url 'blog_detail' post.id %}">
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
+                    <img class="card-img-top img-fluid blog" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
                 </a>
                 {% endif %}
                 <div class="card-body pb-0">
                     <!-- Get Blog Title -->
-                    <p class="lead mb-0 font-weight-bold title">{{ post.post_title }}</p>
+                    <p class="lead mb-0 font-weight-bold name-height">{{ post.post_title }}</p>
                     <hr>
                 </div>
                 <div class="card-footer bg-white pt-0 border-0 text-left">

@@ -537,6 +537,11 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Bugs and Fixes Implemented after Testing -
 
+- _Changed Color Scheme_ - Colours in the origional scheme didn't cause enough contrast throughout the site, making it hard for users to see the links and buttons
+therefore the color scheme was change to make it more user friendly, and look more appealing. 
+
+- _Edit Comment Page_ - Added an edit comment page for users to edit thier blog comments rather than allowing editing within the form.
+
 - _Added Verify Email Page_ - Upon registering, a page has been added that tells users to verify their emails using a link emailed to the email address used in registration, before continuing.
 
 - _Added Verify Logout Page_ - Requests users to verify if they're sure they wish to logout.

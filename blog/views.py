@@ -56,7 +56,7 @@ def blog_detail(request, post_id):
 @login_required
 def edit_comment(request, comment_id):
     """ Author Access Only """
-    if not request.user.is_user:
+    if not request.user.is_request.user:
         messages.error(request, 'Sorry, only the comment author can do that')
         return redirect(reverse('home'))
     """ Edit Comment """
@@ -87,7 +87,7 @@ def edit_comment(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     """ Author Access Only """
-    if not request.user.is_user:
+    if not request.user.is_request.user:
         messages.error(request, 'Sorry, only the comment author can do that')
         return redirect(reverse('home'))
     """ Delete Comment """

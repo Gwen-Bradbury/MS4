@@ -42,7 +42,7 @@
         <header class="container-fluid fixed-top">
           <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
               <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <a href="{% url 'home' %}" class="nav-link logo-link">
+                <a href="{% url 'home' %}" class="link-button nav-link">
                     <h1>Ginporium</h1>
                 </a>
               </div>
@@ -65,7 +65,7 @@
               <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                   <ul class="list-inline list-unstyled text-center my-0">
                       <li class="list-inline-item dropdown">
-                          <a class="nav-link-color nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <a class="link-button nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
@@ -88,7 +88,7 @@
                       </li>
                       <!-- Basket -->
                       <li class="list-inline-item">
-                          <a class="{% if grand_total %}logo-link font-weight-bold{% else %}nav-link-color{% endif %} nav-link" href="{% url 'view_basket' %}">
+                          <a class="{% if grand_total %} basket-full font-weight-bold {% else %} link-button {% endif %} nav-link" href="{% url 'view_basket' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">

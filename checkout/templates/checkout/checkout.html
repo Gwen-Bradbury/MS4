@@ -104,8 +104,8 @@
 						{% else %}
 							<label class="form-check-label" for="id-save-info">
                                 <!-- Prompts Users to Login/Create Account to Save Delivery Information -->
-                                <a class="login" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="create-account" href="{% url 'account_login' %}">login</a> to save this information
+                                <a class="link-button" href="{% url 'account_signup' %}">Create an account</a> or 
+                                <a class="link-button" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
 						{% endif %}
 					</div>
@@ -125,11 +125,11 @@
                         <span class="icon">
 							<i class="fas fa-chevron-left"></i>
 						</span>
-						<span class="text-uppercase shopping-button">Basket</span>
+						<span class="text-uppercase link-button">Basket</span>
                     </a>
                     <!-- Button to Pay --> 
 					<button id="submit-button" class="btn rounded-5">
-						<span class="text-uppercase checkout-button">Complete Order</span>
+						<span class="text-uppercase continue-button">Complete Order</span>
 						<span class="icon">
 							<i class="fas fa-lock"></i>
 						</span>

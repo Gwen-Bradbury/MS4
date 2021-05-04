@@ -66,7 +66,7 @@
                                     <div class="input-group">
                                         <!-- Quantity Input Buttons -->
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm rounded-5" 
+                                            <button class="decrement-qty btn btn-sm rounded-5 link-button" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                             <span>
                                             <i class="fas fa-minus fa-sm"></i>
@@ -77,7 +77,7 @@
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99" 
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm rounded-5"
+                                            <button class="increment-qty btn btn-sm rounded-5 link-button"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id}}">
                                             <span>
                                             <i class="fas fa-plus fa-sm"></i>
@@ -88,8 +88,8 @@
                                 </div>
                             </form>
                             <!-- Update and Remove Links -->
-                            <a class="update-link"><small>Update</small></a>
-                            <a class="remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                            <a class="link-button update-link"><small>Update</small></a>
+                            <a class="continue-button remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
@@ -111,11 +111,11 @@
                             <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                             </span>
-                            <span class="text-uppercase shopping-button">Continue Shopping</span>
+                            <span class="text-uppercase link-button">Continue Shopping</span>
                             </a>
                             <!-- Checkout Button -->
                             <a href="{% url 'checkout' %}" class="btn rounded-5 btn-lg">
-                            <span class="text-uppercase checkout-button">Checkout</span>
+                            <span class="text-uppercase continue-button">Checkout</span>
                             <span class="icon">
                             <i class="fas fa-lock"></i>
                             </span>
@@ -131,7 +131,7 @@
             <span class="icon">
             <i class="fas fa-chevron-left"></i>
             </span>
-            <span class="text-uppercase shopping-button">Continue Shopping</span>
+            <span class="text-uppercase link-button">Continue Shopping</span>
             </a>
             {% endif %}
         </div>

@@ -21,7 +21,7 @@
                 <h2>Gins</h2>
                 <!-- Gin Category Buttons -->
                 {% for c in current_gincategory %}
-                    <a class="sorting-button text-decoration-none" href="{% url 'gins' %}?gincategory={{ c.name }}">
+                    <a class="link-button" href="{% url 'gins' %}?gincategory={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white rounded-5">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
@@ -34,7 +34,7 @@
                     <!-- Sort By Dropdown -->
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-5 border-black">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-5">
                                 <option value="reset">Sort by...</option>
                                 <option value="price_asc">Price (Low to High)</option>
                                 <option value="price_desc">Price (High to Low)</option>
@@ -49,7 +49,7 @@
                         <p class="text-muted mt-3 text-center text-md-left">
                             <!-- Search Bar Results -->
                             {% if search_input or current_gincategory != 'None_None' %}
-                                <span class="small"><a href="{% url 'gins' %}" class="sorting-button text-decoration-none">All Gins</a> | </span>
+                                <span class="small"><a href="{% url 'gins' %}" class="link-button">All Gins</a> | </span>
                             {% endif %}
                             {{ gins|length }} Gins{% if search_input %} found for <strong>"{{ search_input }}"</strong>{% endif %}
                         </p>
@@ -58,7 +58,7 @@
                 <div class="row">
                     {% for gin in gins %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">
+                        <div class="card h-100 border-blue">
                             <!-- Get 'Gin Image' or 'No Image' Image -->
                             {% if gin.image %}
                                 <a href="{% url 'gin_detail' gin.id %}">
@@ -71,7 +71,7 @@
                             {% endif %}
                             <div class="card-body pb-0">
                                 <!-- Get Gin Information -->
-                                <p class="lead mb-0 font-weight-bold">{{ gin.name }}</p>
+                                <p class="lead mb-0 font-weight-bold name-height">{{ gin.name }}</p>
                                 <hr>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
@@ -80,7 +80,7 @@
                                         <p class="lead mb-0 text-left">${{ gin.price }}</p>
                                         {% if gin.gincategory %}
                                             <p class="small mt-1">
-                                                <a class="text-muted text-decoration-none sorting-button" href="{% url 'gins' %}?gincategory={{ gin.gincategory.name }}">
+                                                <a class="text-muted link-button" href="{% url 'gins' %}?gincategory={{ gin.gincategory.name }}">
                                                     <i class="fas fa-tag mr-1"></i>{{ gin.gincategory.friendly_name }}
                                                 </a>
                                             </p>
@@ -92,23 +92,31 @@
                     </div>
                     <!-- Adding <hr> To Gins on Different Screen Sizes -->
                     {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                        <div class="col-12 d-sm-none">
+                            <div class="fake-hr">
+                                <img href="/media/hr.png"/>
+                            </div>
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr>
+                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                            <div class="fake-hr">
+                                <img href="/media/hr.png"/>
+                            </div>
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr>
+                        <div class="col-12 d-none d-lg-block d-xl-none">
+                            <div class="fake-hr">
+                                <img href="/media/hr.png"/>
+                            </div>
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
-                        <div class="col-12 d-none d-xl-block mb-5">
-                            <hr>
+                        <div class="col-12 d-none d-xl-block">
+                           <div class="fake-hr">
+                                <img href="/media/fake-hr.png"/>
+                            </div>
                         </div>
                     {% endif %}
                     {% endfor %}

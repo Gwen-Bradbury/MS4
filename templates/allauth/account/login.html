@@ -8,7 +8,7 @@
 {% block inner_content %}
 
 <h2>{% trans "Sign In" %}</h2>
-<hr>
+<hr> 
 
 {% get_providers as socialaccount_providers %}
 
@@ -31,7 +31,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% else %}
 <p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<a class="continue-button" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -40,10 +40,10 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="btn rounded-5 nav-link-color" href="{% url 'home' %}">Home</a>
-    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+    <a class="btn rounded-5 link-button" href="{% url 'home' %}">Home</a>
+    <button class="primaryAction btn rounded-5 continue-button" type="submit">{% trans "Sign In" %}</button>
     <p class="mt-2">
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <a class="secondaryAction rounded-5 link-button" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </p>
 </form>
 

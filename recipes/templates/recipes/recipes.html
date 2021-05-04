@@ -21,7 +21,7 @@
                 <h2>Gin Recipes</h2>
                 <!-- Recipe Category Buttons -->
                 {% for c in current_recipecategory %}
-                    <a class="sorting-button text-decoration-none" href="{% url 'view_recipes' %}?recipecategory={{ c.name }}">
+                    <a class="link-button" href="{% url 'view_recipes' %}?recipecategory={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white rounded-5">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
@@ -47,7 +47,7 @@
                         <p class="text-muted mt-3 text-center text-md-left">
                             <!-- Search Bar Results -->
                             {% if search_input or current_recipecategory != 'None_None' %}
-                                <span class="small"><a href="{% url 'view_recipes' %}" class="sorting-button text-decoration-none">All Gin Recipes</a> | </span>
+                                <span class="small"><a href="{% url 'view_recipes' %}" class="link-button">All Gin Recipes</a> | </span>
                             {% endif %}
                             {{ recipes|length }} Recipes{% if search_input %} found for <strong>"{{ search_input }}"</strong>{% endif %}
                         </p>
@@ -56,7 +56,7 @@
                 <div class="row">
                     {% for recipe in recipes %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">
+                        <div class="card h-100 border-blue">
                             <!-- Get 'Recipe Image' or 'No Image' Image -->
                             {% if recipe.image %}
                                     <img class="card-img-top img-fluid recipes" src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
@@ -65,7 +65,7 @@
                             {% endif %}
                             <div class="card-body pb-0">
                                 <!-- Get Recipe Information -->
-                                <p class="lead mb-0 font-weight-bold">{{ recipe.name }}</p>
+                                <p class="lead mb-0 font-weight-bold name-height">{{ recipe.name }}</p>
                                 <hr>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
@@ -89,8 +89,8 @@
                                         <!-- Superuser Edit and Delete Buttons -->
                                         {% if request.user.is_superuser %}
                                             <small class="ml-3">
-                                                <a href="{% url 'edit_recipe' recipe.id %}">Edit</a>
-                                                <a href="{% url 'delete_recipe' recipe.id %}">Delete</a>
+                                                <a class="link-button" href="{% url 'edit_recipe' recipe.id %}">Edit</a>
+                                                <a class="continue-button ml-3" href="{% url 'delete_recipe' recipe.id %}">Delete</a>
                                             </small>
                                         {% endif %}
                                     </div>

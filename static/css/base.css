@@ -1,59 +1,5 @@
-html {
-    height: 100%;
-}
 
-body {
-    background: url('/media/home.jpg') no-repeat center center fixed; 
-    background-size: cover;
-}
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: #fff;
-	z-index: -1;
-}
-
-hr {
-    background-color: #DEBA94;
-}
-
-/* Search Bar Placeholder Colour */
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
-
-/* Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-/* Header */
-header {
-    background-color: #F1D3A7;
-}
-
-/* Images */
-.gins {
-    max-height: 400px;
-}
-
-.gins-details {
-    max-height: 500px;
-}
-
-.recipes {
-    height: 400px;
-}
-
-/* Buttons and Links */
+/* Buttons and Links 
 .logo-link {
     width: fit-content;
     color: #540B0E;
@@ -77,8 +23,7 @@ header {
 .login,
 .create-account,
 .update-comment,
-.update-link,
-.nav-link-color {
+.update-link {
     color: #A36F5B !important;
 }
 
@@ -92,15 +37,8 @@ header {
 .to-top-link,
 .sorting-button,
 .update-comment:hover,
-.update-link:hover,
-.nav-link-color:hover,
-.nav-link-color:active,
-.nav-link-color:focus {
+.update-link:hover {
     color: #540B0E !important;
-}
-
-.nav-link-size {
-    font-size: 1.5rem;
 }
 
 .index-button {
@@ -121,6 +59,96 @@ header {
     color: #dc3545;
 }
 
+*/
+
+
+
+
+
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/home.jpg') no-repeat center fixed; 
+    background-size: cover;
+}
+
+/* Background Image Overlay */
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #fff;
+	z-index: -1;
+}
+
+hr {
+    background-color: #f1b55a;
+}
+
+/* Search Bar Placeholder Colour */
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+/* Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Header */
+header {
+    background-color: #f1b55a;
+}
+
+/* Buttons and Links */
+.link-button {
+    color: #6a040f !important;
+}
+
+.continue-button,
+.basket-full {
+    color: #dc2f02;
+}
+
+.headline-links {
+    margin: 10px;
+    color: #dc2f02;
+    min-width: 260px;
+    font-size: 2rem; 
+}
+
+.to-top-link:focus,
+.to-top-link:active,
+.to-top-link:hover,
+.headline-links:focus,
+.headline-links:active,
+.headline-links:hover,
+.continue-button:focus, 
+.continue-button:active,
+.continue-button:hover, 
+.basket-full:focus,
+.basket-full:active,
+.basket-full:hover,
+.link-button:focus,
+.link-button:active,
+.link-button:hover {
+    color: #001d3d !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link-size {
+    font-size: 1.5rem;
+}
 
 /* Back To Top Button */
 .to-top-button {
@@ -131,15 +159,51 @@ header {
     right: 10px;
 }
 
-.remove-item,
-.update-link,
 .to-top-link {
-    cursor: pointer;
+    color: #dc2f02 !important;
 }
 
-/* Toasts */
+/* Gin, Recipe and Blog Cards */
+.border-blue {
+    border-color: #b5bec7;
+}
+
+.name-height {
+    min-height: 60px;
+}
+
+/* Images */
+.recipes,
+.gins {
+    max-height: 400px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.blog {
+    max-height: 200px;
+}
+
+.blog-detail,
+.gin-detail {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.fake-hr {
+    /* border-top: 1px solid #f1b55a;
+    margin: 10px 0;
+    height: 0px;
+    width: 100%;  */
+    height: 24px; 
+    background: url('/media/hr.png') no-repeat 50% 50%;
+    margin: 3em 0; 
+    border: 0;
+}
+
+/* -------------------------------- Toasts */
 .toast-name {
-    color: #540B0E;
+    color: #6a040f;
 }
 
 .message-container {
@@ -156,6 +220,7 @@ header {
 .toast-capper {
     height: 2px;
 }
+
 /* Toasts Arrows - From css-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
@@ -235,7 +300,6 @@ header {
 .allauth-form-inner-content input[type='submit'] {
 	display: inline-block;
     font-weight: 400;
-    color: #540B0E;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -251,19 +315,6 @@ header {
 
     /* Bootstrap Button Transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #A36F5B;
-}
-
-.allauth-form-inner-content a {
-	color: #540B0E;
-}
-
-.allauth-form-inner-content a:hover {
-    color: #A36F5B;
 }
 
 /* -------------------------------- Media Queries */

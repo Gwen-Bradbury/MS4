@@ -30,8 +30,8 @@
                     {% csrf_token %}
                     {{ gin_form | crispy }}
                     <div class="text-right">
-                        <a class="btn rounded-5" href="{% url 'gins' %}">Cancel</a>
-                        <button class="btn rounded-5" type="submit">Add Gin</button>
+                        <a class="btn rounded-5 link-button" href="{% url 'gins' %}">Cancel</a>
+                        <button class="btn rounded-5 continue-button" type="submit">Add Gin</button>
                     </div>
                 </form>
             </div>            
