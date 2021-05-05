@@ -63,7 +63,7 @@
                             {% else %}
                                     <img class="card-img-top img-fluid recipes" src="{{ MEDIA_URL }}noimage.png" alt="{{ recipe.name }}">
                             {% endif %}
-                            <div class="card-body pb-0">
+                            <div class="card-body recipe-card pb-0">
                                 <!-- Get Recipe Information -->
                                 <p class="lead mb-0 font-weight-bold name-height">{{ recipe.name }}</p>
                                 <hr>
@@ -72,13 +72,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <p class="font-weight-bold">Ingredients</p>
-                                        <p class="mb-0 text-left">{{ recipe.ingredients }}</p>
+                                        <p class="mb-0 text-left name-height">{{ recipe.ingredients }}</p>
                                         <hr>
                                         <p class="font-weight-bold">Method</p>
-                                        <p class="mb-0 text-left">{{ recipe.method }}</p>
+                                        <p class="mb-0 text-left name-height">{{ recipe.method }}</p>
                                         <hr>
                                         <p class="font-weight-bold">Garnish</p>
-                                        <p class="mb-0 text-left">{{ recipe.garnish }}</p>
+                                        <p class="mb-0 text-left name-height">{{ recipe.garnish }}</p>
                                         {% if recipe.recipecategory %}
                                             <p class="small mt-1">
                                                 <a class="text-muted text-decoration-none sorting-button" href="{% url 'view_recipes' %}?recipecategory={{ recipe.recipecategory.name }}">

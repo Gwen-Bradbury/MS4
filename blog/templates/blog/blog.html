@@ -2,10 +2,6 @@
 
 {% load static %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-{% endblock %}
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -29,7 +25,7 @@
     </div>
     <div class="row mt-5">
         {% for post in posts %}
-        <div class="col-4 offset-4">
+        <div class="col-sm-12 col-md-4 offset-md-4">
             <div class="card h-100 border-blue">
                 <!-- Get 'Blog Image' or 'No Image' Image -->
                 {% if post.image %}
@@ -41,7 +37,7 @@
                     <img class="card-img-top img-fluid blog" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
                 </a>
                 {% endif %}
-                <div class="card-body pb-0">
+                <div class="card-body">
                     <!-- Get Blog Title -->
                     <p class="lead mb-0 font-weight-bold name-height">{{ post.post_title }}</p>
                     <hr>

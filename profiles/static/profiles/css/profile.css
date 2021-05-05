@@ -8,7 +8,8 @@
 }
 
 .profile-update-form {
-    padding-left: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /* Country Field Dropdown */
@@ -25,4 +26,6 @@
 .previous-orders {
     max-height: 416px; /* Height of Profile Form and Button */
     overflow-y: auto;
+    padding-left: 20px;
+    padding-right: 10px;
 }
