@@ -537,6 +537,8 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Bugs and Fixes Implemented after Testing -
 
+- _Moved Add Comment_ - Add comment is now above the comments section on the blog details page.
+
 - _Changed Color Scheme_ - Colours in the origional scheme didn't cause enough contrast throughout the site, making it hard for users to see the links and buttons
 therefore the color scheme was change to make it more user friendly, and look more appealing. 
 

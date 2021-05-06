@@ -28,7 +28,13 @@
             <!-- Add Post Form-->
             <form method="POST" action="{% url 'add_post' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ post_form | crispy }}
+                {% for field in post_form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
                 <div class="text-right">
                     <a class="btn rounded-5 link-button" href="{% url 'view_blog' %}">Cancel</a>
                     <button class="btn rounded-5 continue-button" type="submit">Add Post</button>
@@ -37,4 +43,10 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+    <!-- Current Image JS -->
+    {% include 'gins/includes/js/current_image_js.html' %}
 {% endblock %}

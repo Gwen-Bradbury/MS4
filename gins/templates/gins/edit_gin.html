@@ -28,7 +28,13 @@
             <!-- Edit Gin Form-->
             <form method="POST" action="{% url 'edit_gin' gin.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ gin_form | crispy }}
+                {% for field in gin_form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
                 <div class="text-right">
                     <a class="btn rounded-5 link-button" href="{% url 'gins' %}">Cancel</a>
                     <button class="btn rounded-5 continue-button" type="submit">Edit Gin</button>
@@ -39,3 +45,8 @@
 </div>
 {% endblock %}
 
+{% block postload_js %}
+    {{ block.super }}
+    <!-- Current Image JS -->
+    {% include 'gins/includes/js/current_image_js.html' %}
+{% endblock %}

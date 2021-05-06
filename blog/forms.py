@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Post, Comment
 
 
@@ -11,6 +12,9 @@ class PostForm(forms.ModelForm):
                   'post_title',
                   'post_content',
                  )
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
 
 class CommentForm(forms.ModelForm):
