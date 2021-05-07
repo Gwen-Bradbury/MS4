@@ -40,6 +40,7 @@ def blog_detail(request, post_id):
             new_comment.save()
             comment_form = CommentForm()
             messages.success(request, 'Successfully posted your comment.')
+            return redirect(reverse('blog_detail', args=[new_comment.id]))
     else:
         comment_form = CommentForm()
 
@@ -55,30 +56,31 @@ def blog_detail(request, post_id):
 
 @login_required
 def edit_comment(request, comment_id):
-    """ Author Access Only """
-    if not request.user.is_superuser or request.user.is_comment.comment_author:
-        messages.error(request, 'Sorry, only the comment author can do that')
-        return redirect(reverse('home'))
     """ Edit Comment """
     """ Prefill Form """
     comment = get_object_or_404(Comment, pk=comment_id)
-    if request.method == 'POST':
-        comment_form = CommentForm(request.POST, instance=comment)
-        if comment_form.is_valid():
-            comment_form.save()
-            messages.success(request, 'Comment successfully updated')
-            return redirect(reverse('view_blog'))
+    if request.user == comment.comment_author or request.user.is_superuser:
+        if request.method == 'POST':
+            comment_form = CommentForm(request.POST, instance=comment)
+            if comment_form.is_valid():
+                comment_form.save()
+                messages.success(request, 'Comment successfully updated')
+                return redirect(reverse('view_blog'))
+            else:
+                messages.error(request,
+                               'Error - Please check form is valid and \
+                                    try again.')
         else:
-            messages.error(request,
-                           'Error - Please check form is valid and try again.')
+            comment_form = CommentForm(instance=comment)
+            messages.info(request, f'You are editing {comment.comment_title}')
     else:
-        comment_form = CommentForm(instance=comment)
-        messages.info(request, f'You are editing {comment.comment_title}')
+        messages.error(request, 'Sorry, only the comment author can do that')
+        return redirect(reverse('home'))
 
     template = 'blog/edit_comment.html'
     context = {
         'comment_form': comment_form,
-        'comment': comment
+        'comment': comment,
     }
 
     return render(request, template, context)
@@ -86,15 +88,15 @@ def edit_comment(request, comment_id):
 
 @login_required
 def delete_comment(request, comment_id):
-    """ Author Access Only """
-    if not request.user.is_superuser or request.user.is_comment.comment_author:
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.user == comment.comment_author or request.user.is_superuser:
+        """ Delete Comment """
+        comment.delete()
+        messages.success(request, 'Comment deleted')
+        return redirect(reverse('view_blog'))
+    else:
         messages.error(request, 'Sorry, only the comment author can do that')
         return redirect(reverse('home'))
-    """ Delete Comment """
-    comment = get_object_or_404(Comment, pk=comment_id)
-    comment.delete()
-    messages.success(request, 'Comment deleted')
-    return redirect(reverse('view_blog'))
 
 
 @login_required
@@ -113,7 +115,7 @@ def add_post(request):
             new_post.save()
             post_form = PostForm()
             messages.success(request, 'Blog post successfully added')
-            return redirect(reverse('view_blog'))
+            return redirect(reverse('blog_detail', args=[new_post.id]))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
