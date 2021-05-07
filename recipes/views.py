@@ -74,7 +74,8 @@ def add_recipe(request):
 
     template = 'recipes/add_recipe.html'
     context = {
-        'recipe_form': recipe_form
+        'recipe_form': recipe_form,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -105,7 +106,8 @@ def edit_recipe(request, recipe_id):
     template = 'recipes/edit_recipe.html'
     context = {
         'recipe_form': recipe_form,
-        'recipe': recipe
+        'recipe': recipe,
+        'on_profile_page': True
     }
 
     return render(request, template, context)

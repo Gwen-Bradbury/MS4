@@ -81,6 +81,7 @@ def edit_comment(request, comment_id):
     context = {
         'comment_form': comment_form,
         'comment': comment,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -124,7 +125,8 @@ def add_post(request):
 
     template = 'blog/add_post.html'
     context = {
-        'post_form': post_form
+        'post_form': post_form,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -155,7 +157,8 @@ def edit_post(request, post_id):
     template = 'blog/edit_post.html'
     context = {
         'post_form': post_form,
-        'post': post
+        'post': post,
+        'on_profile_page': True
     }
 
     return render(request, template, context)

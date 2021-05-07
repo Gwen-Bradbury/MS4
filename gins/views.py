@@ -61,7 +61,7 @@ def all_gins(request):
         'gins': gins,
         'search_input': query,
         'current_gincategory': gincategories,
-        'current_sorting': current_sorting
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'gins/gins.html', context)
@@ -99,7 +99,8 @@ def add_gin(request):
 
     template = 'gins/add_gin.html'
     context = {
-        'gin_form': gin_form
+        'gin_form': gin_form,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -130,7 +131,8 @@ def edit_gin(request, gin_id):
     template = 'gins/edit_gin.html'
     context = {
         'gin_form': gin_form,
-        'gin': gin
+        'gin': gin,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
