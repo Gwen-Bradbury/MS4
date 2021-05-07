@@ -54,12 +54,12 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
-                            <p class="my-0 small text-muted">SKU: {{ item.gin.sku|upper }}</p>
+                            <a class="continue-button remove-item float-left mt-4" id="remove_{{ item.item_id }}"><small>Remove from basket</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.gin.price }}</p>
                         </td>
-                        <td class="py-3 w-25">
+                        <td class="py-3">
                             <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -87,9 +87,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <!-- Update and Remove Links -->
-                            <a class="link-button update-link"><small>Update</small></a>
-                            <a class="continue-button remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                            <!-- Update Amount Link -->
+                            <a class="link-button update-link text-center"><small>Update</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
