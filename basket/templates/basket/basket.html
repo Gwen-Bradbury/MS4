@@ -35,7 +35,7 @@
                             <!-- Table Headings -->
                             <th scope="col">Gin Info</th>
                             <th scope="col"></th>
-                            <th scope="col">Price</th>
+                            <th class="d-none d-md-block" scope="col">Price</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Subtotal</th>
                         </tr>
@@ -54,9 +54,8 @@
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
-                            <a class="continue-button remove-item float-left mt-4" id="remove_{{ item.item_id }}"><small>Remove from basket</small></a>
                         </td>
-                        <td class="py-3">
+                        <td class="py-3 d-none d-md-block">
                             <p class="my-0">${{ item.gin.price }}</p>
                         </td>
                         <td class="py-3">
@@ -65,7 +64,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <!-- Quantity Input Buttons -->
-                                        <div class="input-group-prepend">
+                                        <div class="input-group-prepend d-none d-sm-block">
                                             <button class="decrement-qty btn btn-sm rounded-5 link-button" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                             <span>
@@ -76,7 +75,7 @@
                                         <input class="form-control form-control-sm qty_input" type="number" 
                                             name="quantity" value="{{ item.quantity }}" min="1" max="99" 
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
+                                        <div class="input-group-append d-none d-sm-block">
                                             <button class="increment-qty btn btn-sm rounded-5 link-button"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id}}">
                                             <span>
@@ -88,7 +87,12 @@
                                 </div>
                             </form>
                             <!-- Update Amount Link -->
-                            <a class="link-button update-link text-center"><small>Update</small></a>
+                            <div>
+                                <a class="link-button update-link text-left"><small>Update</small></a>
+                            </div>
+                            <div>
+                                <a class="continue-button remove-item text-right" id="remove_{{ item.item_id }}"><small>Remove from basket</small></a>
+                            </div>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
