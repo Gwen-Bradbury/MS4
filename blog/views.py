@@ -40,7 +40,7 @@ def blog_detail(request, post_id):
             new_comment.save()
             comment_form = CommentForm()
             messages.success(request, 'Successfully posted your comment.')
-            return redirect(reverse('blog_detail', args=[new_comment.id]))
+            return redirect(reverse('blog_detail', args=[post.id]))
     else:
         comment_form = CommentForm()
 
