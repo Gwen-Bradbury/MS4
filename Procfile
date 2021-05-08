@@ -1,1 +1,1 @@
-web: gunicorn MS4.wsgi:application
+web: gunicorn ginporium-ms4.wsgi:application
