@@ -93,30 +93,22 @@
                     <!-- Adding <hr> To Gins on Different Screen Sizes -->
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none">
-                            <div class="fake-hr">
-                                <img href="/media/hr.png"/>
-                            </div>
+                            <hr class="mt-5 mb-5">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
-                            <div class="fake-hr">
-                                <img href="/media/hr.png"/>
-                            </div>
+                            <hr class="mt-5 mb-5">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none">
-                            <div class="fake-hr">
-                                <img href="/media/hr.png"/>
-                            </div>
+                            <hr class="mt-5 mb-5">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block">
-                           <div class="fake-hr">
-                                <img href="/media/fake-hr.png"/>
-                            </div>
+                           <hr class="mt-5 mb-5">
                         </div>
                     {% endif %}
                     {% endfor %}

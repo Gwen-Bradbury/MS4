@@ -23,16 +23,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-6">
             <!-- Edit Comment Form-->
             <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     {{ comment_form|crispy }}
                 </fieldset>
-                <div class="text-center">
+                <div class="text-right">
                     <a class="btn rounded-5 link-button" href="{% url 'view_blog' %}">Cancel</a>
-                    <button class="btn rounded-5 post-comment continue-button mb-5" type="submit">Edit</button>
+                    <button class="btn rounded-5 post-comment continue-button" type="submit">Edit</button>
                 </div>
             </form>           
         </div>

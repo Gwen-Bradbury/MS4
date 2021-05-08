@@ -523,6 +523,8 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Features left to Implement -
 
+- _Confirm Deletion Modal_ - Pop up that asks the user for confirmation before deleting recipes, blogs, blog comments and gins.
+
 - _Refunds_ - The ability to issue refunds through the website.
 
 - _Add seperate shipping and billing addresses_ - Allow the user to choose a delivery address thats different to the billing address.

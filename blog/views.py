@@ -40,6 +40,7 @@ def blog_detail(request, post_id):
             new_comment.save()
             comment_form = CommentForm()
             messages.success(request, 'Successfully posted your comment.')
+            return redirect(reverse('blog_detail', args=[new_comment.id]))
     else:
         comment_form = CommentForm()
 
@@ -56,7 +57,7 @@ def blog_detail(request, post_id):
 @login_required
 def edit_comment(request, comment_id):
     """ Author Access Only """
-    if not request.user.is_superuser or request.user.is_comment.comment_author:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only the comment author can do that')
         return redirect(reverse('home'))
     """ Edit Comment """
@@ -78,7 +79,7 @@ def edit_comment(request, comment_id):
     template = 'blog/edit_comment.html'
     context = {
         'comment_form': comment_form,
-        'comment': comment
+        'comment': comment,
     }
 
     return render(request, template, context)
@@ -87,7 +88,7 @@ def edit_comment(request, comment_id):
 @login_required
 def delete_comment(request, comment_id):
     """ Author Access Only """
-    if not request.user.is_superuser or request.user.is_comment.comment_author:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only the comment author can do that')
         return redirect(reverse('home'))
     """ Delete Comment """
@@ -113,7 +114,7 @@ def add_post(request):
             new_post.save()
             post_form = PostForm()
             messages.success(request, 'Blog post successfully added')
-            return redirect(reverse('view_blog'))
+            return redirect(reverse('blog_detail', args=[new_post.id]))
         else:
             messages.error(request,
                            'Error - Please check form is valid and try again.')
