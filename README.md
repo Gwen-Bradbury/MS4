@@ -531,8 +531,6 @@ These fields are for a referrence only can't be adjusted by the user.
 
 - _Store Customer Card information_ - Use stripe to store the customers card information for future purchases.
 
-- _Super User Comment Deletion_ - Give super users the ability to delete public users comments if necessary.
-
 - _Social Media Login_ - Allow users to login via social media accounts.
 
 - _Alternative Payment Method_ - Add Google and Apple pay.
