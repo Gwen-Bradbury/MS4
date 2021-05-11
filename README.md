@@ -16,7 +16,7 @@ via the My Account dropdown and contain easy to use forms that can be used to ga
 Superusers will have access to the Management pages that allow them the option to add Recipes, Gins, and Blog posts and Edit/Delete them as required.
 The app is colourful and engaging, drawing the user in with bright, bold images and standout text.
 
-A link to my website can be found [here](https://''.herokuapp.com/)
+A link to my website can be found [here](https://ginporium-ms4.herokuapp.com/)
 
 ## UX
 
@@ -699,7 +699,7 @@ In order to successfully deploy the app, the following steps were taken:
 	- ```pip3 freeze > requirements.txt```
 
 14.	Create Procfile, enter the following to tell Heroku to create a web dyno, which will run unicorn and serve our django app:
-	```web: gunicorn APP_NAME.wsgi:application```
+	- ```web: gunicorn APP_NAME.wsgi:application```
 
 15. Temporarily disable collectstatic. 
 
@@ -709,7 +709,7 @@ In order to successfully deploy the app, the following steps were taken:
 17.	Add/commit changes to github.
 
 18.	To deploy to Heroku, enter (you may need to initialize your Heroku git remote if you created your app on the website rather than the CLI):
-    ```git push heroku master```
+    - ```git push heroku master```
 
 19.	To automatically deploy on Heroku when committing to github - on your Heroku dashboard go to Deploy > Github, search for your repository and click Connect.
 
