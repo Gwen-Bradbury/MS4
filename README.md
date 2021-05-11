@@ -641,11 +641,200 @@ This website was developed in Gitpod and pushed to the remote repositories, GitH
 
 ### Used Commands during Deployment -
 
+1. git add . - To add files to staging area.
+
+2. git commit -m "message here" - To commit the files.
+
+3. git push - To push the committed files to the origin master branch on github.
+
+4. git push heroku master - To push the commited files to the origin master branch on heroku.
+
+5. git status - To see the current state of the files.
+
+6. python3 manage.py migrate - Runs migrations.
+
+7. python3 manage.py create superuser - Creates Superuser.
+
+8. python3 manage.py dumpdata - To create json data files.
+
+9. export DATABASE_URL= "your value from heroku" - To connect Gitpod to Postgres.
+
+10. python3 manage.py loaddata - Loads the dumps into Postgres.
+
 ### Hosting on Heroku -
+
+In order to successfully deploy the app, the following steps were taken:
+
+1. Log into your Heroku account, create new app.
+
+2. Choose app name and closest region.
+
+3. On Resources tab, provision Heroku Postgres.
+	 
+4. Back in gitpod, install the following via these commands:
+	- ```pip3 install dj database url```
+	- ```pip3 install psycopg2 binary```
+
+5. Freeze the requirements to update the requirements.txt file. This makes sure Heroku installs all apps when deployed:
+	- ```pip3 freeze > requirements.txt```
+
+6. To get the database setup, go to settings.py and import dj_database_url.
+
+7. In databases settings, comment out default configuration and replace the default database with a call to dj_database_url.parse, and give it the database URL from Heroku stored in your config variables (under the app settings tab).
+
+8. Now run all migrations with:
+    - ```python 3 manage.py migrate```
+
+9. Then create a superuser with:
+	- ```python3 manage.py create superuser```
+
+10.	Back in settings.py remove the Heroku database config, and uncomment the original so our database URL doesn't end up in version control.
+
+11.	Then commit to github.
+
+12.	Using an if statement in settings.py, to allow access to Postgres when running on Heroku, where database URL environment variable is defined, otherwise connecting to sqlite. 
+
+13. Install unicorn, which will act as our webserver, then freeze that into requirements.txt:
+	- ```pip3 install gunicorn```
+	- ```pip3 freeze > requirements.txt```
+
+14.	Create Procfile, enter the following to tell Heroku to create a web dyno, which will run unicorn and serve our django app:
+	```web: gunicorn APP_NAME.wsgi:application```
+
+15. Temporarily disable collectstatic. 
+
+16.	Add the hostname of our Heroku app to allowed hosts in settings.py, and localhost:
+	ALLOWED_HOSTS = ['YOUR-APP-NAME.herokuapp.com', 'localhost']
+
+17.	Add/commit changes to github.
+
+18.	To deploy to Heroku, enter (you may need to initialize your Heroku git remote if you created your app on the website rather than the CLI):
+    ```git push heroku master```
+
+19.	To automatically deploy on Heroku when committing to github - on your Heroku dashboard go to Deploy > Github, search for your repository and click Connect.
+
+20.	Click Enable Automatic Deploys.
+
+21.	Add a new secret key in your Heroku Config Vars (you can use an online Django secret key generator to do this). 
+
+22.	Now you can replace the secret key in settings.py with a call to get this from the environment.
+
+23.	Commit/push these changes to github.
+
+### AWS -
+
+AWS is a cloud based storage service, used to store static files and images:
+
+1. After creating an AWS account (using the free version will be sufficient), access the AWS management console in your account.
+
+2. Find s3 by searching for this in services.
+
+3. Open s3 and create a new bucket.
+
+4. Enter a name for your bucket/select your closest region.
+
+5. Uncheck the block public access box, and create the bucket.
+
+6. Once created, click on the bucket and enter the following settings:
+    - Under Properties, turn on static website hosting
+	-  Under Permissions, paste in the CORS configuration:
+        ```
+            [
+                {
+                    "AllowedHeaders": [
+                        "Authorization"
+                        ],
+                    "AllowedMethods": [
+                        "GET"
+                        ],
+                    "AllowedOrigins": [
+                        "*"
+                        ],
+                    "ExposeHeaders": []
+                }
+            ] 
+        ```
+    - Go to the bucket policy tab and select, policy generator to create a security policy for this bucket.
+    - The policy type is going to be s3 bucket policy, allow all principals by using a star, and the action will be, get object.
+    - Copy the ARN (Amazon resource name) from the bucket policy tab and paste it into the ARN box at the bottom, then click Add Statement. Click Generate Policy then copy this policy into the bucket policy editor.
+    - Before clicking Save, you want to allow access to all resources in this bucket, add a slash star onto the end of the resource key to do this.
+    - Go to the access control list tab and set the list objects permission for everyone under the Public Access section.
+
+7. With the s3 bucket set up, you need to create a user to access it. Do this through a service called Iam (Identity and Access Management).
+
+8. Go back to the services menu and open Iam.
+
+9. Click groups and create a new group (keep clicking through to Create Group).
+
+10. Create the policy used to access the bucket by clicking policies, and then create policy.
+
+11.	Go to the JSON tab and select import managed policy, then search for s3 and import the s3 full access policy.
+
+12.	Get the bucket ARN from the bucket policy page in s3, and paste that in the JSON section.
+
+13.	Click review policy, give it a name and a description, and click create policy.
+
+14.	Attach the policy to the group we created. Go to groups, click manage my group, click attach policy, search for the policy just created and select it, then click attach policy.
+
+15.	Create a user to put in the group. On the user's page, click add user, create a user, give them programmatic access, then select next.
+
+16.	Add user to your group. Important: Download the CSV file which contains this users access key and secret access key. This is needed to authenticate them from our Django app (you cannot access this again!).
+
+17.	To Connect Django to s3 bucket, Install 2 new packages:
+    -	```pip3 install boto3```
+    -	```pip3 install django-storages```
+
+18.	Freeze requirements:
+    -	```pip3 freeze > requirements.txt```
+
+19.	Add ‘storages’ to installed apps on settings.py.
+
+20.	To connect Django to s3. In settings.py add the required statements to tell it which bucket it should be communicating with.
+ 
+21.	Go to Heroku and add AWS keys to config variables. Add USE_AWS = True to config vars too.
+
+22.	Remove disable collectstatic variable.
+
+23.	In settings,py, add required statements to tell django where the static files will be coming from in production.
+
+24.	Create a file called custom storages.
+ 
+25.	In settings.py, state that for static file storage you want to use the storage class you just created, and give it the location. Do the same thing for media files by using the default file storage and media files location settings. 
+
+26.	Add/commit changes in github.
 
 ### Forking the GitHub Repository -
 
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original 
+repository by using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+
+3. You should now have a copy of the original repository in your GitHub account.
+
 ### Running this Project Locally -
+
+You will need to install the following to run this locally:
+
+- An IDE 
+- Python3 to run the application
+- PIP to install all app requirements
+- Django
+- SQlite or Postgres Databases
+- GIT for cloning and version control
+
+1. To run this code on your local machine, you would go to my respository at
+https://github.com/Gwen-Bradbury/MS4 and on the home page on the right hand side just above all the files, you will see a green button that says,
+"Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
+To continue with cloning, you would;
+
+- Open Git Bash
+- Change the current working directory to the location where you want the cloned directory to be made.
+- Type git clone, and then paste this URL; https://github.com/Gwen-Bradbury/MS4.git Press Enter. Your local clone will be created.
+
+For more information about the above process; https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 
 ## Credits
 
