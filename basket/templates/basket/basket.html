@@ -87,10 +87,8 @@
                                 </div>
                             </form>
                             <!-- Update Amount Link -->
-                            <div>
-                                <a class="link-button update-link"><small>Update</small></a>
-                                <a class="continue-button remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove from basket</small></a>
-                            </div>
+                            <a class="link-button update-link"><small>Update</small></a>
+                            <a class="continue-button remove-item float-right" id="remove_{{ item.item_id }}"><small>Remove from basket</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
