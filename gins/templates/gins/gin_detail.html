@@ -81,7 +81,7 @@
                             {% if request.user.is_superuser %}
                                 <small class="ml-3">
                                     <a class="btn link-button" href="{% url 'edit_gin' gin.id %}">Edit</a>
-                                    <a class="continue-button ml-3" href="{% url 'delete_gin' gin.id %}">Delete</a>
+                                    <a class="btn continue-button ml-3" href="{% url 'delete_gin' gin.id %}">Delete</a>
                                 </small>
                             {% endif %}
                             <!-- Continue Shopping and Add to Basket Buttons -->
