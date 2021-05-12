@@ -81,10 +81,10 @@
                             {% if request.user.is_superuser %}
                                 <small class="ml-3">
                                     <a class="btn link-button" href="{% url 'edit_gin' gin.id %}">Edit</a>
-                                    <button data-target="{{ gin.id }}" class="modal-trigger continue-button ml-3">Delete</button>
+                                    <a class="continue-button ml-3">Delete</a>
                                 </small>
                             {% endif %}
-                            <!-- Modal Structure -->
+                            <!-- Modal Structure
                             <div id="{{ gin.id }}" class="modal">
                                 <div class="modal-content">
                                 <h4>Are you sure you want to delete this gin?</h4>
@@ -99,7 +99,7 @@
                                 Cancel
                                 </a>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- Continue Shopping and Add to Basket Buttons -->
                             <div class="col-12">
                                 <a href="{% url 'gins' %}" class="btn rounded-5 mt-5">
