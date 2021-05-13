@@ -3,8 +3,40 @@ html {
 }
 
 body {
-    background: url('/media/home.jpg') no-repeat center fixed; 
+    height: 100%;
+}
+
+.title {
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgb(245 43 43 / 50%);
+    font-size: 3rem;
+}
+
+/* Landing Page Image and Text */
+.jumbotron-section {
+    background: url('/media/home.jpg') no-repeat top center; 
     background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.jumbotron-content {
+    background-color: #7b7a7464;
+    padding: 20px;
+    margin: 30px auto;
+    max-height: 400px;
+    width: 450px;
+    box-shadow: 0px 3px 15px 10px rgba(0,0,0,0.42);
 }
 
 /* Background Image Overlay */
@@ -39,9 +71,13 @@ input[name='q']::placeholder {
 /* Header */
 header {
     background-color: #f1b55a;
+    box-shadow: 0px 5px 10px 9px rgba(0,0,0,0.42);
 }
 
 /* Buttons and Links */
+.headline-links:focus,
+.headline-links:active,
+.headline-links:hover,
 .link-button {
     color: #6a040f !important;
 }
@@ -53,7 +89,7 @@ header {
 
 .headline-links {
     margin: 10px;
-    color: #dc2f02;
+    color: #fff;
     min-width: 260px;
     font-size: 3rem; 
 }
@@ -61,9 +97,6 @@ header {
 .to-top-link:focus,
 .to-top-link:active,
 .to-top-link:hover,
-.headline-links:focus,
-.headline-links:active,
-.headline-links:hover,
 .continue-button:focus, 
 .continue-button:active,
 .continue-button:hover, 
@@ -292,13 +325,13 @@ header {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 149px;
     }
 }
 
 /* Padding Top For Navbar When Collapsed in Mobile View */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 80px;
     }
 }
