@@ -17,13 +17,14 @@
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-6 offset-md-3">
             <h2 class="mb-4 text-center mt-3">Product Management</h2>
-            <h5 class="text-muted mb-3">Edit a Gin</h5>
+            <h5 class="text-muted text-center mb-3">Edit a Gin</h5>
+            <hr>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-sm-12 col-md-6 offset-md-3">
             <!-- Edit Gin Form-->
             <form method="POST" action="{% url 'edit_gin' gin.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
