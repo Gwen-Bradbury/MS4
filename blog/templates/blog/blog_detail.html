@@ -19,8 +19,8 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
+        <div class="col-sm-6 offset-sm-3 col-md-4 offset-md-4">
+            <div class="image-container mt-5 mb-3 border-blue">
                 <!-- Get 'Blog Image' or 'No Image' Image -->
                 {% if post.image %}
                 <a href="{{ post.image.url }}" target="_blank">
@@ -33,7 +33,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="col-sm-12 col-md-4 offset-md-4">
             <div class="product-details-container mb-5 mt-md-5">
                 <!-- Get Post Information -->
                 <p class="lead mb-0">{{ post.post_title }}</p>
@@ -72,9 +72,9 @@
             <h4>Leave a Comment-</h4>
         </div>
     </div>
-    <div class="row mt-3">  
-        <div class="col-md-6 offset-md-3">
-            <form class="col-sm-12" method="POST">
+    <div class="row mt-5">  
+        <div class="col-md-6 offset-md-3 border-blue mb-5">
+            <form class="col-sm-12 mt-3" method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
                     {{ comment_form|crispy }}
