@@ -47,7 +47,7 @@
                     <div class="block mt-2">
                         <small>
                             <a class="link-button" href="{% url 'edit_post' post.id %}">Edit</a>
-                            <a class="continue-button ml-3" href="{% url 'delete_post' post.id %}">Delete</a>
+                            <a class="delete-button ml-3" href="{% url 'delete_post' post.id %}">Delete</a>
                         </small>
                     </div>
                 {% endif %}
@@ -131,7 +131,7 @@
                                 <div class="block">
                                     <small class="mt-2">
                                         <a class="link-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
-                                        <a class="continue-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                                        <a class="delete-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
                                     </small>
                                 </div>
                             {% endif %}

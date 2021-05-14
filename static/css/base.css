@@ -76,7 +76,6 @@ header {
 }
 
 /* Buttons and Links */
-
 .name-link,
 .link-button,
 .headline-links:focus,
@@ -87,7 +86,7 @@ header {
     cursor: pointer;
 }
 
-.continue-button,
+.delete-button,
 .basket-full {
     color: #dc2f02;
 }
@@ -99,6 +98,9 @@ header {
     font-size: 3rem; 
 }
 
+.continue-button:focus,
+.continue-button:active,
+.continue-button:hover,
 .name-link:focus,
 .name-link:active,
 .name-link:hover,
@@ -108,15 +110,19 @@ header {
 .to-top-link:focus,
 .to-top-link:active,
 .to-top-link:hover,
-.continue-button:focus, 
-.continue-button:active,
-.continue-button:hover, 
+.delete-button:focus, 
+.delete-button:active,
+.delete-button:hover, 
 .basket-full:focus,
 .basket-full:active,
 .basket-full:hover {
     color: #001d3d !important;
     text-decoration: none;
     cursor: pointer;
+}
+
+.continue-button {
+    color: #573d67;
 }
 
 .nav-link-size {
