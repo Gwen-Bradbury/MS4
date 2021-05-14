@@ -36,39 +36,35 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        {% for post in posts %}
-        <div class="col-sm-12 col-md-4 offset-md-4">
-            <div class="card h-100 border-blue">
-                <!-- Get 'Blog Image' or 'No Image' Image -->
+    {% for post in posts %}
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <!-- Get 'Blog Image' or 'No Image' Image -->
+            <div class="my-5">
                 {% if post.image %}
                 <a href="{% url 'blog_detail' post.id %}">
-                    <img class="card-img-top img-fluid blog" src="{{ post.image.url }}" alt="{{ post.post_title }}">
+                    <img class="card-img-top img-fluid blog border-blue" src="{{ post.image.url }}" alt="{{ post.post_title }}">
                 </a>
                 {% else %}
                 <a href="{% url 'blog_detail' post.id %}">
-                    <img class="card-img-top img-fluid blog" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
+                    <img class="card-img-top img-fluid blog border-blue" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
                 </a>
                 {% endif %}
-                <div class="card-body">
-                    <!-- Get Blog Title -->
-                    <p class="lead mb-0 font-weight-bold name-height">{{ post.post_title }}</p>
-                    <hr>
-                </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <!-- Get Blog Author -->
-                    <div class="row">
-                        <div class="col">
-                            <p class="mb-0 text-left">{{ post.post_author }}</p>
-                            <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <hr class="w-50 mt-5 mb-5">
-        {% endfor %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="mb-5 mt-md-5">
+                <!-- Get Blog Title -->
+                <p class="lead mb-3 font-weight-bold name-height">{{ post.post_title }}</p>
+                <hr>
+                <!-- Get Blog Author -->
+                <p class="mb-0 text-left">{{ post.post_author }}</p>
+                <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
+            </div>
+        </div>
     </div>
+    <hr class="w-50">
+    {% endfor %}
 </div>
 <!-- Back To Top Button -->
 <div class="to-top-button shadow-sm rounded-5 border">
