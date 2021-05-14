@@ -13,6 +13,8 @@ body {
     -moz-background-clip: text;
     background-clip: text;
     text-shadow: 0px 3px 3px rgb(245 43 43 / 50%);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Landing Page Image and Text */
@@ -74,11 +76,15 @@ header {
 }
 
 /* Buttons and Links */
+
+.name-link,
+.link-button,
 .headline-links:focus,
 .headline-links:active,
-.headline-links:hover,
-.link-button {
+.headline-links:hover {
     color: #6a040f !important;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .continue-button,
@@ -93,6 +99,12 @@ header {
     font-size: 3rem; 
 }
 
+.name-link:focus,
+.name-link:active,
+.name-link:hover,
+.link-button:focus,
+.link-button:active,
+.link-button:hover,
 .to-top-link:focus,
 .to-top-link:active,
 .to-top-link:hover,
@@ -101,10 +113,7 @@ header {
 .continue-button:hover, 
 .basket-full:focus,
 .basket-full:active,
-.basket-full:hover,
-.link-button:focus,
-.link-button:active,
-.link-button:hover {
+.basket-full:hover {
     color: #001d3d !important;
     text-decoration: none;
     cursor: pointer;
@@ -133,7 +142,7 @@ header {
     box-shadow: 0px 3px 15px 10px rgba(0,0,0,0.42);
 }
 
-.name-height {
+.name-link {
     min-height: 60px;
 }
 

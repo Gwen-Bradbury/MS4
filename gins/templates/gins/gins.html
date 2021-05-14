@@ -71,7 +71,9 @@
                             {% endif %}
                             <div class="card-body pb-0">
                                 <!-- Get Gin Information -->
-                                <p class="lead mb-0 font-weight-bold name-height">{{ gin.name }}</p>
+                                <a href="{% url 'gin_detail' gin.id %}" class="name-link">
+                                    <p class="lead mb-0 font-weight-bold">{{ gin.name }}</p>
+                                </a>
                                 <hr>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
