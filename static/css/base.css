@@ -86,8 +86,7 @@ header {
     cursor: pointer;
 }
 
-.delete-button,
-.basket-full {
+.delete-button {
     color: #dc2f02;
 }
 
@@ -96,6 +95,10 @@ header {
     color: #fff;
     min-width: 260px;
     font-size: 3rem; 
+}
+
+.basket-full {
+    color: #d39e00;
 }
 
 .continue-button:focus,
@@ -122,7 +125,7 @@ header {
 }
 
 .continue-button {
-    color: #573d67;
+    color: #d39e00;
 }
 
 .nav-link-size {
