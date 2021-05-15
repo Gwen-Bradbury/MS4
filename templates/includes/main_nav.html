@@ -29,13 +29,10 @@
             </div>
         </li>
         <!-- Blog Dropdown -->
-        <li class="nav-item dropdown">
-            <a class="link-button nav-link-size nav-link mr-5" href="#" id="all-blogs-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+            <a class="link-button nav-link-size nav-link mr-5" href="{% url 'view_blog' %}" id="all-blogs-link">
                 BLOG
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-blogs-link">
-                <a href="{% url 'view_blog' %}" class="dropdown-item">All Blog Entries</a>
-            </div>
         </li>
     </ul>
 </div>
