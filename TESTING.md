@@ -3,6 +3,7 @@
 - [Ginporium](#ginporium)
   * [Testing](#testing)
     + [Manual Testing](#manual-testing)
+    + [Compatibility and Responsiveness](#compatibility-and-responsiveness)
     + [Open Issues](#open-issues)
 
 ## Testing
@@ -36,27 +37,39 @@ The images did not appear streched or pixilated and remained sharp and clear thr
 
     The results of this were -
 
-    1. Users can easily understand the main purpose of the app.
+    1. Users can choose thier own username and password.
 
-    2. It's colorful and engaging.
+    2. Users can find what they're looking for quickly and easily, using the navbar, search bar, categories and sort by dropdown.
 
-    3. Users can add, edit and delete inputs easily.
-
-    4. Users can find what they're looking for quickly and easily, using the navbar and search bar.
-
-    5. The app is easy to use and has easy to follow instructions, with user feedback when an action has been carried out using toasts messages.
+    3. Links in the navbar are labelled clearly.
     
-    6. The site has been designed to be fluid and never to entrap the user.
-    
-    7. Having the forms within the 'Edit' buttons autofill, saves user time and repetition.
-    
-    8. Links in the navbar are labelled clearly.
-    
-    9. The 'Top' button takes users back to the top of the page ensuring they always have somewhere to go and don't feel trapped as they get to the bottom of the page.
+    4. Users can view a list of products and select some to purchase.
 
-    10. Users can purchase items quickly.
+    5. Users can view a specific items details in a seperate window.
 
-    11. Unregistered users can still purchase items.
+    6. The app is easy to use and has easy to follow instructions, with user feedback when an action has been carried out using toasts messages.
+
+    7. Users are notified if thier imputs are successful and have been denied.
+
+    8. Users can add, edit and delete inputs easily
+
+    9. Users payment information is handled securely via stripe.
+
+    10. Having the forms within the 'Edit' buttons autofill, saves user time and repetition.
+
+    11. Only the comment author and superuser can delete and edit a users comments.
+
+    12. Some parts of the site are only accessable to super users.
+
+    13. Users can purchase items quickly.
+
+    14. Unregistered users can still purchase items.
+
+    15. It's colorful and engaging.
+
+    16. The site has been designed to be fluid and never to entrap the user.
+    
+    17. The 'Top' button takes users back to the top of the page ensuring they always have somewhere to go and don't feel trapped as they get to the bottom of the page.
     
 * A super user and regular user were created to test the elements only accessable to superusers stays hidden to regular users.
 * All buttons, forms and links were clicked and tested for responses, all form fields were filled out and responded as expected, all features were used and tested with appropriate responses given as a logged in user, superuser and unregistered user.
@@ -242,6 +255,11 @@ be automatically generated with the stored info. Any information changes made on
 _Thankyou_ -
 * When users have checked out and paid, they are directed to a thankyou page with a copy of thier order and a link to the all recipes page.
 Users are also sent a copy of thier order to the email they suppied in the form on the checkout page. They are notified of this on the thankyou page alongside the email address.
+
+### Compatibility and Responsiveness
+
+The device emulator by Google Chrome's developer tool is used to check the responsiveness across all the different screen sizes and devies to ensure compatibility and responsiveness. Also, this website has been tested on multiple browsers (Chrome, Safari, FireFox).
+IPhone 12 (iOS 14.1) is used to test for mobile testing.
 
 ### Open Issues
 

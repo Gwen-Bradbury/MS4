@@ -212,8 +212,6 @@ Site security will appeal to every member of the target audience. When using the
 
 - As a user, I want the option to delete inputs if necessary.
 
-- As a user, I want confirmation before deleting something.
-
 - As a user, I want my information to remain confidential.
 
 - As a user, I dont want other users editing/deleting my inputs.
@@ -235,8 +233,6 @@ Site security will appeal to every member of the target audience. When using the
 - As a site superuser, I want to be able to add and edit content easily.
 
 - As a site superuser, I want the option to delete inputs if necessary.
-
-- As a site superuser, I want confirmation before deleting something.
 
 - As a site superuser, I dont want the public editing/deleting my inputs.
 
