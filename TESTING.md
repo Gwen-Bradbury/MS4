@@ -1,5 +1,10 @@
 # Ginporium
 
+- [Ginporium](#ginporium)
+  * [Testing](#testing)
+    + [Manual Testing](#manual-testing)
+    + [Open Issues](#open-issues)
+
 ## Testing
 
 I carried our substantial testing on all of my sites pages and links.
@@ -48,6 +53,10 @@ The images did not appear streched or pixilated and remained sharp and clear thr
     8. Links in the navbar are labelled clearly.
     
     9. The 'Top' button takes users back to the top of the page ensuring they always have somewhere to go and don't feel trapped as they get to the bottom of the page.
+
+    10. Users can purchase items quickly.
+
+    11. Unregistered users can still purchase items.
     
 * A super user and regular user were created to test the elements only accessable to superusers stays hidden to regular users.
 * All buttons, forms and links were clicked and tested for responses, all form fields were filled out and responded as expected, all features were used and tested with appropriate responses given as a logged in user, superuser and unregistered user.
