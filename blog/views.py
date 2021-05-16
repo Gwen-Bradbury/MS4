@@ -65,7 +65,7 @@ def edit_comment(request, comment_id):
             if comment_form.is_valid():
                 comment_form.save()
                 messages.success(request, 'Comment successfully updated')
-                return redirect(reverse('blog_detail'))
+                return redirect(reverse('blog_detail')) """"HERE!!!!"""
             else:
                 messages.error(request,
                                'Error - Please check form is valid and \

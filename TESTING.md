@@ -8,31 +8,46 @@ http://ami.responsivedesign.is/ has been used to see how the site performs on di
 I also used it to create the AppleDevicesView.png at the top of this Readme.
 
 ### Manual Testing
-    - Google Chrome Browser; all feature links and icons perform well on all viewport sizes. Developer tools were also used on browser for the various viewport sizes. 
+
+- Google Chrome Browser; all feature links and icons perform well on all viewport sizes. Developer tools were also used on browser for the various viewport sizes. 
 The webpages are responsive as are the images, info windows and forms, whilst retaining user freindly design aspects.
 The images did not appear streched or pixilated and remained sharp and clear throughtout the site.
-    ![Chromebook Devices picture](./documentation/chromebook.png)
-    - Safari Browser; all feature links and icons perform well on all viewport sizes. Developer tools were also used on browser for the various viewport sizes. 
+
+![Chromebook Devices picture](./documentation/chromebook.png)
+
+- Safari Browser; all feature links and icons perform well on all viewport sizes. Developer tools were also used on browser for the various viewport sizes. 
 The webpages are responsive as are the images, info windows and forms, whilst retaining user freindly design aspects.
 The images did not appear streched or pixilated and remained sharp and clear throughtout the site.
-    ![Apple Devices Picture](./documentation/responsive.png)
-    - Various browsers and devices; the project was shared in the peer-code-review CI slack room and was tested by other CI Students, Mentors, Alumni and Tutors. 
+
+![Apple Devices Picture](./documentation/responsive.png)
+
+- Various browsers and devices; the project was shared in the peer-code-review CI slack room and was tested by other CI Students, Mentors, Alumni and Tutors. 
 
 > Note: The developer used dev tools to check the resposiveness of all the apps pages, using the dropdown burger menu, to click every page link. The 'Top' button was pressed on every page to test for the required action on smaller screen sizes, with the correct response given. 
         The images were viewed and buttons all pressed on various browser sizes in dev tools to check responsiveness, along with forms and the search bar. 
         All pages and thier contents were fully responsive whilst maintaining user friendly design aspects.
 
 * This is in direct relation to the 'Goals' and 'User Stories' from the 'UX' Section.
+
     The results of this were -
-        1. Users can easily understand the main purpose of the app.
-        2. It's colorful and engaging.
-        3. Users can add, edit and delete inputs easily.
-        4. Users can find what they're looking for quickly and easily, using the navbar and search bar.
-        5. The app is easy to use and has easy to follow instructions, with user feedback when an action has been carried out using toasts messages.
-        6. The site has been designed to be fluid and never to entrap the user.
-        7. Having the forms within the 'Edit' buttons autofill, saves user time and repetition.
-        8. Links in the navbar are labelled clearly.
-        9. The 'Top' button takes users back to the top of the page ensuring they always have somewhere to go and don't feel trapped as they get to the bottom of the page.
+
+    1. Users can easily understand the main purpose of the app.
+
+    2. It's colorful and engaging.
+
+    3. Users can add, edit and delete inputs easily.
+
+    4. Users can find what they're looking for quickly and easily, using the navbar and search bar.
+
+    5. The app is easy to use and has easy to follow instructions, with user feedback when an action has been carried out using toasts messages.
+    
+    6. The site has been designed to be fluid and never to entrap the user.
+    
+    7. Having the forms within the 'Edit' buttons autofill, saves user time and repetition.
+    
+    8. Links in the navbar are labelled clearly.
+    
+    9. The 'Top' button takes users back to the top of the page ensuring they always have somewhere to go and don't feel trapped as they get to the bottom of the page.
     
 * A super user and regular user were created to test the elements only accessable to superusers stays hidden to regular users.
 * All buttons, forms and links were clicked and tested for responses, all form fields were filled out and responded as expected, all features were used and tested with appropriate responses given as a logged in user, superuser and unregistered user.
