@@ -523,6 +523,12 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Features left to Implement -
 
+- _400 and 500 Error Pages_ - A page that has the message of the error and 'Back to Home' button so that the user would not be lost.
+
+- _Linking a related gin page to recipe page_ - To call more customers to purchase a product, it would be effective to link a gin page which is related to a recipe.
+
+- _Recipe Details_ - Put information relating to a specific recipe on a seperate page instead of underneath.
+
 - _Confirm Deletion Modal_ - Pop up that asks the user for confirmation before deleting recipes, blogs, blog comments and gins.
 
 - _Refunds_ - The ability to issue refunds through the website.
@@ -534,6 +540,8 @@ These fields are for a referrence only can't be adjusted by the user.
 - _Social Media Login_ - Allow users to login via social media accounts.
 
 - _Alternative Payment Method_ - Add Google and Apple pay.
+
+- _Order Tracking System_ - To keep the customers informed with the status of their purchase, it would be nice if the site provides the order status such as shipment information in order history and email notifications.
 
 ### Bugs and Fixes Implemented after Testing -
 
@@ -870,7 +878,7 @@ For more information about the above process; https://help.github.com/en/github/
 
 - Bottles and cocktail images from [Gordons](https://www.gordonsgin.com/)
 
-- Main Image from [Pexels](https://www.pexels.com/)
+- Main Image and Blog images from [Pexels](https://www.pexels.com/) and [Unsplash](https://www.unsplash.com/)
 
 2. Table of contents 
 
