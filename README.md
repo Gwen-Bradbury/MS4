@@ -703,6 +703,8 @@ I carried our substantial testing on all of my apps pages and links. You can see
 
 #### Python -
 
+> Note: Pylint errors- has no objects member/why some errors have been left and not changed.
+
 ## Deployment
 
 This website was developed in Gitpod and pushed to the remote repositories, GitHub and Heroku. The live page is hosted on Heroku.
