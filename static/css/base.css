@@ -8,36 +8,46 @@ body {
 
 .title {
     color: transparent;
-    background: #666666;
+    background: #d7b2ef;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    text-shadow: 0px 3px 3px rgb(245 43 43 / 50%);
+    text-shadow: 0px 3px 3px #6a040f;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* carousel */
+.image {
+  position: relative;
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+
 /* Landing Page Image and Text */
 .jumbotron-section {
-    background: url('/media/home.jpg') no-repeat top center; 
-    background-size: cover;
-    height: 100vh;
+    background: url('/media/home.jpg') no-repeat top center;
+    background-size: contain;
+    height: 80vh;
     width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    position: fixed;
 }
 
 .jumbotron-content {
-    background-color: #7b7a7464;
+    background-color: #ecb61340;
     padding: 20px;
     margin: 30px auto;
     max-height: 400px;
     width: 450px;
     box-shadow: 0px 3px 15px 10px rgba(0,0,0,0.42);
+    position: relative;
 }
 
 /* Background Image Overlay */
@@ -71,16 +81,13 @@ input[name='q']::placeholder {
 
 /* Header */
 header {
-    background-color: #d8ccb99c;
+    background-color: #ef930ad6;
     box-shadow: 0px 5px 10px 9px rgba(0,0,0,0.42);
 }
 
 /* Buttons and Links */
 .name-link,
-.link-button,
-.headline-links:focus,
-.headline-links:active,
-.headline-links:hover {
+.link-button {
     color: #6a040f !important;
     text-decoration: none;
     cursor: pointer;
@@ -92,15 +99,18 @@ header {
 
 .headline-links {
     margin: 10px;
-    color: #fff;
+    color: #6a040f;
     min-width: 260px;
     font-size: 3rem; 
 }
 
 .basket-full {
-    color: #d39e00;
+    color: #147281;
 }
 
+.headline-links:focus,
+.headline-links:active,
+.headline-links:hover,
 .continue-button:focus,
 .continue-button:active,
 .continue-button:hover,
@@ -125,7 +135,7 @@ header {
 }
 
 .continue-button {
-    color: #d39e00;
+    color: #147281;
 }
 
 .nav-link-size {
@@ -164,7 +174,7 @@ header {
 }
 
 .blog {
-    max-height: 200px;
+    max-height: 220px;
     max-width: 400px;
     margin: 10px auto 10px auto;
 }
@@ -182,13 +192,6 @@ header {
 .comment-card {
     padding-top: 0;
 }
-
-/* .fake-hr { 
-    height: 25px; 
-    background: url('/media/fake-hr.png') no-repeat 50% 50%;
-    margin: 1em 0; 
-    border: 0;
-} */
 
 /* Gin, Recipe and Blog Forms */
 .btn-file {
@@ -352,7 +355,7 @@ header {
 /* Padding Top For Navbar When Collapsed in Mobile View */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 80px;
+        padding-top: 70px;
     }
 
     .display-4 {

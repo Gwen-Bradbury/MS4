@@ -15,6 +15,16 @@
 {% block content %}
 <!-- Overlay for Background Image -->
     <div class="overlay"></div>
+    <!-- Carousel -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3">
+                <div class="mt-3 mb-5" id="carousel">
+                    <img class="image" alt="Image Carousel Failed" src="#"/>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
@@ -134,8 +144,10 @@
 
 {% block postload_js %}
     {{ block.super }}
-    <!-- Back To Top Button JS -->
-    {% include 'recipes/includes/js/to_top_button_js.html' %}
-    <!-- Sort By Dropdown JS -->
-    {% include 'recipes/includes/js/sortby_dropdown_js.html' %}
+        <!-- Back To Top Button JS -->
+        {% include 'recipes/includes/js/to_top_button_js.html' %}
+        <!-- Sort By Dropdown JS -->
+        {% include 'recipes/includes/js/sortby_dropdown_js.html' %}
+        <!-- JS Carousel -->
+        {% include 'blog/includes/js/carousel_js.html' %}
 {% endblock %}
