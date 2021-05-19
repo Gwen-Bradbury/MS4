@@ -98,14 +98,14 @@ header {
 }
 
 .headline-links {
-    margin: 10px;
+    margin: 5px;
     color: #6a040f;
     min-width: 260px;
-    font-size: 3rem; 
+    font-size: 2rem;
 }
 
 .basket-full {
-    color: #ef930ad6;
+    color: #ba7103;
 }
 
 .headline-links:focus,
@@ -135,7 +135,7 @@ header {
 }
 
 .continue-button {
-    color: #ef930ad6;
+    color: #ba7103;
 }
 
 .nav-link-size {
