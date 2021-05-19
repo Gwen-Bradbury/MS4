@@ -260,6 +260,7 @@ Users are also sent a copy of thier order to the email they suppied in the form 
 
 The device emulator by Google Chrome's developer tool is used to check the responsiveness across all the different screen sizes and devies to ensure compatibility and responsiveness. Also, this website has been tested on multiple browsers (Chrome, Safari, FireFox).
 IPhone 12 (iOS 14.1) is used to test for mobile testing.
+Ipad mini and Ipad Pro are used for medium screen testing.
 
 ### Open Issues
 
