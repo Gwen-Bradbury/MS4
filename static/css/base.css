@@ -8,7 +8,7 @@ body {
 
 .title {
     color: transparent;
-    background: #d7b2ef;
+    background: #5fa1c7;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
@@ -30,7 +30,7 @@ body {
 .jumbotron-section {
     background: url('/media/home.jpg') no-repeat top center;
     background-size: contain;
-    height: 80vh;
+    height: 82vh;
     width: 100%;
 
     display: flex;
