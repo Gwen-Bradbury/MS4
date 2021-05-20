@@ -618,12 +618,27 @@ therefore the color scheme was change to make it more user friendly, and look mo
 
 ## Technologies Used
 
+### Backend Technologies -
+
+1. **Gunicorn 20.0.4:** Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. The Gunicorn server is broadly compatible with 
+various web frameworks, simply implemented, light on server resources, and fairly speedy. https://docs.gunicorn.org/en/stable/
+
+2. **Pillow 4.3.0:** The Python Imaging Library adds image processing capabilities to your Python interpreter. This library provides
+extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities. 
+https://pillow.readthedocs.io/en/stable/handbook/overview.html
+
+3. **Psycopg2 2.8.5:** Psycopg is the most popular PostgreSQL database adapter for the Python programming language. Its main features are 
+the complete implementation of the Python DB API 2.0 specification and the thread safety. https://pypi.org/project/psycopg2/ 
+
+4. **boto3 1.14.5:** Boto is the Amazon Web Services (AWS) SDK for Python. It enables Python developers to create, configure, and manage AWS 
+services, such as EC2 and S3. https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+
 ### Languages -
 
-1. **HTML, or Hyper Text Markup Language:** Used to construct the page withn this app -   
+1. **HTML5, or Hyper Text Markup Language:** Used to construct the page withn this app -   
 https://developer.mozilla.org/en-US/docs/Web/HTML
 
-2. **CSS, or Cascading Style Sheets:** Used to style the various elements on the app's pages via coloring, fonts, spacing, etc. - 
+2. **CSS3, or Cascading Style Sheets:** Used to style the various elements on the app's pages via coloring, fonts, spacing, etc. - 
 https://www.w3.org/Style/CSS/Overview.en.html
 
 3. **Javascript:** A programming language - https://www.javascript.com/
@@ -638,7 +653,7 @@ https://www.w3.org/Style/CSS/Overview.en.html
 
 ### Libraries -
 
-1. **Bootstrap:**  Front-end Open Source Toolkit -  https://getbootstrap.com/
+1. **Bootstrap3:**  Front-end Open Source Toolkit -  https://getbootstrap.com/
 
 2. **Font Awesome:** Icon library - https://fontawesome.com/
 
@@ -658,9 +673,9 @@ https://www.w3.org/Style/CSS/Overview.en.html
 
 1. **Postgres:** Open Source Database - https://www.postgresql.org/
 
-2. **sqLite:** SQL Database Engine - https://www.sqlite.org/
+2. **sqLite3:** SQL Database Engine - https://www.sqlite.org/
 
-3. **AWS:** Amazon Web Services Database Storage - https://aws.amazon.com/
+3. **AWS S3:** Amazon Web Services Database Storage - https://aws.amazon.com/
 
 ### Tools -
 
