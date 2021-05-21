@@ -84,7 +84,7 @@ A link to my website can be found [here](https://ginporium-ms4.herokuapp.com/)
 
 ## UX
 
-### Goals-
+### Goals -
 
 The purpose of the site is to provide a simple, straightforward format presenting information about some popular gins, with the added option of being able to 
 purchase the gins via a secure checkout. The website is designed for people interested in the various types of gins available and want an easy way to order and buy
@@ -605,6 +605,8 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Bugs and Fixes Implemented after Testing -
 
+- _Changed URL in Carousel_ - Images weren't loading in Heroku, I had to add the {{ MEDIA_URL }} to the contents.
+
 - _Moved Add Comment_ - Add comment is now above the comments section on the blog details page.
 
 - _Changed Color Scheme_ - Colours in the origional scheme didn't cause enough contrast throughout the site, making it hard for users to see the links and buttons
@@ -789,7 +791,7 @@ In order to successfully deploy the app, the following steps were taken:
 15. Temporarily disable collectstatic. 
 
 16.	Add the hostname of our Heroku app to allowed hosts in settings.py, and localhost:
-	ALLOWED_HOSTS = ['YOUR-APP-NAME.herokuapp.com', 'localhost']
+	- ```ALLOWED_HOSTS = ['YOUR-APP-NAME.herokuapp.com', 'localhost']```
 
 17.	Add/commit changes to github.
 
@@ -910,7 +912,7 @@ You will need to install the following to run this locally:
 - SQlite or Postgres Databases
 - GIT for cloning and version control
 
-1. To run this code on your local machine, you would go to my respository at
+To run this code on your local machine, you would go to my respository at
 https://github.com/Gwen-Bradbury/MS4 and on the home page on the right hand side just above all the files, you will see a green button that says,
 "Clone or download", this button will give you options to clone with HTTPS, open in desktop or download as a zip file.
 To continue with cloning, you would;

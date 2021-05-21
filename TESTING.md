@@ -279,6 +279,6 @@ Ipad mini and Ipad Pro are used for medium screen testing.
 
 * When editing a comment the edit and cancel buttons take users to the main blog page instead of to the posts details page where the comment was origionally made.
 
-* When editing, adding and deleting recipes, blogs, comments and gins in some views the shopping basket appears in the success message toast if the basket isn't empty.
+* When editing, adding and deleting, recipes, blogs, comments and gins in some views the shopping basket appears in the success message toast if the basket isn't empty.
 
 ** Back to [README.md](./README.md) **
