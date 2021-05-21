@@ -1,7 +1,5 @@
 // Core Logic/Payment Flow From: https://stripe.com/docs/payments/accept-a-payment
 // CSS From: https://stripe.com/docs/stripe-js
-
-
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var stripeClientSecret = $('#id_stripe_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);

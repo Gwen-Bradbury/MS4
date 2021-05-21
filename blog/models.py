@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image_url = models.URLField(max_length=1024, default="", blank=True)
+    image = models.ImageField(default="", blank=True)
     post_title = models.CharField(max_length=100)
     post_content = models.TextField()
     post_date_posted = models.DateTimeField(default=timezone.now)
-    post_author = models.ForeignKey(User, null=True, blank=True,
+    post_author = models.ForeignKey(User, default="", blank=True,
                                     on_delete=models.CASCADE,
                                     related_name='post')
 
