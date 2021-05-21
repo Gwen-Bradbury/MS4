@@ -1,1 +1,133 @@
-[{"model": "recipes.recipecategory", "pk": 1, "fields": {"name": "distilled_gin_recipes", "friendly_name": "Distilled Gin Recipes"}}, {"model": "recipes.recipecategory", "pk": 2, "fields": {"name": "sloe_gin_recipes", "friendly_name": "Sloe Gin Recipes"}}, {"model": "recipes.recipecategory", "pk": 3, "fields": {"name": "dry_gin_recipes", "friendly_name": "Dry Gin Recipes"}}, {"model": "recipes.recipecategory", "pk": 4, "fields": {"name": "botanical_gin_recipes", "friendly_name": "Botanical Gin Recipes"}}, {"model": "recipes.recipecategory", "pk": 5, "fields": {"name": "premium_gin_recipes", "friendly_name": "Premuim Gin Recipes"}}, {"model": "recipes.recipe", "pk": 1, "fields": {"image_url": null, "image": "cocktails-martinez.jpg", "recipecategory": 4, "name": "Orbium Martinez", "ingredients": "40ml Hendrick's Orbium Gin, \r\n20ml Dolin Sweet Vermouth, \r\n5ml Maraschino Liqueur", "method": "Combine all ingredients over ice in a mixing glass.  Stir and then strain into a cocktail glass.", "garnish": "Orange zest"}}, {"model": "recipes.recipe", "pk": 2, "fields": {"image_url": null, "image": "midsummer-cocktail.jpg", "recipecategory": 4, "name": "Midsummer Solstice Bramble Spritz", "ingredients": "35 ml Hendrick's Midsummer Solstice, \r\n15 ml Creme de Mure / berry liqueur, \r\n10 ml Fresh lemon juice, \r\n60 ml Soda water, \r\nSparkling wine", "method": "Add all the ingredients to a large wine glass full with cubed ice. Stir gently to mix. Garnish and serve.", "garnish": "Cucumber, \r\nLime, \r\nRaspberries, \r\nBlackberries"}}, {"model": "recipes.recipe", "pk": 3, "fields": {"image_url": null, "image": "lunar-cocktail.jpg", "recipecategory": 4, "name": "Moonlight Buck", "ingredients": "50 ml Hendrick’s Luna Gin, \r\n150 ml Premium Ginger Ale", "method": "Combine all ingredients in a highball filled with ice. Lightly stir.", "garnish": "3 thinly sliced rounds of cucumber,\r\nA twist of lemon"}}, {"model": "recipes.recipe", "pk": 4, "fields": {"image_url": null, "image": "hendricks-cocktail.jpg", "recipecategory": 1, "name": "Gin and Tonic", "ingredients": "50 ml Hendrick's Gin, \r\n150 ml Tonic Water", "method": "Combine all ingredients in a highball glass filled with cubed ice. Lightly stir.", "garnish": "3 thinly sliced rounds of cucumber"}}, {"model": "recipes.recipe", "pk": 5, "fields": {"image_url": null, "image": "tanqueray-cocktail.jpg", "recipecategory": 3, "name": "Negroni", "ingredients": "35 ml Tanqueray Dry Gin, \r\n25 ml Italian Aperitif bitters, \r\n25 ml sweet Vermouth", "method": "Combine all ingredients over ice in a lowball glass. Lightly stir.", "garnish": "An orange twist"}}, {"model": "recipes.recipe", "pk": 6, "fields": {"image_url": null, "image": "tanqueray10-cocktail.jpg", "recipecategory": 5, "name": "No10 Martini", "ingredients": "50 ml Tanqueray No10 Gin, \r\n10 ml dry Vermouth", "method": "Stir Tanqueray No10 gin and vermouth together, and strain into chilled martini glass.", "garnish": "Pink grapefruit twists"}}, {"model": "recipes.recipe", "pk": 7, "fields": {"image_url": null, "image": "slojito.jpg", "recipecategory": 2, "name": "Slojito", "ingredients": "50 ml Gordon's Sloe Gin, \r\n1 tbs Brown Sugar, \r\n10 Basil leaves, \r\n1 splash of soda water", "method": "Add Sloe Gin, sugar, basil and ice to cocktail shaker. Shake until cool. Pour into tall glass and top up with soda water.", "garnish": "A basil leaf"}}]
+[
+    {
+        "model": "recipes.recipecategory",
+        "pk": 1,
+        "fields": {
+            "name": "distilled_gin_recipes",
+            "friendly_name": "Distilled Gin Recipes"
+            }
+    },
+    {
+        "model": "recipes.recipecategory",
+        "pk": 2,
+        "fields": {
+            "name": "sloe_gin_recipes",
+            "friendly_name": "Sloe Gin Recipes"
+            }
+    },
+    {
+        "model": "recipes.recipecategory",
+        "pk": 3,
+        "fields": {
+            "name": "dry_gin_recipes",
+            "friendly_name": "Dry Gin Recipes"
+            }
+    },
+    {
+        "model": "recipes.recipecategory",
+        "pk": 4,
+        "fields": {
+            "name": "botanical_gin_recipes",
+            "friendly_name": "Botanical Gin Recipes"
+        }
+    },
+    {
+        "model": "recipes.recipecategory",
+        "pk": 5,
+        "fields": {
+            "name": "premium_gin_recipes",
+            "friendly_name": "Premuim Gin Recipes"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 1,
+        "fields": {
+            "image_url": null,
+            "image": "cocktails-martinez.jpg",
+            "recipecategory": 4,
+            "name": "Orbium Martinez",
+            "ingredients": "40ml Hendrick's Orbium Gin, \r\n20ml Dolin Sweet Vermouth, \r\n5ml Maraschino Liqueur",
+            "method": "Combine all ingredients over ice in a mixing glass.  Stir and then strain into a cocktail glass.",
+            "garnish": "Orange zest"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 2,
+        "fields": {
+            "image_url": null,
+            "image": "midsummer-cocktail.jpg",
+            "recipecategory": 4,
+            "name": "Midsummer Solstice Bramble Spritz",
+            "ingredients": "35 ml Hendrick's Midsummer Solstice, \r\n15 ml Creme de Mure / berry liqueur, \r\n10 ml Fresh lemon juice, \r\n60 ml Soda water, \r\nSparkling wine",
+            "method": "Add all the ingredients to a large wine glass full with cubed ice. Stir gently to mix. Garnish and serve.",
+            "garnish": "Cucumber, \r\nLime, \r\nRaspberries, \r\nBlackberries"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 3,
+        "fields": {
+            "image_url": null,
+            "image": "lunar-cocktail.jpg",
+            "recipecategory": 4,
+            "name": "Moonlight Buck",
+            "ingredients": "50 ml Hendrick’s Luna Gin, \r\n150 ml Premium Ginger Ale",
+            "method": "Combine all ingredients in a highball filled with ice. Lightly stir.",
+            "garnish": "3 thinly sliced rounds of cucumber,\r\nA twist of lemon"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 4,
+        "fields": {
+            "image_url": null,
+            "image": "hendricks-cocktail.jpg",
+            "recipecategory": 1,
+            "name": "Gin and Tonic",
+            "ingredients": "50 ml Hendrick's Gin, \r\n150 ml Tonic Water",
+            "method": "Combine all ingredients in a highball glass filled with cubed ice. Lightly stir.",
+            "garnish": "3 thinly sliced rounds of cucumber"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 5,
+        "fields": {
+            "image_url": null,
+            "image": "tanqueray-cocktail.jpg",
+            "recipecategory": 3,
+            "name": "Negroni",
+            "ingredients": "35 ml Tanqueray Dry Gin, \r\n25 ml Italian Aperitif bitters, \r\n25 ml sweet Vermouth",
+            "method": "Combine all ingredients over ice in a lowball glass. Lightly stir.",
+            "garnish": "An orange twist"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 6,
+        "fields": {
+            "image_url": null,
+            "image": "tanqueray10-cocktail.jpg",
+            "recipecategory": 5,
+            "name": "No10 Martini",
+            "ingredients": "50 ml Tanqueray No10 Gin, \r\n10 ml dry Vermouth",
+            "method": "Stir Tanqueray No10 gin and vermouth together, and strain into chilled martini glass.",
+            "garnish": "Pink grapefruit twists"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 7,
+        "fields": {
+            "image_url": null,
+            "image": "slojito.jpg",
+            "recipecategory": 2,
+            "name": "Slojito",
+            "ingredients": "50 ml Gordon's Sloe Gin, \r\n1 tbs Brown Sugar, \r\n10 Basil leaves, \r\n1 splash of soda water",
+            "method": "Add Sloe Gin, sugar, basil and ice to cocktail shaker. Shake until cool. Pour into tall glass and top up with soda water.",
+            "garnish": "A basil leaf"
+        }
+    }
+]

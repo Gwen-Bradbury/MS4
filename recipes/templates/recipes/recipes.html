@@ -30,11 +30,26 @@
             <div class="col text-center mt-3">
                 <h2>Gin Recipes</h2>
                 <!-- Recipe Category Buttons -->
-                {% for c in current_recipecategory %}
-                    <a class="link-button" href="{% url 'view_recipes' %}?recipecategory={{ c.name }}">
-                        <span class="p-2 mt-2 badge badge-white rounded-5">{{ c.friendly_name }}</span>
-                    </a>
-                {% endfor %}
+                <a class="link-button" href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes">
+                    <span class="{% if request.get_full_path == '/recipes/?recipecategory=distilled_gin_recipes' %}active{% endif %}
+                        p-2 mt-2 badge badge-white rounded-5">Distilled Gin Recipes</span>
+                </a>
+                <a class="link-button" href="{% url 'view_recipes' %}?recipecategory=sloe_gin_recipes">
+                    <span class="{% if request.get_full_path == '/recipes/?recipecategory=sloe_gin_recipes' %}active{% endif %}
+                        p-2 mt-2 badge badge-white rounded-5">Sloe Gin Recipes</span>
+                </a>
+                <a class="link-button" href="{% url 'view_recipes' %}?recipecategory=dry_gin_recipes">
+                    <span class="{% if request.get_full_path == '/recipes/?recipecategory=dry_gin_recipes' %}active{% endif %}
+                        p-2 mt-2 badge badge-white rounded-5">Dry Gin Recipes</span>
+                </a>
+                <a class="link-button" href="{% url 'view_recipes' %}?recipecategory=botanical_gin_recipes">
+                    <span class="{% if request.get_full_path == '/recipes/?recipecategory=botanical_gin_recipes' %}active{% endif %}
+                        p-2 mt-2 badge badge-white rounded-5">Botanical Gin Recipes</span>
+                </a>
+                <a class="link-button" href="{% url 'view_recipes' %}?recipecategory=premium_gin_recipes">
+                    <span class="{% if request.get_full_path == '/recipes/?recipecategory=premium_gin_recipes' %}active{% endif %}
+                        p-2 mt-2 badge badge-white rounded-5">Premium Gin Recipes</span>
+                </a>
                 <hr class="w-50 mb-1">
             </div>
         </div>
