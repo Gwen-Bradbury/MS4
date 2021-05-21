@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2 class="mb-4 text-center mt-3">{{ user.username }}'s Profile</h2>
+            <h2 class="mb-4 text-center mt-3">{{ user.username | title }}'s Profile</h2>
             <hr>
             <!-- Users Email Address -->
             <p class="text-muted text-center">Email: {{ user.email }}</p>
@@ -55,15 +55,15 @@
                     <tbody>
                         {% for order in orders %}
                             <tr>
-                                <td>
+                                <td class="pt-3">
                                     <!-- Previous Order Number Truncated to 6 Characters -->
                                     <a class="link-button" href="{% url 'previous_orders' order.order_number %}"
                                     title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}
                                     </a>
                                 </td>
-                                <td>{{ order.date }}</td>
-                                <td>
+                                <td class="pt-3">{{ order.date }}</td>
+                                <td class="pt-3">
                                     <ul class="list-unstyled">
                                         <!-- Ordered Items and their Quantities -->
                                         {% for item in order.lineitems.all %}
@@ -73,7 +73,7 @@
                                         {% endfor %}
                                     </ul>
                                 </td>
-                                <td>${{ order.grand_total }}</td>
+                                <td class="pt-3">${{ order.grand_total }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
