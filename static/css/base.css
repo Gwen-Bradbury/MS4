@@ -134,6 +134,10 @@ header {
     cursor: pointer;
 }
 
+.active {
+    color: #ba7103 !important;
+}
+
 .continue-button {
     color: #ba7103;
 }
