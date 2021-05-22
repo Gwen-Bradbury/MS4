@@ -742,6 +742,7 @@ Errors left within my own code are
 - Pylint errors ( ''  has no 'object' member )
 - Doctype Errors ( Doctype must be declared first ); As my html files extend from the base.html file and the doctype is declared there, it doesn't need to be repeated on every page.
 - Html Hint errors ( Special Characters Must Be Escaped ); The character is escaped but the linter can't tell as there's python in the line of code.
+- Cornflakes ('checkout.signals' imported but unused); This allows the Admin to see the order total, grand total and delivery cost in Admin Page.
 
 ## Deployment
 
