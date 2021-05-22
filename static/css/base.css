@@ -308,7 +308,7 @@ header {
 
 .allauth-form-inner-content input {
     border-color: #b9b6b6;
-    border-radius: 5;
+    border-radius: 5px;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -337,7 +337,7 @@ header {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 5;
+    border-radius: 5px;
     border: none;
     background-color: #fff;
 
