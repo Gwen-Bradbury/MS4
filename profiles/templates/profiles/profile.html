@@ -1,11 +1,8 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -15,7 +12,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
@@ -54,27 +50,27 @@
                     </thead>
                     <tbody>
                         {% for order in orders %}
-                            <tr>
-                                <td class="pt-3">
-                                    <!-- Previous Order Number Truncated to 6 Characters -->
-                                    <a class="link-button" href="{% url 'previous_orders' order.order_number %}"
+                        <tr>
+                            <td class="pt-3">
+                                <!-- Previous Order Number Truncated to 6 Characters -->
+                                <a class="link-button" href="{% url 'previous_orders' order.order_number %}"
                                     title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                    </a>
-                                </td>
-                                <td class="pt-3">{{ order.date }}</td>
-                                <td class="pt-3">
-                                    <ul class="list-unstyled">
-                                        <!-- Ordered Items and their Quantities -->
-                                        {% for item in order.lineitems.all %}
-                                            <li class="small">
-                                                {{ item.gin.name }} x{{ item.quantity }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td class="pt-3">${{ order.grand_total }}</td>
-                            </tr>
+                                {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td class="pt-3">{{ order.date }}</td>
+                            <td class="pt-3">
+                                <ul class="list-unstyled">
+                                    <!-- Ordered Items and their Quantities -->
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.gin.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td class="pt-3">${{ order.grand_total }}</td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -83,9 +79,8 @@
     </div>
 </div>
 {% endblock %}
-
 {% block postload_js %}
-    {{ block.super }}
-    <!-- Country Field Dropdown JS -->
-    <script type="text/javascript" src="{% static 'profiles/js/country_field.js' %}"></script>
+{{ block.super }}
+<!-- Country Field Dropdown JS -->
+<script type="text/javascript" src="{% static 'profiles/js/country_field.js' %}"></script>
 {% endblock %}

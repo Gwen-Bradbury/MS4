@@ -3,12 +3,12 @@
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block d-lg-none">
             <a class="link-button nav-link-size nav-link mr-5" href="{% url 'home' %}" id="home-link">
-                HOME
+            HOME
             </a>
         </li>
         <li class="nav-item dropdown">
             <a class="link-button nav-link-size nav-link mr-5" href="#" id="all-gins-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                SHOP
+            SHOP
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-gins-link">
                 <a href="{% url 'gins' %}?gincategory=distilled_gins,sloe_gins,dry_gins,botanical_gins,premium_gins" class="dropdown-item">All Gin</a>
@@ -22,7 +22,7 @@
         <!-- Recipes Dropdown -->
         <li class="nav-item dropdown">
             <a class="link-button nav-link-size nav-link mr-5" href="#" id="all-recipes-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                RECIPES
+            RECIPES
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-recipes-link">
                 <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes" class="dropdown-item">All Gin Recipes</a>
@@ -36,7 +36,7 @@
         <!-- Blog Dropdown -->
         <li class="nav-item">
             <a class="link-button nav-link-size nav-link mr-5" href="{% url 'view_blog' %}" id="all-blogs-link">
-                BLOG
+            BLOG
             </a>
         </li>
     </ul>

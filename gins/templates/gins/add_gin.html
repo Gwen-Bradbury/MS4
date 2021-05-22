@@ -1,7 +1,5 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -11,7 +9,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
@@ -29,24 +26,23 @@
             <form method="POST" action="{% url 'add_gin' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in gin_form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
                 {% endfor %}
                 <div class="text-right">
                     <a class="btn rounded-5 link-button" href="{% url 'gins' %}">Cancel</a>
                     <button class="btn rounded-5 continue-button" type="submit">Add Gin</button>
                 </div>
-            </form>          
+            </form>
         </div>
     </div>
 </div>
 {% endblock %}
-
 {% block postload_js %}
-    {{ block.super }}
-    <!-- Current Image JS -->
-    {% include 'gins/includes/js/current_image_js.html' %}
+{{ block.super }}
+<!-- Current Image JS -->
+{% include 'gins/includes/js/current_image_js.html' %}
 {% endblock %}

@@ -1,110 +1,106 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block page_header %}
-    <!-- Push Content Down Page -->
-    <div class="container header-container">
-        <div class="row">
-            <div class="col">
-            </div>
+<!-- Push Content Down Page -->
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
         </div>
     </div>
+</div>
 {% endblock %}
-
 {% block content %}
 <!-- Overlay for Background Image -->
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="my-5">
-                    <!-- Get 'Gin Image' or 'No Image' Image -->
-                    {% if gin.image %}
-                        <a href="{{ gin.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid gin-detail" src="{{ gin.image.url }}" alt="{{ gin.name }}">
-                        </a>
-                    {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid gin-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
-                        </a>
-                    {% endif %}
-                </div>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="my-5">
+                <!-- Get 'Gin Image' or 'No Image' Image -->
+                {% if gin.image %}
+                <a href="{{ gin.image.url }}" target="_blank">
+                <img class="card-img-top img-fluid gin-detail" src="{{ gin.image.url }}" alt="{{ gin.name }}">
+                </a>
+                {% else %}
+                <a href="">
+                <img class="card-img-top img-fluid gin-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
+                </a>
+                {% endif %}
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="mb-5 mt-md-5">
-                    <!-- Get Gin Information -->
-                    <p class="lead mb-3">{{ gin.name }}</p>
-                    <p class="mb-0 text-left">${{ gin.price }}</p>
-                    {% if gin.gincategory %}
-                        <p class="small mt-1 mb-0">
-                            <a class="text-muted link-button" href="{% url 'gins' %}?gincategory={{ gin.gincategory.name }}">
-                                <i class="fas fa-tag mr-1"></i>{{ gin.gincategory.friendly_name }}
-                            </a>
-                        </p>
-                    {% endif %}
-                    <hr>
-                    <p class="mt-3">{{ gin.description }}</p>
-                    <hr>             
-                    <!-- Add To Basket Form -->
-                    <form class="form" action="{% url 'add_to_basket' gin.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Amount:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <!-- Quantity Input Buttons -->
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn rounded-5 link-button" 
-                                                data-item_id="{{ gin.id }}" id="decrement-qty_{{ gin.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-minus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control qty_input" type="number" 
-                                            name="quantity" value="1" min="1" max="99" 
-                                            data-item_id="{{ gin.id }}" id="id_qty_{{ gin.id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn rounded-5 link-button"
-                                                data-item_id="{{ gin.id }}" id="increment-qty_{{ gin.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="mb-5 mt-md-5">
+                <!-- Get Gin Information -->
+                <p class="lead mb-3">{{ gin.name }}</p>
+                <p class="mb-0 text-left">${{ gin.price }}</p>
+                {% if gin.gincategory %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted link-button" href="{% url 'gins' %}?gincategory={{ gin.gincategory.name }}">
+                    <i class="fas fa-tag mr-1"></i>{{ gin.gincategory.friendly_name }}
+                    </a>
+                </p>
+                {% endif %}
+                <hr>
+                <p class="mt-3">{{ gin.description }}</p>
+                <hr>
+                <!-- Add To Basket Form -->
+                <form class="form" action="{% url 'add_to_basket' gin.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <p class="mt-3"><strong>Amount:</strong></p>
+                            <div class="form-group w-50">
+                                <div class="input-group">
+                                    <!-- Quantity Input Buttons -->
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn rounded-5 link-button" 
+                                            data-item_id="{{ gin.id }}" id="decrement-qty_{{ gin.id }}">
+                                        <span class="icon">
+                                        <i class="fas fa-minus"></i>
+                                        </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input" type="number" 
+                                        name="quantity" value="1" min="1" max="99" 
+                                        data-item_id="{{ gin.id }}" id="id_qty_{{ gin.id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn rounded-5 link-button"
+                                            data-item_id="{{ gin.id }}" id="increment-qty_{{ gin.id }}">
+                                        <span class="icon">
+                                        <i class="fas fa-plus"></i>
+                                        </span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Superuser Edit and Delete Buttons -->
-                            {% if request.user.is_superuser %}
-                                <small class="ml-3">
-                                    <a class="btn link-button" href="{% url 'edit_gin' gin.id %}">Edit</a>
-                                    <a class="btn delete-button ml-3" href="{% url 'delete_gin' gin.id %}">Delete</a>
-                                </small>
-                            {% endif %}
-                            <!-- Continue Shopping and Add to Basket Buttons -->
-                            <div class="col-12 mt-5">
-                                <a href="{% url 'gins' %}" class="btn rounded-5">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="btn text-uppercase link-button">Continue Shopping</span>
-                                </a>
-                                <input type="submit" class="btn rounded-5 text-uppercase continue-button" value="Add to Basket">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </form>
-                </div>
+                        <!-- Superuser Edit and Delete Buttons -->
+                        {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                        <a class="btn link-button" href="{% url 'edit_gin' gin.id %}">Edit</a>
+                        <a class="btn delete-button ml-3" href="{% url 'delete_gin' gin.id %}">Delete</a>
+                        </small>
+                        {% endif %}
+                        <!-- Continue Shopping and Add to Basket Buttons -->
+                        <div class="col-12 mt-5">
+                            <a href="{% url 'gins' %}" class="btn rounded-5">
+                            <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="btn text-uppercase link-button">Continue Shopping</span>
+                            </a>
+                            <input type="submit" class="btn rounded-5 text-uppercase continue-button" value="Add to Basket">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
-
 {% block postload_js %}
-    {{ block.super }}
-        <!-- Quantity Input JS -->
-        {% include 'gins/includes/js/quantity_input_js.html' %}
+{{ block.super }}
+<!-- Quantity Input JS -->
+{% include 'gins/includes/js/quantity_input_js.html' %}
 {% endblock %}

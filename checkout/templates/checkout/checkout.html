@@ -1,13 +1,9 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% load basket_tools %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -17,7 +13,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
@@ -45,11 +40,11 @@
             <div class="row">
                 <div class="col-2 mb-1">
                     <a href="{% url 'gin_detail' item.gin.id %}">
-                        {% if item.gin.image %}
-                            <img class="w-100" src="{{ item.gin.image.url }}" alt="{{ gin.name }}">
-                        {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
-                        {% endif %}
+                    {% if item.gin.image %}
+                    <img class="w-100" src="{{ item.gin.image.url }}" alt="{{ gin.name }}">
+                    {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
+                    {% endif %}
                     </a>
                 </div>
                 <div class="col-7">
@@ -98,17 +93,17 @@
                     {{ order_form.postcode | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         <!-- Saves Users Delivery Information to Profile if Logged In -->
-						{% if user.is_authenticated %}
-							<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-						{% else %}
-							<label class="form-check-label" for="id-save-info">
-                                <!-- Prompts Users to Login/Create Account to Save Delivery Information -->
-                                <a class="link-button" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="link-button" href="{% url 'account_login' %}">login</a> to save this information
-                            </label>
-						{% endif %}
-					</div>
+                        {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <!-- Prompts Users to Login/Create Account to Save Delivery Information -->
+                            <a class="link-button" href="{% url 'account_signup' %}">Create an account</a> or 
+                            <a class="link-button" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                        {% endif %}
+                    </div>
                 </fieldset>
                 <fieldset class="px-3">
                     <legend class="fieldset-label px-2 w-auto">Payment</legend>
@@ -121,27 +116,27 @@
                 </fieldset>
                 <div class="submit-button text-right mt-5 mb-2">
                     <!-- Button to Return to Basket -->                    
-					<a href="{% url 'view_basket' %}" class="btn rounded-5">
-                        <span class="icon">
-							<i class="fas fa-chevron-left"></i>
-						</span>
-						<span class="text-uppercase link-button">Basket</span>
+                    <a href="{% url 'view_basket' %}" class="btn rounded-5">
+                    <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase link-button">Basket</span>
                     </a>
                     <!-- Button to Pay --> 
-					<button id="submit-button" class="btn rounded-5">
-						<span class="text-uppercase continue-button">Complete Order</span>
-						<span class="icon">
-							<i class="fas fa-lock"></i>
-						</span>
+                    <button id="submit-button" class="btn rounded-5">
+                    <span class="text-uppercase continue-button">Complete Order</span>
+                    <span class="icon">
+                    <i class="fas fa-lock"></i>
+                    </span>
                     </button>
                     <!-- User 'Card About To Be Debited' Warning --> 
-					<p class="small text-danger my-0">
-						<span class="icon">
-							<i class="fas fa-exclamation-circle"></i>
-						</span>
-						<span>Your card is about to be debited <strong>${{ grand_total|floatformat:2 }}</strong></span>
-					</p>
-				</div>
+                    <p class="small text-danger my-0">
+                        <span class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card is about to be debited <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </div>
             </form>
         </div>
     </div>
@@ -150,17 +145,16 @@
 <div id="loading-overlay">
     <h1 class="text-light loading-spinner">
         <span class="icon">                
-            <i class="fas fa-3x fa-spinner fa-spin"></i>
+        <i class="fas fa-3x fa-spinner fa-spin"></i>
         </span>
     </h1>
 </div>
 {% endblock %}
-
 {% block postload_js %}
-    {{ block.super }}
-    <!-- Stripe -->
-        {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-        {{ stripe_client_secret|json_script:"id_stripe_client_secret" }}
-        <!-- Link to JS File -->
-        <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+<!-- Stripe -->
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ stripe_client_secret|json_script:"id_stripe_client_secret" }}
+<!-- Link to JS File -->
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

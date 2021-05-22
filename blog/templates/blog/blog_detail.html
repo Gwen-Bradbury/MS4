@@ -1,9 +1,6 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% load crispy_forms_tags %}
-
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -13,7 +10,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
@@ -44,12 +40,12 @@
                 <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
                 <!-- Superuser Edit and Delete Buttons -->
                 {% if request.user.is_superuser %}
-                    <div class="block mt-2">
-                        <small>
-                            <a class="link-button" href="{% url 'edit_post' post.id %}">Edit</a>
-                            <a class="delete-button ml-3" href="{% url 'delete_post' post.id %}">Delete</a>
-                        </small>
-                    </div>
+                <div class="block mt-2">
+                    <small>
+                    <a class="link-button" href="{% url 'edit_post' post.id %}">Edit</a>
+                    <a class="delete-button ml-3" href="{% url 'delete_post' post.id %}">Delete</a>
+                    </small>
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -59,7 +55,7 @@
 <div class="col-sm-12 col-md-4 offset-md-6 text-right">
     <a href="{% url 'view_blog' %}" class="btn">
     <span class="icon">
-        <i class="fas fa-chevron-left"></i>
+    <i class="fas fa-chevron-left"></i>
     </span>
     <span class="text-uppercase link-button">Back to Blogs</span>
     </a>
@@ -72,7 +68,7 @@
             <h4>Leave a Comment-</h4>
         </div>
     </div>
-    <div class="row mt-5">  
+    <div class="row mt-5">
         <div class="col-md-6 offset-md-3 border-blue mb-5">
             <form class="col-sm-12 mt-3" method="POST">
                 {% csrf_token %}
@@ -93,7 +89,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-4 offset-md-1 text-center">
             <h4>Comments-</h4>
-        </div>  
+        </div>
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
@@ -101,7 +97,7 @@
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         <!-- Comment Counter -->
-                            <span class="small"><a href="{% url 'blog_detail' post.id %}" class="link-button">All Comments</a> | </span>
+                        <span class="small"><a href="{% url 'blog_detail' post.id %}" class="link-button">All Comments</a> | </span>
                         {{ comments|length }} Comments
                     </p>
                 </div>
@@ -110,40 +106,40 @@
     </div>
     <div class="row mt-3">
         {% if not comments.all %}
-            <div class="col-12 mb-5">
-                <p class="text-center">No Comments yet for this post.</p>
-            </div>
+        <div class="col-12 mb-5">
+            <p class="text-center">No Comments yet for this post.</p>
+        </div>
         {% else %}
-            {% for comment in comments %}
-            <div class="col-sm-12 col-md-4 offset-md-4">
-                <div class="card mb-1 border-blue">
-                    <div class="card-header bg-white border-0">
-                        <p class="lead mt-1">{{ comment.comment_title }}</p>
-                        <hr>
-                    </div>
-                    <div class="card-body comment-card border-0">   
-                        <p>{{comment.comment_content}}</p>
-                        <hr >
-                        <footer class="card-footer bg-white border-0">
-                            <p>{{ comment.comment_author }}</p>
-                            <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
-                            {% if comment.comment_author == user or request.user.is_superuser %}
-                                <div class="block">
-                                    <small class="mt-2">
-                                        <a class="link-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
-                                        <a class="delete-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
-                                    </small>
-                                </div>
-                            {% endif %}
-                        </footer>
-                    </div>
+        {% for comment in comments %}
+        <div class="col-sm-12 col-md-4 offset-md-4">
+            <div class="card mb-1 border-blue">
+                <div class="card-header bg-white border-0">
+                    <p class="lead mt-1">{{ comment.comment_title }}</p>
+                    <hr>
+                </div>
+                <div class="card-body comment-card border-0">
+                    <p>{{comment.comment_content}}</p>
+                    <hr >
+                    <footer class="card-footer bg-white border-0">
+                        <p>{{ comment.comment_author }}</p>
+                        <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
+                        {% if comment.comment_author == user or request.user.is_superuser %}
+                        <div class="block">
+                            <small class="mt-2">
+                            <a class="link-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
+                            <a class="delete-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                            </small>
+                        </div>
+                        {% endif %}
+                    </footer>
                 </div>
             </div>
-            <hr class="w-50 mt-5 mb-5">
-            {% endfor %}
+        </div>
+        <hr class="w-50 mt-5 mb-5">
+        {% endfor %}
         {% endif %}
     </div>
-</div>    
+</div>
 <!-- Back To Top Button -->
 <div class="to-top-button shadow-sm rounded-5 border">
     <a class="to-top-link d-flex h-100">
@@ -151,7 +147,6 @@
     </a>	
 </div>
 {% endblock %}
-
 {% block postload_js %}
 {{ block.super }}
 <!-- Back To Top Button JS -->
