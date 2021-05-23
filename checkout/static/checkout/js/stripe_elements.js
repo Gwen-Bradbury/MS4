@@ -83,7 +83,7 @@ form.addEventListener('submit', function(ev) {
                     }
                 }
             },
-            shipping: {
+            shipping_info: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
                 address: {
