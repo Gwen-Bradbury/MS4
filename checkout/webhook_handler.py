@@ -93,7 +93,7 @@ class StripeWebhookHandler:
 
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(1)
+                time.sleep(5)
 
         if order_exists:
             """ Order Already Exists """
