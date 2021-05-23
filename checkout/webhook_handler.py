@@ -72,7 +72,7 @@ class StripeWebhookHandler:
 
         order_exists = False
         attempt = 1
-        while attempt <= 7:
+        while attempt <= 5:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_info.name,
@@ -93,7 +93,7 @@ class StripeWebhookHandler:
 
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(5)
+                time.sleep(1)
 
         if order_exists:
             """ Order Already Exists """
