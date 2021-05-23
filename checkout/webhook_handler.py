@@ -48,7 +48,7 @@ class StripeWebhookHandler:
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
         billing_details = intent.charges.data[0].billing_details
-        shipping_info = intent.shipping
+        shipping_info = intent.shipping_info
         grand_total = round(intent.charges.data[0].amount / 100, 2)
         """ Give Empty Strings in Shipping Info 'Null' Value """
         for field, value in shipping_info.address.items():
