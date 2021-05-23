@@ -47,8 +47,8 @@ class StripeWebhookHandler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
-        billing_details = intent.charges.data[0].billing_details
-        shipping_info = intent.shipping
+        billing_info = intent.charges.data[0].billing_info
+        shipping_info = intent.shipping_info
         grand_total = round(intent.charges.data[0].amount / 100, 2)
         """ Give Empty Strings in Shipping Info 'Null' Value """
         for field, value in shipping_info.address.items():
@@ -76,7 +76,7 @@ class StripeWebhookHandler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_info.name,
-                    email__iexact=billing_details.email,
+                    email__iexact=billing_info.email,
                     phone_number__iexact=shipping_info.phone,
                     street_address1__iexact=shipping_info.address.line1,
                     street_address2__iexact=shipping_info.address.line2,
@@ -109,7 +109,7 @@ class StripeWebhookHandler:
                 order = Order.objects.create(
                     full_name=shipping_info.name,
                     user_profile=profile,
-                    email=billing_details.email,
+                    email=billing_info.email,
                     phone_number=shipping_info.phone,
                     street_address1=shipping_info.address.line1,
                     street_address2=shipping_info.address.line2,
