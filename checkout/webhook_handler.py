@@ -76,7 +76,7 @@ class StripeWebhookHandler:
             try:
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
-                    email__iexact=shipping_details.email,
+                    email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     street_address1__iexact=shipping_details.address.line1,
                     street_address2__iexact=shipping_details.address.line2,
