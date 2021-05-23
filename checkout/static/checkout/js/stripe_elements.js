@@ -92,7 +92,7 @@ form.addEventListener('submit', function(ev) {
                     country: $.trim(form.country.value),
                     postal_code: $.trim(form.postcode.value)
                 }
-            }
+            },
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
@@ -117,5 +117,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // Reload Page, Error Displayed in Django Messages
         location.reload();
-    });
+    })
 });

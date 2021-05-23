@@ -58,7 +58,6 @@ def checkout(request):
         order_form = OrderForm(form_data)
         """ Save Valid Order Form """
         if order_form.is_valid():
-            order = order_form.save()
             order = order_form.save(commit=False)
             pid = request.POST.get('stripe_client_secret').split('_secret')[0]
             order.stripe_pid = pid
