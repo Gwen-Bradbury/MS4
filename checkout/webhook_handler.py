@@ -85,7 +85,7 @@ class StripeWebhookHandler:
                     country__iexact=shipping_info.address.country,
                     postcode__iexact=shipping_info.address.postal_code,
                     grand_total=grand_total,
-                    original_basket=basket,
+                    original_basket=json.dumps(basket),
                     stripe_pid=pid
                 )
                 order_exists = True
