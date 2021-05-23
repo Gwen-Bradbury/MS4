@@ -99,7 +99,8 @@ class StripeWebhookHandler:
             """ Order Already Exists """
             self._confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Order already in database',
+                content=f'Webhook received: {event["type"]} \
+                     | SUCCESS: Order already in database',
                 status=200
                 )
         else:
@@ -140,7 +141,8 @@ class StripeWebhookHandler:
                     )
         self._confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order with webhook',
+            content=f'Webhook received: {event["type"]} \
+                 | SUCCESS: Created order with webhook',
             status=200
             )
 
