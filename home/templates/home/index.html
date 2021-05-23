@@ -1,33 +1,36 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block page_header %}
-<!-- Push Content Down Page -->
-<div class="container header-container">
-    <div class="row">
-        <div class="col">
-        </div>
-    </div>
-</div>
-{% endblock %}
-{% block content %}
-<div class="jumbotron-section">
-    <div class="row jumbotron-container">
-        <div class="col-12">
-            <div class="jumbotron text-center jumbotron-content">
-                <h5 class="pt-1">Welcome to Ginporium!</h5>
-                <p>The home of all things gin!</p>
-                <!-- Links to Shop, Recipes and Blog -->
-                <h2>
-                    <a href="{% url 'gins' %}" class="display-4 headline-links btn btn-lg text-uppercase">Shop</a>
-                </h2>
-                <h2>
-                    <a href="{% url 'view_recipes' %}" class="display-4 headline-links btn btn-lg text-uppercase">Recipes</a>
-                </h2>
-                <h2>
-                    <a href="{% url 'view_blog' %}" class="display-4 headline-links btn btn-lg text-uppercase">Blog</a>
-                </h2>
+    <!-- Push Content Down Page -->
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
             </div>
         </div>
     </div>
-</div>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron-section"> 
+        <div class="row jumbotron-container">
+            <div class="col-12">
+                <div class="jumbotron text-center jumbotron-content">
+                    <h5 class="pt-1">Welcome to Ginporium!</h5>
+                    <p>The home of all things gin!</p>
+                    <!-- Links to Shop, Recipes and Blog -->
+                    <h2>
+                        <a href="{% url 'gins' %}" class="display-4 headline-links btn btn-lg text-uppercase">Shop</a>
+                    </h2>
+                    <h2>
+                        <a href="{% url 'view_recipes' %}" class="display-4 headline-links btn btn-lg text-uppercase">Recipes</a>
+                    </h2>
+                    <h2>
+                        <a href="{% url 'view_blog' %}" class="display-4 headline-links btn btn-lg text-uppercase">Blog</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

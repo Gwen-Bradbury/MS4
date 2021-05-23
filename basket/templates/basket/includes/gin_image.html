@@ -1,8 +1,8 @@
 <!-- Gin Image From basket.html -->
 <!-- If Gin Has Image -->
 {% if item.gin.image %}
-<img class="img-fluid rounded gins" src="{{ item.gin.image.url }}" alt="{{ item.gin.name }}">
+    <img class="img-fluid rounded gins" src="{{ item.gin.image.url }}" alt="{{ item.gin.name }}">
 <!-- If Gin Has No Image -->
 {% else %}
-<img class="img-fluid rounded gins" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.gin.name }}">
+    <img class="img-fluid rounded gins" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.gin.name }}">
 {% endif %}

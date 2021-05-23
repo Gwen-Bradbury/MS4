@@ -1,8 +1,11 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
+
 {% block page_header %}
 <!-- Push Content Down Page -->
 <div class="container header-container">
@@ -12,6 +15,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
 <!-- Overlay for Background Image -->
 <div class="overlay"></div>
@@ -20,7 +24,7 @@
         <div class="col-sm-12 col-md-6 offset-md-3">
             <h2 class="mb-4 text-center mt-3">Thank You!</h2>
             <hr>
-            <p>Order information below.</p>
+            <p>Order information below.</p> 
             <p>A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
         </div>
     </div>
@@ -151,6 +155,7 @@
                         <small class="lead text-muted mb-3">Billing Info:</small>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="mb-0 font-weight-bold">Order Total:</p>
@@ -175,31 +180,32 @@
                         <p class="mb-0">{{ order.grand_total }}</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
     <!-- Links -->
     <div class="row">
-        <div class="col-sm-12 col-md-6 offset-md-3 text-right">
+		<div class="col-sm-12 col-md-6 offset-md-3 text-right">
             {% if from_profile %}
             <!-- Link to Profile if Coming From Profile Page -->
-            <a href="{% url 'profile' %}" class="btn my-2 mt-3">
-            <span class="icon mr-2">
-            <i class="fas fa-angle-left"></i>
-            </span>
-            <span class="text-uppercase continue-button">Back to Profile</span>
-            </a>
+                <a href="{% url 'profile' %}" class="btn my-2 mt-3">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase continue-button">Back to Profile</span>
+                </a>
             {% else %}
-            <!-- Link to Recipes -->
-            <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes"
-                class="btn my-2 mt-3">
-            <span class="icon mr-2">
-            <i class="fas fa-cocktail"></i>
-            </span>
-            <span class="text-uppercase continue-button">How about checking out our recipes!</span>
-            </a>
+                <!-- Link to Recipes -->
+                <a href="{% url 'view_recipes' %}?recipecategory=distilled_gin_recipes,sloe_gin_recipes,dry_gin_recipes,botanical_gin_recipes,premium_gin_recipes"
+                    class="btn my-2 mt-3">
+				    <span class="icon mr-2">
+					    <i class="fas fa-cocktail"></i>
+				    </span>
+                    <span class="text-uppercase continue-button">How about checking out our recipes!</span>
+                </a>
             {% endif %}
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
 {% endblock %}
