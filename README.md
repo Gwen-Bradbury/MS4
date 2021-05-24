@@ -605,6 +605,8 @@ These fields are for a referrence only can't be adjusted by the user.
 
 ### Bugs and Fixes Implemented after Testing -
 
+- _null=True Value_ - I removed null=True in the orderform model to fix a warning which caused the webhook to dupicate the orders. I decided to add this back into the order form as I didn't have the time to implement other stripe features to fix it.
+
 - _Changed URL in Carousel_ - Images weren't loading in Heroku, I had to add the {{ MEDIA_URL }} to the contents.
 
 - _Moved Add Comment_ - Add comment is now above the comments section on the blog details page.
@@ -747,6 +749,8 @@ Errors left within my own code are
 > Html Hint errors ( Special Characters Must Be Escaped ); The character is escaped but the linter can't tell as there's python in the line of code.
 
 > Cornflakes ('checkout.signals' imported but unused); This allows the Admin to see the order total, grand total and delivery cost in Admin Page.
+
+> Cornflakes ('aviod using null=True'); This is what the webhook handler looks for in my own form to stop it creating another order.
 
 ## Deployment
 
@@ -996,6 +1000,7 @@ For more information about the above process; https://help.github.com/en/github/
 4. Tutorial Videos
 
 - [Code-Institute](https://codeinstitute.net/)
+I had a lot of trouble with the checkout and webhook handler so used those CI videos in particular, to help overcome the difficulties.
 
 - [Corey-Schafer](https://coreyms.com/)
 

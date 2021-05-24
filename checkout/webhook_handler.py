@@ -47,13 +47,13 @@ class StripeWebhookHandler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
-        billing_details = intent.charges.data[0].billing_details
-        shipping_details = intent.shipping
+        billing_info = intent.charges.data[0].billing_info
+        shipping_info = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
         """ Give Empty Strings in Shipping Info 'Null' Value """
-        for field, value in shipping_details.address.items():
+        for field, value in shipping_info.address.items():
             if value == "":
-                shipping_details.address[field] = None
+                shipping_info.address[field] = None
 
         """ Update Profile Info When Save Info is Ticked """
         profile = None
@@ -61,13 +61,13 @@ class StripeWebhookHandler:
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
-                profile.default_town_or_city = shipping_details.address.city
-                profile.default_county = shipping_details.address.state
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_phone_number = shipping_info.phone
+                profile.default_street_address1 = shipping_info.address.line1
+                profile.default_street_address2 = shipping_info.address.line2
+                profile.default_town_or_city = shipping_info.address.city
+                profile.default_county = shipping_info.address.state
+                profile.default_country = shipping_info.address.country
+                profile.default_postcode = shipping_info.address.postal_code
                 profile.save()
 
         order_exists = False
@@ -75,15 +75,15 @@ class StripeWebhookHandler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                    full_name__iexact=shipping_details.name,
-                    email__iexact=billing_details.email,
-                    phone_number__iexact=shipping_details.phone,
-                    street_address1__iexact=shipping_details.address.line1,
-                    street_address2__iexact=shipping_details.address.line2,
-                    town_or_city__iexact=shipping_details.address.city,
-                    county__iexact=shipping_details.address.state,
-                    country__iexact=shipping_details.address.country,
-                    postcode__iexact=shipping_details.address.postal_code,
+                    full_name__iexact=shipping_info.name,
+                    email__iexact=billing_info.email,
+                    phone_number__iexact=shipping_info.phone,
+                    street_address1__iexact=shipping_info.address.line1,
+                    street_address2__iexact=shipping_info.address.line2,
+                    town_or_city__iexact=shipping_info.address.city,
+                    county__iexact=shipping_info.address.state,
+                    country__iexact=shipping_info.address.country,
+                    postcode__iexact=shipping_info.address.postal_code,
                     grand_total=grand_total,
                     original_basket=basket,
                     stripe_pid=pid
@@ -107,16 +107,16 @@ class StripeWebhookHandler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=shipping_details.name,
+                    full_name=shipping_info.name,
                     user_profile=profile,
-                    email=billing_details.email,
-                    phone_number=shipping_details.phone,
-                    street_address1=shipping_details.address.line1,
-                    street_address2=shipping_details.address.line2,
-                    town_or_city=shipping_details.address.city,
-                    county=shipping_details.address.state,
-                    country=shipping_details.address.country,
-                    postcode=shipping_details.address.postal_code,
+                    email=billing_info.email,
+                    phone_number=shipping_info.phone,
+                    street_address1=shipping_info.address.line1,
+                    street_address2=shipping_info.address.line2,
+                    town_or_city=shipping_info.address.city,
+                    county=shipping_info.address.state,
+                    country=shipping_info.address.country,
+                    postcode=shipping_info.address.postal_code,
                     original_basket=basket,
                     stripe_pid=pid
                 )

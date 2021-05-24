@@ -281,4 +281,6 @@ Ipad mini and Ipad Pro are used for medium screen testing.
 
 * When editing, adding and deleting, recipes, blogs, comments and gins in some views the shopping basket appears in the success message toast if the basket isn't empty.
 
+* Sometimes the webhook will duplicate orders if there's a time delay on my order form. This is a race issue and unfortunatly I didn't have the time to implement other stripe features to overcome this.
+
 ** Back to [README.md](./README.md) **

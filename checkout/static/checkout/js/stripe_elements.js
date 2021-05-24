@@ -70,7 +70,7 @@ form.addEventListener('submit', function(ev) {
         stripe.confirmCardPayment(stripeClientSecret, {
             payment_method: {
                 card: card,
-                billing_details: {
+                billing_info: {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
