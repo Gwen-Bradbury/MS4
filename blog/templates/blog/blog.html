@@ -39,7 +39,7 @@
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         <!-- Blog Counter -->
-                            <span class="small"><a href="{% url 'view_blog' %}" class="link-button">All Blog Posts</a> | </span>
+                        <span class="small"><a href="{% url 'view_blog' %}" class="link-button">All Blog Posts</a> | </span>
                         {{ posts|length }} Posts
                     </p>
                 </div>
@@ -47,41 +47,41 @@
         </div>
     </div>
     {% for post in posts %}
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <!-- Get 'Blog Image' or 'No Image' Image -->
-            <div class="my-5 pl-3 pr-3">
-                {% if post.image %}
-                <a href="{% url 'blog_detail' post.id %}">
-                    <img class="card-img-top img-fluid blog border-blue" src="{{ post.image.url }}" alt="{{ post.post_title }}">
-                </a>
-                {% else %}
-                <a href="{% url 'blog_detail' post.id %}">
-                    <img class="card-img-top img-fluid blog border-blue" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
-                </a>
-                {% endif %}
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <!-- Get 'Blog Image' or 'No Image' Image -->
+                <div class="my-5 pl-3 pr-3">
+                    {% if post.image %}
+                        <a href="{% url 'blog_detail' post.id %}">
+                            <img class="card-img-top img-fluid blog border-blue" src="{{ post.image.url }}" alt="{{ post.post_title }}">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'blog_detail' post.id %}">
+                            <img class="card-img-top img-fluid blog border-blue" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="mb-5 mt-md-5 pl-3 pr-3">
+                    <!-- Get Blog Title -->
+                    <a href="{% url 'blog_detail' post.id %}" class="name-link">
+                        <p class="lead mb-3 font-weight-bold">{{ post.post_title }}</p>
+                    </a>
+                    <hr>
+                    <!-- Get Blog Author -->
+                    <p class="mb-0 text-left">{{ post.post_author }}</p>
+                    <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="mb-5 mt-md-5 pl-3 pr-3">
-                <!-- Get Blog Title -->
-                <a href="{% url 'blog_detail' post.id %}" class="name-link">
-                    <p class="lead mb-3 font-weight-bold">{{ post.post_title }}</p>
-                </a>
-                <hr>
-                <!-- Get Blog Author -->
-                <p class="mb-0 text-left">{{ post.post_author }}</p>
-                <small class="text-muted">{{ post.post_date_posted|date:'F d, Y' }}</small>
-            </div>
-        </div>
-    </div>
-    <hr class="w-50">
+        <hr class="w-50">
     {% endfor %}
 </div>
 <!-- Back To Top Button -->
 <div class="to-top-button shadow-sm rounded-5 border">
     <a class="to-top-link d-flex h-100">
-    <i class="fas fa-arrow-up mx-auto my-auto"></i>
+        <i class="fas fa-arrow-up mx-auto my-auto"></i>
     </a>	
 </div>
 {% endblock %}

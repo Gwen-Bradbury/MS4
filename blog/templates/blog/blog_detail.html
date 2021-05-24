@@ -23,13 +23,13 @@
             <div class="image-container mt-5 mb-3 border-blue">
                 <!-- Get 'Blog Image' or 'No Image' Image -->
                 {% if post.image %}
-                <a href="{{ post.image.url }}" target="_blank">
-                <img class="card-img-top img-fluid blog-detail" src="{{ post.image.url }}" alt="{{ post.post_title }}">
-                </a>
+                    <a href="{{ post.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid blog-detail" src="{{ post.image.url }}" alt="{{ post.post_title }}">
+                    </a>
                 {% else %}
-                <a href="">
-                <img class="card-img-top img-fluid blog-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
-                </a>
+                    <a href="">
+                    <img class="card-img-top img-fluid blog-detail" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
+                    </a>
                 {% endif %}
             </div>
         </div>
@@ -101,7 +101,7 @@
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         <!-- Comment Counter -->
-                            <span class="small"><a href="{% url 'blog_detail' post.id %}" class="link-button">All Comments</a> | </span>
+                        <span class="small"><a href="{% url 'blog_detail' post.id %}" class="link-button">All Comments</a> | </span>
                         {{ comments|length }} Comments
                     </p>
                 </div>
@@ -115,31 +115,31 @@
             </div>
         {% else %}
             {% for comment in comments %}
-            <div class="col-sm-12 col-md-4 offset-md-4">
-                <div class="card mb-1 border-blue">
-                    <div class="card-header bg-white border-0">
-                        <p class="lead mt-1">{{ comment.comment_title }}</p>
-                        <hr>
-                    </div>
-                    <div class="card-body comment-card border-0">   
-                        <p>{{comment.comment_content}}</p>
-                        <hr >
-                        <footer class="card-footer bg-white border-0">
-                            <p>{{ comment.comment_author }}</p>
-                            <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
-                            {% if comment.comment_author == user or request.user.is_superuser %}
-                                <div class="block">
-                                    <small class="mt-2">
-                                        <a class="link-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
-                                        <a class="delete-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
-                                    </small>
-                                </div>
-                            {% endif %}
-                        </footer>
+                <div class="col-sm-12 col-md-4 offset-md-4">
+                    <div class="card mb-1 border-blue">
+                        <div class="card-header bg-white border-0">
+                            <p class="lead mt-1">{{ comment.comment_title }}</p>
+                            <hr>
+                        </div>
+                        <div class="card-body comment-card border-0">   
+                            <p>{{comment.comment_content}}</p>
+                            <hr >
+                            <footer class="card-footer bg-white border-0">
+                                <p>{{ comment.comment_author }}</p>
+                                <small class="text-muted">{{ comment.comment_date_posted|date:'F d, Y' }}</small>
+                                {% if comment.comment_author == user or request.user.is_superuser %}
+                                    <div class="block">
+                                        <small class="mt-2">
+                                            <a class="link-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
+                                            <a class="delete-button ml-3" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                                        </small>
+                                    </div>
+                                {% endif %}
+                            </footer>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <hr class="w-50 mt-5 mb-5">
+                <hr class="w-50 mt-5 mb-5">
             {% endfor %}
         {% endif %}
     </div>
@@ -147,13 +147,13 @@
 <!-- Back To Top Button -->
 <div class="to-top-button shadow-sm rounded-5 border">
     <a class="to-top-link d-flex h-100">
-    <i class="fas fa-arrow-up mx-auto my-auto"></i>
+        <i class="fas fa-arrow-up mx-auto my-auto"></i>
     </a>	
 </div>
 {% endblock %}
 
 {% block postload_js %}
-{{ block.super }}
-<!-- Back To Top Button JS -->
-{% include 'blog/includes/js/to_top_button_js.html' %}
+    {{ block.super }}
+        <!-- Back To Top Button JS -->
+        {% include 'blog/includes/js/to_top_button_js.html' %}
 {% endblock %}

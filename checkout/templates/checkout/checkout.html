@@ -42,24 +42,24 @@
             </div>
             <!-- Get Products in Basket -->
             {% for item in basket_products %}
-            <div class="row">
-                <div class="col-2 mb-1">
-                    <a href="{% url 'gin_detail' item.gin.id %}">
-                        {% if item.gin.image %}
-                            <img class="w-100" src="{{ item.gin.image.url }}" alt="{{ gin.name }}">
-                        {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
-                        {% endif %}
-                    </a>
+                <div class="row">
+                    <div class="col-2 mb-1">
+                        <a href="{% url 'gin_detail' item.gin.id %}">
+                            {% if item.gin.image %}
+                                <img class="w-100" src="{{ item.gin.image.url }}" alt="{{ gin.name }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ gin.name }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
+                        <p class="my-0 small text-muted">Amount: {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-3 text-right">
+                        <p class="my-0 small text-muted">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
+                    </div>
                 </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.gin.name }}</strong></p>
-                    <p class="my-0 small text-muted">Amount: {{ item.quantity }}</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small text-muted">${{ item.gin.price | calc_subtotal:item.quantity }}</p>
-                </div>
-            </div>
             {% endfor %}
             <hr class="my-0 mt-1 mb-1">
             <div class="row text-right">
@@ -158,7 +158,7 @@
 
 {% block postload_js %}
     {{ block.super }}
-    <!-- Stripe -->
+        <!-- Stripe -->
         {{ stripe_public_key|json_script:"id_stripe_public_key" }}
         {{ stripe_client_secret|json_script:"id_stripe_client_secret" }}
         <!-- Link to JS File -->

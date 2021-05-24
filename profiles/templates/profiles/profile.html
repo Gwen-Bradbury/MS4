@@ -58,7 +58,7 @@
                                 <td class="pt-3">
                                     <!-- Previous Order Number Truncated to 6 Characters -->
                                     <a class="link-button" href="{% url 'previous_orders' order.order_number %}"
-                                    title="{{ order.order_number }}">
+                                        title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}
                                     </a>
                                 </td>
@@ -86,6 +86,6 @@
 
 {% block postload_js %}
     {{ block.super }}
-    <!-- Country Field Dropdown JS -->
-    <script type="text/javascript" src="{% static 'profiles/js/country_field.js' %}"></script>
+        <!-- Country Field Dropdown JS -->
+        <script type="text/javascript" src="{% static 'profiles/js/country_field.js' %}"></script>
 {% endblock %}

@@ -1,3 +1,5 @@
+//JS For Stripe
+
 // Core Logic/Payment Flow From: https://stripe.com/docs/payments/accept-a-payment
 // CSS From: https://stripe.com/docs/stripe-js
 
