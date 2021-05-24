@@ -23,7 +23,7 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    postcode = models.CharField(max_length=20, default="", blank=True)
+    postcode = models.CharField(max_length=20, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6,
                                         decimal_places=2, null=False,
