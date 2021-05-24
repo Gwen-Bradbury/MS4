@@ -21,5 +21,4 @@
 .previous-orders {
     max-height: 416px; /* Height of Profile Form and Button */
     overflow-y: auto;
-    margin-right: 30px;
 }
